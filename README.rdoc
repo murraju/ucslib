@@ -1,11 +1,11 @@
 = ucslib (alpha)
 
-Ruby Client Library for Cisco UCS Manager that could be consumed by DevOps toolchains - Puppet or Chef and other custom tools - to provide MaaS (Metal-as-a-Service) for running OpenStack, Hadoop. ucslib accepts JSON as configuration objects.
+Ruby Client Library for Cisco UCS Manager that could be consumed by DevOps toolchains - Puppet or Chef and other custom tools - to provide MaaS (Metal-as-a-Service) for running OpenStack, Hadoop. ucslib accepts JSON as configuration.
 
 
 == Install
 
-gem install ucslib
+###gem install ucslib
 
 == Usage (example irb session)
 
