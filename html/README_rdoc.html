@@ -80,15 +80,95 @@
     
 <h1>ucslib (alpha)</h1>
 
-<p>Ruby Client Library for Cisco UCS that could be consumed by DevOps
-toolchain - Puppet or Chef and others - for deployment automation
-(OpenStack, Hadoop or even MaaS (Metal as Service) Use Cases).</p>
+<p>Ruby Client Library for Cisco UCS Manager that could be used by DevOps
+toolchains - Puppet or Chef and other custom tools - to provide MaaS
+(Metal-as-a-Service) for installing and running OpenStack, Hadoop, etc.
+ucslib accepts JSON as configuration for provisioning.</p>
 
 <h2>Install</h2>
 
 <p>gem install ucslib</p>
 
-<h2>Usage</h2>
+<h2>Usage (example irb session)</h2>
+
+<p>Just do “require ucslib” in your apps. Below is an introspection of some of
+the capabilities using IRB.</p>
+
+<p>➜  ucslib git:(master) ✗ irb        1.9.3p194 :001 &gt; require ‘ucslib’</p>
+
+<pre>=&gt; true</pre>
+
+<p>1.9.3p194 :002 &gt; auth_json = { :username =&gt; ‘admin’, :password =&gt;
+‘admin’, :ip =&gt; ‘172.16.75.137’ }.to_json</p>
+
+<pre>=&gt; &quot;{\&quot;username\&quot;:\&quot;admin\&quot;,\&quot;password\&quot;:\&quot;admin\&quot;,\&quot;ip\&quot;:\&quot;172.16.75.137\&quot;}&quot;</pre>
+
+<p>1.9.3p194 :003 &gt; ucs_session = UCSToken.new</p>
+
+<pre>=&gt; #&lt;UCSToken:0x007ff4d92062c0&gt;</pre>
+
+<p>1.9.3p194 :004 &gt; token_json = ucs_session.get_token(auth_json)</p>
+
+<pre>=&gt; &quot;{\&quot;cookie\&quot;:\&quot;1336941096/ea496248-d200-4a10-8e46-c73b59971864\&quot;,\&quot;username\&quot;:\&quot;admin\&quot;,\&quot;password\&quot;:\&quot;admin\&quot;,\&quot;ip\&quot;:\&quot;172.16.75.137\&quot;}&quot;</pre>
+
+<p>1.9.3p194 :005 &gt; ucs_inventory = UCSInventory.new</p>
+
+<pre>=&gt; #&lt;UCSInventory:0x007ff4d92cd8c0&gt;</pre>
+
+<p>1.9.3p194 :006 &gt; ucs_provision = <a
+href="UCSProvision.html#method-c-new">UCSProvision.new(token_json)</a></p>
+
+<pre>=&gt; #&lt;UCSProvision:0x007ff4d92c0378 @cookie=&quot;1336941096/ea496248-d200-4a10-8e46-c73b59971864&quot;, @url=&quot;https://172.16.75.137/nuova&quot;&gt;</pre>
+
+<p>1.9.3p194 :007 &gt; xml_dump = ucs_inventory.discover(token_json)</p>
+
+<p>1.9.3p194 :008 &gt; ucs_inventory.methods</p>
+
+<pre>=&gt; [:discover, :list_blades, :list_vsans, :list_vlans, :list_cpus, :list_memory, :list_service_profiles, :list_running_firmware, :to_json, :nil?, :===, :=~, :!~, :eql?, :hash, :&lt;=&gt;, :class, :singleton_class, :clone, :dup, :initialize_dup, :initialize_clone, :taint, :tainted?, :untaint, :untrust, :untrusted?, :trust, :freeze, :frozen?, :to_s, :inspect, :methods, :singleton_methods, :protected_methods, :private_methods, :public_methods, :instance_variables, :instance_variable_get, :instance_variable_set, :instance_variable_defined?, :instance_of?, :kind_of?, :is_a?, :tap, :send, :public_send, :respond_to?, :respond_to_missing?, :extend, :display, :method, :public_method, :define_singleton_method, :object_id, :to_enum, :enum_for, :==, :equal?, :!, :!=, :instance_eval, :instance_exec, :__send__, :__id__]</pre>
+
+<p>1.9.3p194 :009 &gt;</p>
+
+<p>1.9.3p194 :009 &gt; ucs_inventory.list_blades(xml_dump) Blade : 1/5 model:
+UCSB-B200-M3 with serial: 1049 is powered: off Blade : 1/6 model:
+N20-B6625-1 with serial: 1053 is powered: off Blade : 1/1 model:
+N20-B6620-1 with serial: 1045 is powered: on Blade : 1/7 model: N20-B6740-2
+with serial: 1052 is powered: off Blade : 1/2 model: N20-B6620-1 with
+serial: 1054 is powered: off Blade : 1/4 model: N20-B6620-1 with serial:
+1051 is powered: off Blade : 1/3 model: N20-B6620-1 with serial: 1055 is
+powered: off</p>
+
+<pre>=&gt; 0</pre>
+
+<p>1.9.3p194 :010 &gt;</p>
+
+<p>1.9.3p194 :010 &gt; vlan_json = { :vlan_id =&gt; ‘200’, :vlan_name =&gt;
+‘OpenStack-Mgmt’ }.to_json</p>
+
+<pre>=&gt; &quot;{\&quot;vlan_id\&quot;:\&quot;200\&quot;,\&quot;vlan_name\&quot;:\&quot;OpenStack-Mgmt\&quot;}&quot;</pre>
+
+<p>1.9.3p194 :011 &gt; ucs_provision.methods</p>
+
+<pre>=&gt; [:set_power_policy, :set_chassis_discovery_policy, :set_time_zone, :set_ntp, :create_server_port, :create_network_uplink_port, :create_fc_uplink_port, :create_port_channel, :create_org, :set_local_disk_policy, :create_local_boot_policy, :create_pxe_boot_policy, :create_san_boot_policy, :create_management_ip_pool, :create_vlan, :create_mac_pool, :create_vnic_template, :create_vsan, :create_wwnn_pool, :create_wwpn_pool, :create_vhba_template, :create_uuid_pool, :create_service_profile_template, :create_service_profiles_from_template, :create_service_profiles, :to_json, :nil?, :===, :=~, :!~, :eql?, :hash, :&lt;=&gt;, :class, :singleton_class, :clone, :dup, :initialize_dup, :initialize_clone, :taint, :tainted?, :untaint, :untrust, :untrusted?, :trust, :freeze, :frozen?, :to_s, :inspect, :methods, :singleton_methods, :protected_methods, :private_methods, :public_methods, :instance_variables, :instance_variable_get, :instance_variable_set, :instance_variable_defined?, :instance_of?, :kind_of?, :is_a?, :tap, :send, :public_send, :respond_to?, :respond_to_missing?, :extend, :display, :method, :public_method, :define_singleton_method, :object_id, :to_enum, :enum_for, :==, :equal?, :!, :!=, :instance_eval, :instance_exec, :__send__, :__id__]</pre>
+
+<p>1.9.3p194 :012 &gt;</p>
+
+<p>1.9.3p194 :012 &gt; ucs_provision.create_vlan(vlan_json)</p>
+
+<pre>=&gt; &quot; &lt;configConfMos cookie=\&quot;1336941096/ea496248-d200-4a10-8e46-c73b59971864\&quot; response=\&quot;yes\&quot;&gt; &lt;outConfigs&gt; &lt;pair key=\&quot;fabric/lan/net-OpenStack-Mgmt\&quot;&gt; &lt;fabricVlan childAction=\&quot;deleteNonPresent\&quot; defaultNet=\&quot;no\&quot; dn=\&quot;fabric/lan/net-OpenStack-Mgmt\&quot; epDn=\&quot;\&quot; id=\&quot;200\&quot; ifRole=\&quot;network\&quot; ifType=\&quot;virtual\&quot; locale=\&quot;external\&quot; name=\&quot;OpenStack-Mgmt\&quot; operState=\&quot;ok\&quot; peerDn=\&quot;\&quot; pubNwDn=\&quot;\&quot; pubNwId=\&quot;0\&quot; pubNwName=\&quot;\&quot;  sharing=\&quot;none\&quot; status=\&quot;created\&quot; switchId=\&quot;dual\&quot; transport=\&quot;ether\&quot; type=\&quot;lan\&quot;/&gt; &lt;/pair&gt; &lt;/outConfigs&gt; &lt;/configConfMos&gt;&quot;</pre>
+
+<p>1.9.3p194 :013 &gt;</p>
+
+<p>1.9.3p194 :015 &gt; xml_dump = ucs_inventory.discover(token_json)</p>
+
+<p>1.9.3p194 :015 &gt; ucs_inventory.list_vlans(xml_dump) VLAN: 1 with name:
+default VLAN: 1 with name: default VLAN: 5 with name: human-resource VLAN:
+1 with name: default VLAN: 3 with name: finance VLAN: 5 with name:
+human-resource VLAN: 1 with name: default VLAN: 3 with name: finance VLAN:
+100 with name: Tenant-1 VLAN: 200 with name: OpenStack-Mgmt</p>
+
+<pre>=&gt; 0</pre>
+
+<p>1.9.3p194 :016 &gt;</p>
 
 <h2>Features</h2>
 <ol><li>
@@ -98,6 +178,8 @@ toolchain - Puppet or Chef and others - for deployment automation
 </li></ol>
 
 <h2>ToDo</h2>
+
+<p>Besides Documentation, Documentation, Documentation!</p>
 <ol><li>
 <p>Firmware Management</p>
 </li><li>
@@ -115,8 +197,6 @@ implemented or the bug hasn’t been fixed yet.</p>
 </li><li>
 <p>Check out the issue tracker to make sure someone already hasn’t requested
 it and/or contributed it.</p>
-</li><li>
-<p>Fork the project.</p>
 </li><li>
 <p>Start a feature/bugfix branch.</p>
 </li><li>

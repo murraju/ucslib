@@ -178,7 +178,7 @@
     
     <span class="ruby-identifier">xml_builder</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
         <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">aaaLogin</span>(<span class="ruby-string">'inName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">username</span>, <span class="ruby-string">'inPassword'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">password</span>)
-        <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
     <span class="ruby-identifier">aaa_login_xml</span> = <span class="ruby-identifier">xml_builder</span>.<span class="ruby-identifier">to_xml</span>.<span class="ruby-identifier">to_s</span>
     <span class="ruby-identifier">ucs_response</span> = <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">aaa_login_xml</span>, <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/xml'</span>).<span class="ruby-identifier">body</span> 
     <span class="ruby-identifier">ucs_login_doc</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span>(<span class="ruby-identifier">ucs_response</span>) 
@@ -229,8 +229,8 @@
 <span class="ruby-comment"># File lib/ucslib/session.rb, line 88</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">logout</span>(<span class="ruby-identifier">tokenjson</span>)
   
-       <span class="ruby-identifier">cookie</span>       = <span class="ruby-node">&quot;#{JSON.parse(tokenjson).values[0]}&quot;</span>
-<span class="ruby-identifier">ip</span>       = <span class="ruby-node">&quot;#{JSON.parse(tokenjson).values[3]}&quot;</span>
+       <span class="ruby-identifier">cookie</span>       = <span class="ruby-node">&quot;#{JSON.parse(tokenjson)['cookie']}&quot;</span>
+<span class="ruby-identifier">ip</span>       = <span class="ruby-node">&quot;#{JSON.parse(tokenjson)['ip']}&quot;</span>
     <span class="ruby-identifier">url</span>        = <span class="ruby-node">&quot;https://#{ip}/nuova&quot;</span>
   
        <span class="ruby-identifier">xml_builder</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
@@ -239,11 +239,10 @@
 
 <span class="ruby-identifier">aaaLogoutXML</span> = <span class="ruby-identifier">xml_builder</span>.<span class="ruby-identifier">to_xml</span>.<span class="ruby-identifier">to_s</span>
 
-<span class="ruby-identifier">ucsResponse</span> = <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">aaaLogoutXML</span>, <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/xml'</span>).<span class="ruby-identifier">body</span> 
-<span class="ruby-keyword">if</span> <span class="ruby-identifier">ucsResponse</span>
-        <span class="ruby-identifier">puts</span> <span class="ruby-string">'Sucessfully logged out.'</span>
-<span class="ruby-keyword">else</span>
-        <span class="ruby-identifier">puts</span> <span class="ruby-string">'Something went wrong. Lost connection to the UCS System'</span>   
+<span class="ruby-keyword">begin</span>
+        <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">aaaLogoutXML</span>, <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/xml'</span>).<span class="ruby-identifier">body</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Error #{e}&quot;</span>
 <span class="ruby-keyword">end</span>
 
 <span class="ruby-keyword">end</span></pre>
