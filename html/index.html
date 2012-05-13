@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>ucslib</title>
+
+  <link type="text/css" media="screen" href="rdoc.css" rel="stylesheet" />
+
+  <script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body class="indexpage">
+
+  
+  <h1>ucslib</h1>
+
+  
+  <div id="main">
+    
+
+<p>Ruby Client Library for Cisco UCS that could be consumed by DevOps
+toolchain - Puppet or Chef and others - for deployment automation
+(OpenStack, Hadoop or even MaaS (Metal as Service) Use Cases).</p>
+
+<h2>Install</h2>
+
+<p>gem install ucslib</p>
+
+<h2>Usage</h2>
+
+<h2>Features</h2>
+<ol><li>
+<p>List inventory of UCS components</p>
+</li><li>
+<p>Provision - turn up ports, create port channels, pools, service profiles</p>
+</li></ol>
+
+<h2>ToDo</h2>
+<ol><li>
+<p>Firmware Management</p>
+</li><li>
+<p>Example implementation (workflow) under examples (in progress)</p>
+</li><li>
+<p>Server Pools (in progress)</p>
+</li><li>
+<p>Service Profile Association (in progress)</p>
+</li></ol>
+
+<h2>Contributing to ucslib</h2>
+<ul><li>
+<p>Check out the latest master to make sure the feature hasn’t been
+implemented or the bug hasn’t been fixed yet.</p>
+</li><li>
+<p>Check out the issue tracker to make sure someone already hasn’t requested
+it and/or contributed it.</p>
+</li><li>
+<p>Fork the project.</p>
+</li><li>
+<p>Start a feature/bugfix branch.</p>
+</li><li>
+<p>Commit and push until you are happy with your contribution.</p>
+</li><li>
+<p>Make sure to add tests for it. This is important so I don’t break it in a
+future version unintentionally.</p>
+</li><li>
+<p>Please try not to mess with the Rakefile, version, or history. If you want
+to have your own version, or is otherwise necessary, that is fine, but
+please isolate to its own commit so I can cherry-pick around it.</p>
+</li></ul>
+
+<h2>Copyright</h2>
+
+<p>Copyright © 2012 Murali Raju. See LICENSE.txt for further details.</p>
+
+  </div>
+  
+
+  
+  
+  <h2>Files</h2>
+  <ul>
+    
+      <li class="file"><a href="README_rdoc.html">README.rdoc</a></li>
+    
+  </ul>
+  
+
+  <h2 id="classes">Classes/Modules</h2>
+  <ul>
+    
+    <li class="class"><a href="UCSInventory.html">UCSInventory</a></li>
+    
+    <li class="class"><a href="UCSProvision.html">UCSProvision</a></li>
+    
+    <li class="class"><a href="UCSToken.html">UCSToken</a></li>
+    
+    <li class="module"><a href="Ucslib.html">Ucslib</a></li>
+    
+  </ul>
+
+  <h2 id="methods">Methods</h2>
+  <ul>
+    
+      <li><a href="UCSProvision.html#method-c-new">::new &mdash; UCSProvision</a></li>
+    
+      <li><a href="UCSProvision.html#method-i-create_fc_uplink_port">#create_fc_uplink_port &mdash; UCSProvision</a></li>
+    
+      <li><a href="UCSProvision.html#method-i-create_local_boot_policy">#create_local_boot_policy &mdash; UCSProvision</a></li>
+    
+      <li><a href="UCSProvision.html#method-i-create_mac_pool">#create_mac_pool &mdash; UCSProvision</a></li>
+    
+      <li><a href="UCSProvision.html#method-i-create_management_ip_pool">#create_management_ip_pool &mdash; UCSProvision</a></li>
+    
+      <li><a href="UCSProvision.html#method-i-create_network_uplink_port">#create_network_uplink_port &mdash; UCSProvision</a></li>
+    
+      <li><a href="UCSProvision.html#method-i-create_org">#create_org &mdash; UCSProvision</a></li>
+    
+      <li><a href="UCSProvision.html#method-i-create_port_channel">#create_port_channel &mdash; UCSProvision</a></li>
+    
+      <li><a href="UCSProvision.html#method-i-create_pxe_boot_policy">#create_pxe_boot_policy &mdash; UCSProvision</a></li>
+    
+      <li><a href="UCSProvision.html#method-i-create_san_boot_policy">#create_san_boot_policy &mdash; UCSProvision</a></li>
+    
+      <li><a href="UCSProvision.html#method-i-create_server_port">#create_server_port &mdash; UCSProvision</a></li>
+    
+      <li><a href="UCSProvision.html#method-i-create_service_profile_template">#create_service_profile_template &mdash; UCSProvision</a></li>
+    
+      <li><a href="UCSProvision.html#method-i-create_service_profiles">#create_service_profiles &mdash; UCSProvision</a></li>
+    
+      <li><a href="UCSProvision.html#method-i-create_service_profiles_from_template">#create_service_profiles_from_template &mdash; UCSProvision</a></li>
+    
+      <li><a href="UCSProvision.html#method-i-create_uuid_pool">#create_uuid_pool &mdash; UCSProvision</a></li>
+    
+      <li><a href="UCSProvision.html#method-i-create_vhba_template">#create_vhba_template &mdash; UCSProvision</a></li>
+    
+      <li><a href="UCSProvision.html#method-i-create_vlan">#create_vlan &mdash; UCSProvision</a></li>
+    
+      <li><a href="UCSProvision.html#method-i-create_vnic_template">#create_vnic_template &mdash; UCSProvision</a></li>
+    
+      <li><a href="UCSProvision.html#method-i-create_vsan">#create_vsan &mdash; UCSProvision</a></li>
+    
+      <li><a href="UCSProvision.html#method-i-create_wwnn_pool">#create_wwnn_pool &mdash; UCSProvision</a></li>
+    
+      <li><a href="UCSProvision.html#method-i-create_wwpn_pool">#create_wwpn_pool &mdash; UCSProvision</a></li>
+    
+      <li><a href="UCSInventory.html#method-i-discover">#discover &mdash; UCSInventory</a></li>
+    
+      <li><a href="UCSToken.html#method-i-get_token">#get_token &mdash; UCSToken</a></li>
+    
+      <li><a href="UCSInventory.html#method-i-list_blades">#list_blades &mdash; UCSInventory</a></li>
+    
+      <li><a href="UCSInventory.html#method-i-list_cpus">#list_cpus &mdash; UCSInventory</a></li>
+    
+      <li><a href="UCSInventory.html#method-i-list_memory">#list_memory &mdash; UCSInventory</a></li>
+    
+      <li><a href="UCSInventory.html#method-i-list_running_firmware">#list_running_firmware &mdash; UCSInventory</a></li>
+    
+      <li><a href="UCSInventory.html#method-i-list_service_profiles">#list_service_profiles &mdash; UCSInventory</a></li>
+    
+      <li><a href="UCSInventory.html#method-i-list_vlans">#list_vlans &mdash; UCSInventory</a></li>
+    
+      <li><a href="UCSInventory.html#method-i-list_vsans">#list_vsans &mdash; UCSInventory</a></li>
+    
+      <li><a href="UCSToken.html#method-i-logout">#logout &mdash; UCSToken</a></li>
+    
+      <li><a href="UCSToken.html#method-i-refresh_token">#refresh_token &mdash; UCSToken</a></li>
+    
+      <li><a href="UCSProvision.html#method-i-set_chassis_discovery_policy">#set_chassis_discovery_policy &mdash; UCSProvision</a></li>
+    
+      <li><a href="UCSProvision.html#method-i-set_local_disk_policy">#set_local_disk_policy &mdash; UCSProvision</a></li>
+    
+      <li><a href="UCSProvision.html#method-i-set_ntp">#set_ntp &mdash; UCSProvision</a></li>
+    
+      <li><a href="UCSProvision.html#method-i-set_power_policy">#set_power_policy &mdash; UCSProvision</a></li>
+    
+      <li><a href="UCSProvision.html#method-i-set_time_zone">#set_time_zone &mdash; UCSProvision</a></li>
+    
+  </ul>
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+</body>
+</html>

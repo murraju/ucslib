@@ -1,0 +1,1914 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>Class: UCSProvision</title>
+
+  <link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+
+  <script src="./js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="class">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="./lib/ucslib/provision_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/ucslib/provision.rb">lib/ucslib/provision.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+      <!-- Parent Class -->
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link">Object</p>
+        
+      </div>
+      
+
+      
+
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-c-new">::new</a></li>
+          
+          <li><a href="#method-i-create_fc_uplink_port">#create_fc_uplink_port</a></li>
+          
+          <li><a href="#method-i-create_local_boot_policy">#create_local_boot_policy</a></li>
+          
+          <li><a href="#method-i-create_mac_pool">#create_mac_pool</a></li>
+          
+          <li><a href="#method-i-create_management_ip_pool">#create_management_ip_pool</a></li>
+          
+          <li><a href="#method-i-create_network_uplink_port">#create_network_uplink_port</a></li>
+          
+          <li><a href="#method-i-create_org">#create_org</a></li>
+          
+          <li><a href="#method-i-create_port_channel">#create_port_channel</a></li>
+          
+          <li><a href="#method-i-create_pxe_boot_policy">#create_pxe_boot_policy</a></li>
+          
+          <li><a href="#method-i-create_san_boot_policy">#create_san_boot_policy</a></li>
+          
+          <li><a href="#method-i-create_server_port">#create_server_port</a></li>
+          
+          <li><a href="#method-i-create_service_profile_template">#create_service_profile_template</a></li>
+          
+          <li><a href="#method-i-create_service_profiles">#create_service_profiles</a></li>
+          
+          <li><a href="#method-i-create_service_profiles_from_template">#create_service_profiles_from_template</a></li>
+          
+          <li><a href="#method-i-create_uuid_pool">#create_uuid_pool</a></li>
+          
+          <li><a href="#method-i-create_vhba_template">#create_vhba_template</a></li>
+          
+          <li><a href="#method-i-create_vlan">#create_vlan</a></li>
+          
+          <li><a href="#method-i-create_vnic_template">#create_vnic_template</a></li>
+          
+          <li><a href="#method-i-create_vsan">#create_vsan</a></li>
+          
+          <li><a href="#method-i-create_wwnn_pool">#create_wwnn_pool</a></li>
+          
+          <li><a href="#method-i-create_wwpn_pool">#create_wwpn_pool</a></li>
+          
+          <li><a href="#method-i-set_chassis_discovery_policy">#set_chassis_discovery_policy</a></li>
+          
+          <li><a href="#method-i-set_local_disk_policy">#set_local_disk_policy</a></li>
+          
+          <li><a href="#method-i-set_ntp">#set_ntp</a></li>
+          
+          <li><a href="#method-i-set_power_policy">#set_power_policy</a></li>
+          
+          <li><a href="#method-i-set_time_zone">#set_time_zone</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Files</h3>
+        <ul>
+        
+          <li class="file"><a href="./README_rdoc.html">README.rdoc</a></li>
+        
+        </ul>
+      </div>
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="./images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="./UCSInventory.html">UCSInventory</a></li>
+        
+          <li><a href="./UCSProvision.html">UCSProvision</a></li>
+        
+          <li><a href="./UCSToken.html">UCSToken</a></li>
+        
+          <li><a href="./Ucslib.html">Ucslib</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="class">UCSProvision</h1>
+
+    <div id="description" class="description">
+      <table class="rdoc-list"><tr><td class="rdoc-term"><p>Author</p></td>
+<td>
+<p>Murali Raju (&lt;murali.raju@appliv.com&gt;)</p>
+</td></tr><tr><td class="rdoc-term"><p>Copyright</p></td>
+<td>
+<p>Copyright © 2012 Murali Raju.</p>
+</td></tr><tr><td class="rdoc-term"><p>License</p></td>
+<td>
+<p>Apache License, Version 2.0</p>
+</td></tr></table>
+
+<p>Licensed under the Apache License, Version 2.0 (the “License”); you may not
+use this file except in compliance with the License. You may obtain a copy
+of the License at</p>
+
+<p><a
+href="http://www.apache.org/licenses/LICENSE-2.0">www.apache.org/licenses/LICENSE-2.0</a></p>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an “AS IS” BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.</p>
+
+    </div><!-- description -->
+
+    
+    
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-class-method-details" class="method-section section">
+        <h3 class="section-header">Public Class Methods</h3>
+
+      
+        <div id="new-method" class="method-detail ">
+          <a name="method-c-new"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">new</span><span
+              class="method-args">(tokenjson)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="new-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/provision.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">tokenjson</span>)
+    
+    <span class="ruby-ivar">@cookie</span>  = <span class="ruby-node">&quot;#{JSON.parse(tokenjson)['cookie']}&quot;</span>
+    <span class="ruby-identifier">ip</span>       = <span class="ruby-node">&quot;#{JSON.parse(tokenjson)['ip']}&quot;</span>
+    <span class="ruby-ivar">@url</span>        = <span class="ruby-node">&quot;https://#{ip}/nuova&quot;</span>
+
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- new-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- new-method -->
+
+      
+      </div><!-- public-class-method-details -->
+    
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="create_fc_uplink_port-method" class="method-detail ">
+          <a name="method-i-create_fc_uplink_port"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">create_fc_uplink_port</span><span
+              class="method-args">(json)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="create_fc_uplink_port-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/provision.rb, line 204</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_fc_uplink_port</span>(<span class="ruby-identifier">json</span>)
+
+            <span class="ruby-identifier">switch</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'switch'</span>]
+            <span class="ruby-identifier">port</span>   = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'port'</span>]
+            <span class="ruby-identifier">slot</span>   = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'slot'</span>]  
+
+            <span class="ruby-identifier">xml_builder</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
+             <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">configConfMos</span>(<span class="ruby-string">'cookie'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{@ucs_cookie}&quot;</span>, <span class="ruby-string">'inHierarchical'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'false'</span>){
+               <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">inConfigs</span>{
+                 <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">pair</span>(<span class="ruby-string">'key'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;fabric/san/#{switch}/phys&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;-&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;slot&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;-&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot;#{slot}&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;-&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;port&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;-&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot;#{port}&quot;</span>){
+                   <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">fabricFcSanEp</span>(<span class="ruby-string">'adminState'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'enabled'</span>, <span class="ruby-string">'dn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;fabric/san/#{switch}/phys&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;-&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;slot&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;-&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot;#{slot}&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;-&quot;</span> <span class="ruby-operator">+</span> 
+                                     <span class="ruby-string">&quot;port&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;-&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot;#{port}&quot;</span> )
+                 }
+               }
+             }
+            <span class="ruby-keyword">end</span>
+
+            <span class="ruby-comment">#Create XML </span>
+            <span class="ruby-identifier">create_fc_uplink_XML</span> = <span class="ruby-identifier">xml_builder</span>.<span class="ruby-identifier">to_xml</span>.<span class="ruby-identifier">to_s</span>
+
+            <span class="ruby-comment">#Post</span>
+            <span class="ruby-keyword">begin</span>
+                    <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-ivar">@url</span>, <span class="ruby-identifier">create_fc_uplink_XML</span>, <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/xml'</span>).<span class="ruby-identifier">body</span>
+            <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Error #{e}&quot;</span>
+            <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- create_fc_uplink_port-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- create_fc_uplink_port-method -->
+
+      
+        <div id="create_local_boot_policy-method" class="method-detail ">
+          <a name="method-i-create_local_boot_policy"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">create_local_boot_policy</span><span
+              class="method-args">(json)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="create_local_boot_policy-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/provision.rb, line 332</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_local_boot_policy</span>(<span class="ruby-identifier">json</span>)
+
+            <span class="ruby-identifier">name</span>             = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'name'</span>]
+            <span class="ruby-identifier">description</span>      = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'description'</span>]
+            <span class="ruby-identifier">org</span>              = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'org'</span>]
+
+            <span class="ruby-identifier">xml_builder</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">configConfMos</span>(<span class="ruby-string">'cookie'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{@cookie}&quot;</span>, <span class="ruby-string">'inHierarchical'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'true'</span>){
+              <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">inConfigs</span>{
+                <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">pair</span>(<span class="ruby-string">'key'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;org-root/org-#{org}/boot-policy-#{name}&quot;</span>){
+                  <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">lsbootPolicy</span>(<span class="ruby-string">'descr'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{description}&quot;</span>, <span class="ruby-string">'dn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;org-root/org-#{org}/boot-policy-#{name}&quot;</span>,
+                                   <span class="ruby-string">'enforceVnicName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'no'</span>, <span class="ruby-string">'name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{name}&quot;</span>, <span class="ruby-string">'rebootOnUpdate'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'no'</span>,
+                                   <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>){
+                                     <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">lsbootVirtualMedia</span>(<span class="ruby-string">'access'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'read-only'</span>, <span class="ruby-string">'order'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'1'</span>, <span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'read-only-vm'</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>)
+                                     <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">lsbootStorage</span>(<span class="ruby-string">'order'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'2'</span>, <span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'storage'</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>){
+                                       <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">lsbootLocalStorage</span>(<span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'local-storage'</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>)
+                                     }
+                                   }
+                }
+              }
+            }
+            <span class="ruby-keyword">end</span>
+
+            <span class="ruby-comment">#Create XML</span>
+            <span class="ruby-identifier">create_local_boot_policy_XML</span> = <span class="ruby-identifier">xml_builder</span>.<span class="ruby-identifier">to_xml</span>.<span class="ruby-identifier">to_s</span>
+
+            <span class="ruby-comment">#Post</span>
+            <span class="ruby-keyword">begin</span>
+                    <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-ivar">@url</span>, <span class="ruby-identifier">create_local_boot_policy_XML</span>, <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/xml'</span>).<span class="ruby-identifier">body</span>
+            <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Error #{e}&quot;</span>
+            <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- create_local_boot_policy-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- create_local_boot_policy-method -->
+
+      
+        <div id="create_mac_pool-method" class="method-detail ">
+          <a name="method-i-create_mac_pool"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">create_mac_pool</span><span
+              class="method-args">(json)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="create_mac_pool-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/provision.rb, line 514</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_mac_pool</span>(<span class="ruby-identifier">json</span>)
+
+            <span class="ruby-identifier">mac_pool_name</span>   = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'mac_pool_name'</span>]
+            <span class="ruby-identifier">mac_pool_start</span>  = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'mac_pool_start'</span>]
+            <span class="ruby-comment">#size            = JSON.parse(json)['size']</span>
+            <span class="ruby-identifier">mac_pool_end</span>    = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'mac_pool_end'</span>]
+            <span class="ruby-identifier">org</span>                           = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'org'</span>]
+            
+            <span class="ruby-comment"># </span>
+            <span class="ruby-comment"># def get_mac_pool_suffix(size)</span>
+            <span class="ruby-comment">#  mac_pool_size = size   </span>
+            <span class="ruby-comment">#  octets         = mac_pool_start.split(':')</span>
+            <span class="ruby-comment">#  octets[-1]     = (mac_pool_size - 1).to_s(base=16)</span>
+            <span class="ruby-comment">#  return mac_pool_end = octets.join(':')</span>
+            <span class="ruby-comment"># end</span>
+            <span class="ruby-comment"># </span>
+            <span class="ruby-comment"># get_mac_pool_suffix(size)</span>
+
+            <span class="ruby-identifier">xml_builder</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
+              <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">configConfMos</span>(<span class="ruby-string">'cookie'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{@cookie}&quot;</span>, <span class="ruby-string">'inHierarchical'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'true'</span>){
+                <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">inConfigs</span>{
+                  <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">pair</span>(<span class="ruby-string">'key'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;org-root/org-#{org}/mac-pool-#{mac_pool_name}&quot;</span>){
+                    <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">macpoolPool</span>(<span class="ruby-string">'descr'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'dn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;org-root/org-#{org}/mac-pool-#{mac_pool_name}&quot;</span>, <span class="ruby-string">'name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{mac_pool_name}&quot;</span>,
+                                    <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>){
+                                      <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">macpoolBlock</span>(<span class="ruby-string">'from'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{mac_pool_start}&quot;</span>, <span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;block-#{mac_pool_start}-#{mac_pool_end}&quot;</span>,
+                                                       <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>, <span class="ruby-string">'to'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{mac_pool_end}&quot;</span>)
+                                    }
+                  }
+                }
+              }
+
+            <span class="ruby-keyword">end</span>
+
+            <span class="ruby-comment">#Create XML</span>
+            <span class="ruby-identifier">create_mac_pool_XML</span> = <span class="ruby-identifier">xml_builder</span>.<span class="ruby-identifier">to_xml</span>.<span class="ruby-identifier">to_s</span>
+
+            <span class="ruby-comment">#Post</span>
+            <span class="ruby-keyword">begin</span>
+                    <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-ivar">@url</span>, <span class="ruby-identifier">create_mac_pool_XML</span>, <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/xml'</span>).<span class="ruby-identifier">body</span>
+            <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Error #{e}&quot;</span>
+            <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- create_mac_pool-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- create_mac_pool-method -->
+
+      
+        <div id="create_management_ip_pool-method" class="method-detail ">
+          <a name="method-i-create_management_ip_pool"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">create_management_ip_pool</span><span
+              class="method-args">(json)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="create_management_ip_pool-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/provision.rb, line 456</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_management_ip_pool</span>(<span class="ruby-identifier">json</span>)
+
+            <span class="ruby-identifier">start_ip</span>      = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'start_ip'</span>]
+            <span class="ruby-identifier">end_ip</span>        = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'end_ip'</span>]
+            <span class="ruby-identifier">subnet_mask</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'subnet_mask'</span>]
+            <span class="ruby-identifier">gateway</span>       = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'gateway'</span>]
+
+            <span class="ruby-identifier">xml_builder</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">configConfMos</span>(<span class="ruby-string">'cookie'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{@cookie}&quot;</span>, <span class="ruby-string">'inHierarchical'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'true'</span>){
+              <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">inConfigs</span>{
+                <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">pair</span>(<span class="ruby-string">'key'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;org-root/ip-pool-ext-mgmt/block-#{start_ip}-#{end_ip}&quot;</span>){
+                  <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">ippoolBlock</span>(<span class="ruby-string">'defGw'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{gateway}&quot;</span>, <span class="ruby-string">'dn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;org-root/ip-pool-ext-mgmt/block-#{start_ip}-#{end_ip}&quot;</span>,
+                                  <span class="ruby-string">'from'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{start_ip}&quot;</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>, <span class="ruby-string">'subnet'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{subnet_mask}&quot;</span>, <span class="ruby-string">'to'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{end_ip}&quot;</span>)
+                }
+              }
+            }
+            <span class="ruby-keyword">end</span>
+
+            <span class="ruby-comment">#Create XML</span>
+            <span class="ruby-identifier">create_management_ip_pool_XML</span> = <span class="ruby-identifier">xml_builder</span>.<span class="ruby-identifier">to_xml</span>.<span class="ruby-identifier">to_s</span>
+
+            <span class="ruby-comment">#Post</span>
+            <span class="ruby-keyword">begin</span>
+                    <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-ivar">@url</span>, <span class="ruby-identifier">create_management_ip_pool_XML</span>, <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/xml'</span>).<span class="ruby-identifier">body</span>
+            <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Error #{e}&quot;</span>
+            <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- create_management_ip_pool-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- create_management_ip_pool-method -->
+
+      
+        <div id="create_network_uplink_port-method" class="method-detail ">
+          <a name="method-i-create_network_uplink_port"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">create_network_uplink_port</span><span
+              class="method-args">(json)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="create_network_uplink_port-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/provision.rb, line 169</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_network_uplink_port</span>(<span class="ruby-identifier">json</span>)
+
+            <span class="ruby-identifier">switch</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'switch'</span>]
+            <span class="ruby-identifier">port</span>   = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'port'</span>]
+            <span class="ruby-identifier">slot</span>   = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'slot'</span>]     
+
+            <span class="ruby-identifier">xml_builder</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">configConfMos</span>(<span class="ruby-string">'cookie'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{@cookie}&quot;</span>, <span class="ruby-string">'inHierarchical'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'false'</span>){
+            <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">inConfigs</span>{
+             <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">pair</span>(<span class="ruby-string">'key'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;fabric/lan/#{switch}&quot;</span>){
+               <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">fabricEthLan</span>(<span class="ruby-string">'dn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;fabric/lan/#{switch}&quot;</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created,modified'</span>){
+                 <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">fabricEthLanEp</span>(<span class="ruby-string">'adminSpeed'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'10gbps'</span>, <span class="ruby-string">'adminState'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'enabled'</span>, <span class="ruby-string">'flowCtrlPolicy'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'default'</span>,
+                                    <span class="ruby-string">'name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'portId'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{port}&quot;</span>, 
+                                    <span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;phys&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;-&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;slot&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;-&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot;#{slot}&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;-&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;port&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;-&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot;#{port}&quot;</span>,
+                                    <span class="ruby-string">'slotId'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{slot}&quot;</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>, <span class="ruby-string">'usrLbl'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>)
+                                  }
+                          }
+                    }
+            }
+            <span class="ruby-keyword">end</span>
+
+            <span class="ruby-comment">#Create XML </span>
+            <span class="ruby-identifier">create_network_uplink_XML</span> = <span class="ruby-identifier">xml_builder</span>.<span class="ruby-identifier">to_xml</span>.<span class="ruby-identifier">to_s</span>
+
+            <span class="ruby-comment">#Post</span>
+
+            <span class="ruby-keyword">begin</span>
+                    <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-ivar">@url</span>, <span class="ruby-identifier">create_network_uplink_XML</span>, <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/xml'</span>).<span class="ruby-identifier">body</span>
+            <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Error #{e}&quot;</span>
+            <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- create_network_uplink_port-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- create_network_uplink_port-method -->
+
+      
+        <div id="create_org-method" class="method-detail ">
+          <a name="method-i-create_org"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">create_org</span><span
+              class="method-args">(json)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="create_org-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/provision.rb, line 276</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_org</span>(<span class="ruby-identifier">json</span>)
+
+            <span class="ruby-identifier">org</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'org'</span>]
+
+            <span class="ruby-identifier">xml_builder</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">configConfMos</span>(<span class="ruby-string">'cookie'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{@cookie}&quot;</span>, <span class="ruby-string">'inHierarchical'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'true'</span>) {
+              <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">inConfigs</span>{
+                <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">pair</span>(<span class="ruby-string">'key'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;org-root/org-#{org}&quot;</span>) {
+                  <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">orgOrg</span>(<span class="ruby-string">'descr'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{org} org&quot;</span>, <span class="ruby-string">'dn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;org-root/org-#{org}&quot;</span>, <span class="ruby-string">'name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{org}&quot;</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>)
+                }
+              }
+            }
+            <span class="ruby-keyword">end</span>
+
+            <span class="ruby-comment">#Create XML</span>
+            <span class="ruby-identifier">create_org_XML</span>= <span class="ruby-identifier">xml_builder</span>.<span class="ruby-identifier">to_xml</span>.<span class="ruby-identifier">to_s</span>
+
+            <span class="ruby-comment">#Post</span>
+
+            <span class="ruby-keyword">begin</span>
+                    <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-ivar">@url</span>, <span class="ruby-identifier">create_org_XML</span>, <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/xml'</span>).<span class="ruby-identifier">body</span>
+            <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Error #{e}&quot;</span>
+            <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- create_org-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- create_org-method -->
+
+      
+        <div id="create_port_channel-method" class="method-detail ">
+          <a name="method-i-create_port_channel"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">create_port_channel</span><span
+              class="method-args">(json)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="create_port_channel-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/provision.rb, line 234</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_port_channel</span>(<span class="ruby-identifier">json</span>)
+            <span class="ruby-comment">#Parse uplink modules on Expansion Module 2. Minimum 2 ports are required for creating a port channel.</span>
+            <span class="ruby-comment">#As of this implementation, it is assumed that Northboutn uplinks are created using the Expansion Module and not the fixed module</span>
+
+            <span class="ruby-identifier">switch</span>            = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'switch'</span>]
+            <span class="ruby-identifier">port_ids</span>          = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'port_ids'</span>].<span class="ruby-identifier">split</span>(<span class="ruby-string">','</span>)
+            <span class="ruby-identifier">slot</span>              = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'slot'</span>]
+            <span class="ruby-identifier">port_channel_id</span>   = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'port_channel_id'</span>]
+            <span class="ruby-identifier">name</span>              = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'name'</span>]
+
+
+            <span class="ruby-comment">#Create XML</span>
+            <span class="ruby-identifier">xml_builder</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
+             <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">configConfMos</span>(<span class="ruby-string">'cookie'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{@cookie}&quot;</span>, <span class="ruby-string">'inHierarchical'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'true'</span>){
+               <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">inConfigs</span>{
+                 <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">pair</span>(<span class="ruby-string">'key'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;fabric/lan/#{switch}/pc-#{port_channel_id}&quot;</span>){
+                   <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">fabricEthLanPc</span>(<span class="ruby-string">'adminSpeed'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'10gbps'</span>, <span class="ruby-string">'adminState'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'enabled'</span>, <span class="ruby-string">'dn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;fabric/lan/#{switch}/pc-#{port_channel_id}&quot;</span>,
+                                      <span class="ruby-string">'flowCtrlPolicy'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'default'</span>, <span class="ruby-string">'name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{name}&quot;</span>, <span class="ruby-string">'operSpeed'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'10gbps'</span>, <span class="ruby-string">'portId'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{port_channel_id}&quot;</span>,
+                                      <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>){
+                                          <span class="ruby-identifier">port_ids</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">port_id</span><span class="ruby-operator">|</span>
+                                            <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">fabricEthLanPcEp</span>(<span class="ruby-string">'adminState'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'enabled'</span>, <span class="ruby-string">'name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'portId'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{port_id}&quot;</span>, 
+                                                                  <span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;ep-slot-#{slot}-port-#{port_id}&quot;</span>)
+                                          <span class="ruby-keyword">end</span>
+                                      }
+
+                 }
+               }
+             }
+            <span class="ruby-keyword">end</span>
+
+            <span class="ruby-comment">#Create XML</span>
+            <span class="ruby-identifier">create_port_channel_XML</span> = <span class="ruby-identifier">xml_builder</span>.<span class="ruby-identifier">to_xml</span>.<span class="ruby-identifier">to_s</span>
+
+            <span class="ruby-comment">#Post</span>
+            <span class="ruby-keyword">begin</span>
+                    <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-ivar">@url</span>, <span class="ruby-identifier">create_port_channel_XML</span>, <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/xml'</span>).<span class="ruby-identifier">body</span>
+            <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Error #{e}&quot;</span>
+            <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">end</span></pre>
+            </div><!-- create_port_channel-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- create_port_channel-method -->
+
+      
+        <div id="create_pxe_boot_policy-method" class="method-detail ">
+          <a name="method-i-create_pxe_boot_policy"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">create_pxe_boot_policy</span><span
+              class="method-args">(json)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="create_pxe_boot_policy-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/provision.rb, line 367</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_pxe_boot_policy</span>(<span class="ruby-identifier">json</span>)
+
+            <span class="ruby-identifier">name</span>           = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'name'</span>]
+            <span class="ruby-identifier">description</span>    = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'description'</span>]
+            <span class="ruby-identifier">org</span>            = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'org'</span>]
+            <span class="ruby-identifier">vnic_a</span>         = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'vnic_a'</span>]
+            <span class="ruby-identifier">vnic_b</span>         = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'vnic_b'</span>]
+
+            <span class="ruby-identifier">xml_builder</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">configConfMos</span>(<span class="ruby-string">'cookie'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{@cookie}&quot;</span>, <span class="ruby-string">'inHierarchical'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'true'</span>){
+              <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">inConfigs</span>{
+                <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">pair</span>(<span class="ruby-string">'key'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;org-root/org-#{org}/boot-policy-#{name}&quot;</span>){
+                  <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">lsbootPolicy</span>(<span class="ruby-string">'descr'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{description}&quot;</span>, <span class="ruby-string">'dn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;org-root/org-#{org}/boot-policy-#{name}&quot;</span>,
+                                   <span class="ruby-string">'enforceVnicName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'no'</span>, <span class="ruby-string">'name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{name}&quot;</span>, <span class="ruby-string">'rebootOnUpdate'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'no'</span>,
+                                   <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>){
+                                     <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">lsbootLan</span>(<span class="ruby-string">'order'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'1'</span>, <span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'lan'</span>){
+                                       <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">lsbootLanImagePath</span>(<span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'path-primary'</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>,
+                                                              <span class="ruby-string">'type'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'primary'</span>, <span class="ruby-string">'vnicName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{vnic_a}&quot;</span>)
+                                       <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">lsbootLanImagePath</span>(<span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'path-secondary'</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>,
+                                                              <span class="ruby-string">'type'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'secondary'</span>, <span class="ruby-string">'vnicName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{vnic_b}&quot;</span>)
+                                     }
+                                     <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">lsbootStorage</span>(<span class="ruby-string">'order'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'2'</span>, <span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'storage'</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>){
+                                       <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">lsbootLocalStorage</span>(<span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'local-storage'</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>)
+                                     }
+                                   }
+                }
+              }
+            }
+            <span class="ruby-keyword">end</span>
+
+            <span class="ruby-comment">#Create XML</span>
+            <span class="ruby-identifier">create_pxe_boot_policy_XML</span> = <span class="ruby-identifier">xml_builder</span>.<span class="ruby-identifier">to_xml</span>.<span class="ruby-identifier">to_s</span>
+
+            <span class="ruby-comment">#Post</span>
+            <span class="ruby-keyword">begin</span>
+                    <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-ivar">@url</span>, <span class="ruby-identifier">create_pxe_boot_policy_XML</span>, <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/xml'</span>).<span class="ruby-identifier">body</span>
+            <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Error #{e}&quot;</span>
+            <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- create_pxe_boot_policy-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- create_pxe_boot_policy-method -->
+
+      
+        <div id="create_san_boot_policy-method" class="method-detail ">
+          <a name="method-i-create_san_boot_policy"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">create_san_boot_policy</span><span
+              class="method-args">(json)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="create_san_boot_policy-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/provision.rb, line 409</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_san_boot_policy</span>(<span class="ruby-identifier">json</span>)
+
+        <span class="ruby-identifier">name</span>         = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'name'</span>]
+        <span class="ruby-identifier">description</span>  = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'description'</span>]
+        <span class="ruby-identifier">org</span>          = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'org'</span>]
+        <span class="ruby-identifier">vnic_a</span>       = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'vnic_a'</span>]
+        <span class="ruby-identifier">vnic_b</span>       = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'vnic_b'</span>]
+        <span class="ruby-identifier">target_a_1</span>   = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'target_a_1'</span>]
+        <span class="ruby-identifier">target_a_2</span>   = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'target_a_2'</span>]
+        <span class="ruby-identifier">target_b_1</span>   = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'target_b_1'</span>]
+        <span class="ruby-identifier">target_b_2</span>   = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'target_b_2'</span>]
+
+        <span class="ruby-identifier">xml_builder</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
+           <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">configConfMos</span>(<span class="ruby-string">'cookie'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{@cookie}&quot;</span>, <span class="ruby-string">'inHierarchical'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'true'</span>){
+             <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">inConfigs</span>{
+               <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">pair</span>(<span class="ruby-string">'key'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;org-root/org-#{org}/boot-policy-#{name}&quot;</span>){
+                 <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">lsbootPolicy</span>(<span class="ruby-string">'descr'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{description}&quot;</span>, <span class="ruby-string">'dn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;org-root/org-#{org}/boot-policy-#{name}&quot;</span>, <span class="ruby-string">'enforceVnicName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'no'</span>,
+                                  <span class="ruby-string">'name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{name}&quot;</span>, <span class="ruby-string">'rebootOnUpdate'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'no'</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>){
+                                    <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">lsbootStorage</span>(<span class="ruby-string">'order'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'1'</span>, <span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'storage'</span>){
+                                      <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">lsbootSanImage</span>(<span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'san-primary'</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>, <span class="ruby-string">'type'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'primary'</span>, <span class="ruby-string">'vnicName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{vnic_a}&quot;</span>){
+                                        <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">lsbootSanImagePath</span>(<span class="ruby-string">'lun'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'0'</span>, <span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'path-primary'</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>, <span class="ruby-string">'type'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'primary'</span>, <span class="ruby-string">'wwn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{target_a_1}&quot;</span>)
+                                        <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">lsbootSanImagePath</span>(<span class="ruby-string">'lun'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'0'</span>, <span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'path-secondary'</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>, <span class="ruby-string">'type'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'secondary'</span>, <span class="ruby-string">'wwn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{target_a_2}&quot;</span>)
+                                      }
+                                      <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">lsbootSanImage</span>(<span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'san-secondary'</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>, <span class="ruby-string">'type'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'secondary'</span>, <span class="ruby-string">'vnicName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{vnic_b}&quot;</span>){
+                                        <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">lsbootSanImagePath</span>(<span class="ruby-string">'lun'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'0'</span>, <span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'path-primary'</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>, <span class="ruby-string">'type'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'primary'</span>, <span class="ruby-string">'wwn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{target_b_1}&quot;</span>)
+                                        <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">lsbootSanImagePath</span>(<span class="ruby-string">'lun'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'0'</span>, <span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'path-secondary'</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>, <span class="ruby-string">'type'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'secondary'</span>, <span class="ruby-string">'wwn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{target_b_2}&quot;</span>)
+                                      }
+                                    }
+                                  }
+               }
+             }
+           }
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-comment">#Create XML</span>
+        <span class="ruby-identifier">create_san_boot_policy_XML</span> = <span class="ruby-identifier">xml_builder</span>.<span class="ruby-identifier">to_xml</span>.<span class="ruby-identifier">to_s</span>
+
+        <span class="ruby-comment">#Post</span>
+        <span class="ruby-keyword">begin</span>
+                <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-ivar">@url</span>, <span class="ruby-identifier">create_san_boot_policy_XML</span>, <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/xml'</span>).<span class="ruby-identifier">body</span>
+        <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Error #{e}&quot;</span>
+        <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- create_san_boot_policy-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- create_san_boot_policy-method -->
+
+      
+        <div id="create_server_port-method" class="method-detail ">
+          <a name="method-i-create_server_port"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">create_server_port</span><span
+              class="method-args">(json)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="create_server_port-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/provision.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_server_port</span>(<span class="ruby-identifier">json</span>)
+
+        <span class="ruby-identifier">switch</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'switch'</span>]
+        <span class="ruby-identifier">port</span>   = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'port'</span>]
+        <span class="ruby-identifier">slot</span>   = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'slot'</span>]
+
+
+        <span class="ruby-identifier">xml_builder</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">configConfMos</span>(<span class="ruby-string">'cookie'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{@cookie}&quot;</span>, <span class="ruby-string">'inHierarchical'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'false'</span>){
+          <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">inConfigs</span>{
+            <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">pair</span>(<span class="ruby-string">'key'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;fabric/server/SW-#{switch}&quot;</span>){
+              <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">fabricDceSwSrv</span>(<span class="ruby-string">'dn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;fabric/server/SW-#{switch}&quot;</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created,modified'</span>){
+                <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">fabricDceSwSrvEp</span>( <span class="ruby-string">'adminState'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'enabled'</span>, <span class="ruby-string">'name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'portId'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{port}&quot;</span>, 
+                                      <span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;slot&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;-&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot;#{slot}&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;-&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;port&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;-&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot;#{port}&quot;</span>, <span class="ruby-string">'slotId'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{slot}&quot;</span>, 
+                                      <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>, <span class="ruby-string">'usrLbl'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span> )
+              }
+            }
+          }
+        }
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-comment">#Create XML </span>
+        <span class="ruby-identifier">create_server_port_XML</span> = <span class="ruby-identifier">xml_builder</span>.<span class="ruby-identifier">to_xml</span>.<span class="ruby-identifier">to_s</span>
+
+        <span class="ruby-comment">#Post</span>
+
+        <span class="ruby-keyword">begin</span>
+                <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-ivar">@url</span>, <span class="ruby-identifier">create_server_port_XML</span>, <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/xml'</span>).<span class="ruby-identifier">body</span>
+        <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Error #{e}&quot;</span>
+        <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- create_server_port-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- create_server_port-method -->
+
+      
+        <div id="create_service_profile_template-method" class="method-detail ">
+          <a name="method-i-create_service_profile_template"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">create_service_profile_template</span><span
+              class="method-args">(json)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="create_service_profile_template-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/provision.rb, line 766</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_service_profile_template</span>(<span class="ruby-identifier">json</span>)
+
+             <span class="ruby-identifier">service_profile_template_name</span>               = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'service_profile_template_name'</span>]
+             <span class="ruby-identifier">service_profile_template_boot_policy</span>        = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'service_profile_template_boot_policy'</span>]
+             <span class="ruby-identifier">service_profile_template_host_fw_policy</span>     = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'service_profile_template_host_fw_policy'</span>]
+             <span class="ruby-identifier">service_profile_template_mgmt_fw_policy</span>     = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'service_profile_template_mgmt_fw_policy'</span>]
+             <span class="ruby-identifier">service_profile_template_uuid_pool</span>          = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'service_profile_template_uuid_pool'</span>]
+             <span class="ruby-identifier">service_profile_template_vnics_a</span>            = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'service_profile_template_vnics_a'</span>].<span class="ruby-identifier">split</span>(<span class="ruby-string">','</span>)
+             <span class="ruby-identifier">service_profile_template_vnic_a_template</span>    = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'service_profile_template_vnic_a_template'</span>]
+             <span class="ruby-identifier">service_profile_template_vnics_b</span>            = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'service_profile_template_vnics_b'</span>].<span class="ruby-identifier">split</span>(<span class="ruby-string">','</span>)
+             <span class="ruby-identifier">service_profile_template_vnic_b_template</span>    = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'service_profile_template_vnic_b_template'</span>].<span class="ruby-identifier">to_s</span>
+             <span class="ruby-identifier">service_profile_template_wwnn_pool</span>          = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'service_profile_template_wwnn_pool'</span>].<span class="ruby-identifier">to_s</span>
+             <span class="ruby-identifier">service_profile_template_vhba_a</span>             = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'service_profile_template_vhba_a'</span>]
+             <span class="ruby-identifier">service_profile_template_vhba_a_template</span>    = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'service_profile_template_vhba_a_template'</span>]
+             <span class="ruby-identifier">service_profile_template_vhba_b</span>             = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'service_profile_template_vhba_b'</span>].<span class="ruby-identifier">to_s</span>
+             <span class="ruby-identifier">service_profile_template_vhba_b_template</span>    = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'service_profile_template_vhba_b_template'</span>].<span class="ruby-identifier">to_s</span>
+             <span class="ruby-identifier">org</span>                                                           = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'org'</span>].<span class="ruby-identifier">to_s</span>
+
+             <span class="ruby-identifier">xml_builder</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
+               <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">configConfMos</span>(<span class="ruby-string">'cookie'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{@cookie}&quot;</span>, <span class="ruby-string">'inHierarchical'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'true'</span>){
+                 <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">inConfigs</span>{
+                   <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">pair</span>(<span class="ruby-string">'key'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;org-root/org-#{org}/ls-#{service_profile_template_name}&quot;</span>){
+                     <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">lsServer</span>(<span class="ruby-string">'agentPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'biosProfileName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'bootPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{service_profile_template_boot_policy}&quot;</span>,
+                                  <span class="ruby-string">'descr'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'dn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;org-root/org-#{org}/ls-#{service_profile_template_name}&quot;</span>,
+                                  <span class="ruby-string">'dynamicConPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'extIPState'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'none'</span>, <span class="ruby-string">'hostFwPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{service_profile_template_host_fw_policy}&quot;</span>,
+                                  <span class="ruby-string">'identPoolName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{service_profile_template_uuid_pool}&quot;</span>, <span class="ruby-string">'localDiskPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'default'</span>, <span class="ruby-string">'maintPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'default'</span>,
+                                  <span class="ruby-string">'mgmtAccessPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'mgmtFwPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{service_profile_template_mgmt_fw_policy}&quot;</span>, <span class="ruby-string">'name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{service_profile_template_name}&quot;</span>,
+                                  <span class="ruby-string">'powerPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'default'</span>, <span class="ruby-string">'scrubPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'solPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'default'</span>, <span class="ruby-string">'srcTemplName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'statsPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'default'</span>,
+                                  <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>, <span class="ruby-string">'type'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'updating-template'</span>, <span class="ruby-string">'usrLbl'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'uuid'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'0'</span>, <span class="ruby-string">'vconProfileName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>){
+                                   <span class="ruby-identifier">service_profile_template_vnics_a</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">vnic_a</span><span class="ruby-operator">|</span>  
+                                    <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">vnicEther</span>(<span class="ruby-string">'adaptorProfileName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'addr'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'derived'</span>, <span class="ruby-string">'adminVcon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'any'</span>, <span class="ruby-string">'identPoolName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'mtu'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'1500'</span>,
+                                                  <span class="ruby-string">'name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{vnic_a}&quot;</span>, <span class="ruby-string">'nwCtrlPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'nwTemplName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{service_profile_template_vnic_a_template}&quot;</span>,
+                                                  <span class="ruby-string">'order'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'3'</span>, <span class="ruby-string">'pinToGroupName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'qosPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;ether-#{vnic_a}&quot;</span>,
+                                                  <span class="ruby-string">'statsPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'default'</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>, <span class="ruby-string">'switchId'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'A'</span>)
+                                   <span class="ruby-keyword">end</span>
+                                                      <span class="ruby-identifier">service_profile_template_vnics_b</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">vnic_b</span><span class="ruby-operator">|</span>               
+                                    <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">vnicEther</span>(<span class="ruby-string">'adaptorProfileName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'addr'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'derived'</span>, <span class="ruby-string">'adminVcon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'any'</span>, <span class="ruby-string">'identPoolName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'mtu'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'1500'</span>,
+                                                  <span class="ruby-string">'name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{vnic_b}&quot;</span>, <span class="ruby-string">'nwCtrlPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'nwTemplName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{service_profile_template_vnic_b_template}&quot;</span>,
+                                                  <span class="ruby-string">'order'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'4'</span>, <span class="ruby-string">'pinToGroupName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'qosPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;ether-#{vnic_b}&quot;</span>,
+                                                  <span class="ruby-string">'statsPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'default'</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>, <span class="ruby-string">'switchId'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'B'</span>)
+                                   <span class="ruby-keyword">end</span>              
+                                    <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">vnicFcNode</span>(<span class="ruby-string">'addr'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'pool-derived'</span>, <span class="ruby-string">'identPoolName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{service_profile_template_wwnn_pool}&quot;</span>, <span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'fc-node'</span>)
+
+                                    <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">vnicFc</span>(<span class="ruby-string">'adaptorProfileName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'addr'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'derived'</span>, <span class="ruby-string">'adminVcon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'any'</span>, <span class="ruby-string">'identPoolName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'maxDataFieldSize'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'2048'</span>,
+                                               <span class="ruby-string">'name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{service_profile_template_vhba_a}&quot;</span>, <span class="ruby-string">'nwTemplName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{service_profile_template_vhba_a_template}&quot;</span>, 
+                                               <span class="ruby-string">'order'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'1'</span>, <span class="ruby-string">'persBind'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'disabled'</span>, <span class="ruby-string">'persBindClear'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'no'</span>, <span class="ruby-string">'pinToGroupName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'qosPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>,
+                                               <span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;fc-#{service_profile_template_vhba_a}&quot;</span>, <span class="ruby-string">'statsPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'default'</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>, <span class="ruby-string">'switchId'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'A'</span>)
+
+                                    <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">vnicFc</span>(<span class="ruby-string">'adaptorProfileName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'addr'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'derived'</span>, <span class="ruby-string">'adminVcon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'any'</span>, <span class="ruby-string">'identPoolName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'maxDataFieldSize'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'2048'</span>,
+                                               <span class="ruby-string">'name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{service_profile_template_vhba_b}&quot;</span>, <span class="ruby-string">'nwTemplName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{service_profile_template_vhba_b_template}&quot;</span>, 
+                                               <span class="ruby-string">'order'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'2'</span>, <span class="ruby-string">'persBind'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'disabled'</span>, <span class="ruby-string">'persBindClear'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'no'</span>, <span class="ruby-string">'pinToGroupName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'qosPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>,
+                                               <span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;fc-#{service_profile_template_vhba_b}&quot;</span>, <span class="ruby-string">'statsPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'default'</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>, <span class="ruby-string">'switchId'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'B'</span>)
+
+                                    <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">lsPower</span>(<span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'power'</span>, <span class="ruby-string">'state'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'up'</span>)
+                                  }
+                   }
+                 }
+               }
+             <span class="ruby-keyword">end</span>
+
+             <span class="ruby-comment">#Create Template XML</span>
+             <span class="ruby-identifier">create_service_profile_template_XML</span> = <span class="ruby-identifier">xml_builder</span>.<span class="ruby-identifier">to_xml</span>.<span class="ruby-identifier">to_s</span>
+
+             <span class="ruby-comment">#Post create Service Profile Template</span>
+             <span class="ruby-keyword">begin</span>
+                  <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-ivar">@url</span>, <span class="ruby-identifier">create_service_profile_template_XML</span>, <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/xml'</span>).<span class="ruby-identifier">body</span>
+             <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Error #{e}&quot;</span>
+             <span class="ruby-keyword">end</span>
+             
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- create_service_profile_template-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- create_service_profile_template-method -->
+
+      
+        <div id="create_service_profiles-method" class="method-detail ">
+          <a name="method-i-create_service_profiles"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">create_service_profiles</span><span
+              class="method-args">(json)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="create_service_profiles-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/provision.rb, line 868</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_service_profiles</span>(<span class="ruby-identifier">json</span>)
+
+             <span class="ruby-identifier">service_profile_names</span>              = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'service_profile_names'</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">','</span>)
+             <span class="ruby-identifier">service_profile_boot_policy</span>        = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'service_profile_boot_policy'</span>].<span class="ruby-identifier">to_s</span>
+             <span class="ruby-identifier">service_profile_host_fw_policy</span>     = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'service_profile_host_fw_policy'</span>].<span class="ruby-identifier">to_s</span>
+             <span class="ruby-identifier">service_profile_mgmt_fw_policy</span>     = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'service_profile_mgmt_fw_policy'</span>].<span class="ruby-identifier">to_s</span>
+             <span class="ruby-identifier">service_profile_uuid_pool</span>          = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'service_profile_uuid_pool'</span>].<span class="ruby-identifier">to_s</span>
+             <span class="ruby-identifier">service_profile_vnics_a</span>            = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'service_profile_vnics_a'</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">','</span>)
+             <span class="ruby-identifier">service_profile_vnic_a_template</span>    = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'service_profile_vnic_a_template'</span>].<span class="ruby-identifier">to_s</span>
+             <span class="ruby-identifier">service_profile_vnics_b</span>            = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'service_profile_vnics_b'</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">','</span>)
+             <span class="ruby-identifier">service_profile_vnic_b_template</span>    = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'service_profile_vnic_b_template'</span>].<span class="ruby-identifier">to_s</span>
+             <span class="ruby-identifier">service_profile_wwnn_pool</span>          = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'service_profile_wwnn_pool'</span>].<span class="ruby-identifier">to_s</span>
+             <span class="ruby-identifier">service_profile_vhba_a</span>             = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'service_profile_vhba_a'</span>].<span class="ruby-identifier">to_s</span>
+             <span class="ruby-identifier">service_profile_vhba_a_template</span>    = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'service_profile_vhba_a_template'</span>].<span class="ruby-identifier">to_s</span>
+             <span class="ruby-identifier">service_profile_vhba_b</span>             = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'service_profile_vhba_b'</span>].<span class="ruby-identifier">to_s</span>
+             <span class="ruby-identifier">service_profile_vhba_b_template</span>    = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'service_profile_vhba_b_template'</span>].<span class="ruby-identifier">to_s</span>
+             <span class="ruby-identifier">org</span>                                              = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'org'</span>].<span class="ruby-identifier">to_s</span>
+             <span class="ruby-identifier">service_profile_template_to_bind</span>   = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'service_profile_template_to_bind'</span>].<span class="ruby-identifier">to_s</span>
+
+
+
+               <span class="ruby-identifier">xml_builder</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
+                 <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">configConfMos</span>(<span class="ruby-string">'cookie'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{@cookie}&quot;</span>, <span class="ruby-string">'inHierarchical'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'true'</span>){
+                   <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">inConfigs</span>{<span class="ruby-ivar">@service_profile_names</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">service_profile_name</span><span class="ruby-operator">|</span>
+                     <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">pair</span>(<span class="ruby-string">'key'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;org-root/org-#{org}/ls-#{service_profile_name}&quot;</span>){
+                       <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">lsServer</span>(<span class="ruby-string">'agentPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'biosProfileName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'bootPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{service_profile_boot_policy}&quot;</span>,
+                                    <span class="ruby-string">'descr'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'dn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;org-root/org-#{service_profile_org}/ls-#{service_profile_name}&quot;</span>,
+                                    <span class="ruby-string">'dynamicConPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'extIPState'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'none'</span>, <span class="ruby-string">'hostFwPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{service_profile_host_fw_policy}&quot;</span>,
+                                    <span class="ruby-string">'identPoolName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{service_profile_uuid_pool}&quot;</span>, <span class="ruby-string">'localDiskPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'default'</span>, <span class="ruby-string">'maintPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'default'</span>,
+                                    <span class="ruby-string">'mgmtAccessPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'mgmtFwPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{service_profile_mgmt_fw_policy}&quot;</span>, <span class="ruby-string">'name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{service_profile_name}&quot;</span>,
+                                    <span class="ruby-string">'powerPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'default'</span>, <span class="ruby-string">'scrubPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'solPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'default'</span>, <span class="ruby-string">'srcTemplName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{service_profile_template_to_bind}&quot;</span>, 
+                                    <span class="ruby-string">'statsPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'default'</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>, <span class="ruby-string">'usrLbl'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'uuid'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'0'</span>, <span class="ruby-string">'vconProfileName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>){
+                                     <span class="ruby-ivar">@service_profile_vnics_a</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">vnic_a</span><span class="ruby-operator">|</span>  
+                                      <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">vnicEther</span>(<span class="ruby-string">'adaptorProfileName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'addr'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'derived'</span>, <span class="ruby-string">'adminVcon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'any'</span>, <span class="ruby-string">'identPoolName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'mtu'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'1500'</span>,
+                                                    <span class="ruby-string">'name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{vnic_a}&quot;</span>, <span class="ruby-string">'nwCtrlPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'nwTemplName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{service_profile_vnic_a_template}&quot;</span>,
+                                                    <span class="ruby-string">'order'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'3'</span>, <span class="ruby-string">'pinToGroupName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'qosPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;ether-#{vnic_a}&quot;</span>,
+                                                    <span class="ruby-string">'statsPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'default'</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>, <span class="ruby-string">'switchId'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'A'</span>)
+                                     <span class="ruby-keyword">end</span>
+
+                                     <span class="ruby-ivar">@service_profile_vnics_b</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">vnic_b</span><span class="ruby-operator">|</span>
+                                      <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">vnicEther</span>(<span class="ruby-string">'adaptorProfileName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'addr'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'derived'</span>, <span class="ruby-string">'adminVcon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'any'</span>, <span class="ruby-string">'identPoolName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'mtu'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'1500'</span>,
+                                                    <span class="ruby-string">'name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{vnic_b}&quot;</span>, <span class="ruby-string">'nwCtrlPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'nwTemplName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{service_profile_vnic_b_template}&quot;</span>,
+                                                    <span class="ruby-string">'order'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'4'</span>, <span class="ruby-string">'pinToGroupName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'qosPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;ether-#{vnic_b}&quot;</span>,
+                                                    <span class="ruby-string">'statsPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'default'</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>, <span class="ruby-string">'switchId'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'B'</span>)
+                                     <span class="ruby-keyword">end</span>
+
+                                      <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">vnicFcNode</span>(<span class="ruby-string">'addr'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'pool-derived'</span>, <span class="ruby-string">'identPoolName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{service_profile_wwnn_pool}&quot;</span>, <span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'fc-node'</span>)
+
+                                      <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">vnicFc</span>(<span class="ruby-string">'adaptorProfileName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'addr'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'derived'</span>, <span class="ruby-string">'adminVcon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'any'</span>, <span class="ruby-string">'identPoolName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'maxDataFieldSize'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'2048'</span>,
+                                                 <span class="ruby-string">'name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{service_profile_vhba_a}&quot;</span>, <span class="ruby-string">'nwTemplName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{service_profile_vhba_a_}&quot;</span>, 
+                                                 <span class="ruby-string">'order'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'1'</span>, <span class="ruby-string">'persBind'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'disabled'</span>, <span class="ruby-string">'persBindClear'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'no'</span>, <span class="ruby-string">'pinToGroupName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'qosPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>,
+                                                 <span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;fc-#{service_profile_vhba_a}&quot;</span>, <span class="ruby-string">'statsPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'default'</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>, <span class="ruby-string">'switchId'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'A'</span>)
+
+                                      <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">vnicFc</span>(<span class="ruby-string">'adaptorProfileName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'addr'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'derived'</span>, <span class="ruby-string">'adminVcon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'any'</span>, <span class="ruby-string">'identPoolName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'maxDataFieldSize'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'2048'</span>,
+                                                 <span class="ruby-string">'name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{service_profile_vhba_b}&quot;</span>, <span class="ruby-string">'nwTemplName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{service_profile_vhba_b_}&quot;</span>, 
+                                                 <span class="ruby-string">'order'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'2'</span>, <span class="ruby-string">'persBind'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'disabled'</span>, <span class="ruby-string">'persBindClear'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'no'</span>, <span class="ruby-string">'pinToGroupName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'qosPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>,
+                                                 <span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;fc-#{service_profile_vhba_b}&quot;</span>, <span class="ruby-string">'statsPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'default'</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>, <span class="ruby-string">'switchId'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'B'</span>)
+
+                                      <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">lsPower</span>(<span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'power'</span>, <span class="ruby-string">'state'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'up'</span>)
+                                    }
+                     }
+                   <span class="ruby-keyword">end</span>}
+                 }
+
+             <span class="ruby-keyword">end</span>
+
+
+             <span class="ruby-comment">#Create Template XML</span>
+             <span class="ruby-identifier">create_service_profiles_XML</span> = <span class="ruby-identifier">xml_builder</span>.<span class="ruby-identifier">to_xml</span>.<span class="ruby-identifier">to_s</span>
+
+             <span class="ruby-comment">#Post create Service Profile Template</span>
+             <span class="ruby-keyword">begin</span>
+                     <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-ivar">@url</span>, <span class="ruby-identifier">create_service_profiles_XML</span>, <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/xml'</span>).<span class="ruby-identifier">body</span>
+             <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                     <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Error #{e}&quot;</span>
+             <span class="ruby-keyword">end</span>
+
+ <span class="ruby-keyword">end</span></pre>
+            </div><!-- create_service_profiles-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- create_service_profiles-method -->
+
+      
+        <div id="create_service_profiles_from_template-method" class="method-detail ">
+          <a name="method-i-create_service_profiles_from_template"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">create_service_profiles_from_template</span><span
+              class="method-args">(json)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="create_service_profiles_from_template-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/provision.rb, line 838</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_service_profiles_from_template</span>(<span class="ruby-identifier">json</span>)
+
+              <span class="ruby-identifier">service_profile_template_name</span>               = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'service_profile_template_name'</span>].<span class="ruby-identifier">to_s</span>
+              <span class="ruby-identifier">org</span>                                                           = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'org'</span>].<span class="ruby-identifier">to_s</span>
+              <span class="ruby-identifier">service_profile_template_sp_prefix</span>          = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'service_profile_template_sp_prefix'</span>].<span class="ruby-identifier">to_s</span>
+              <span class="ruby-identifier">service_profile_template_num_of_sps</span>         = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'service_profile_template_num_of_sps'</span>].<span class="ruby-identifier">to_i</span>
+
+              <span class="ruby-identifier">xml_builder</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
+                    <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">lsInstantiateNTemplate</span>(<span class="ruby-string">'dn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;org-root/org-#{org}/ls-#{service_profile_template_name}&quot;</span>,
+                                                <span class="ruby-string">'inTargetOrg'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;org-root/org-#{org}&quot;</span>, <span class="ruby-string">'inServerNamePrefixOrEmpty'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{service_profile_template_sp_prefix}&quot;</span>,
+                                                <span class="ruby-string">'inNumberOf'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{service_profile_template_num_of_sps}&quot;</span>, <span class="ruby-string">'inHierarchical'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'false'</span>)
+
+
+               <span class="ruby-keyword">end</span>
+
+
+              <span class="ruby-comment">#Create Template XML</span>
+              <span class="ruby-identifier">create_service_profiles_from_template_XML</span> = <span class="ruby-identifier">xml_builder</span>.<span class="ruby-identifier">to_xml</span>.<span class="ruby-identifier">to_s</span>
+
+              <span class="ruby-comment">#Post create Service Profiles from Template</span>
+              <span class="ruby-keyword">begin</span>
+                   <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-ivar">@url</span>, <span class="ruby-identifier">create_service_profiles_from_template_XML</span>, <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/xml'</span>).<span class="ruby-identifier">body</span>
+              <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                   <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Error #{e}&quot;</span>
+              <span class="ruby-keyword">end</span>
+              
+ <span class="ruby-keyword">end</span></pre>
+            </div><!-- create_service_profiles_from_template-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- create_service_profiles_from_template-method -->
+
+      
+        <div id="create_uuid_pool-method" class="method-detail ">
+          <a name="method-i-create_uuid_pool"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">create_uuid_pool</span><span
+              class="method-args">(json)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="create_uuid_pool-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/provision.rb, line 733</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_uuid_pool</span>(<span class="ruby-identifier">json</span>)
+
+            <span class="ruby-identifier">uuid_pool_name</span>     = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'uuid_pool_name'</span>]
+            <span class="ruby-identifier">uuid_from</span>          = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'uuid_from'</span>]
+            <span class="ruby-identifier">uuid_to</span>            = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'uuid_to'</span>]
+            <span class="ruby-identifier">org</span>                      = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'org'</span>]
+
+            <span class="ruby-identifier">xml_builder</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
+              <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">configConfMos</span>(<span class="ruby-string">'cookie'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{@cookie}&quot;</span>, <span class="ruby-string">'inHierarchical'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'true'</span>){
+                <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">inConfigs</span>{
+                  <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">pair</span>(<span class="ruby-string">'key'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;org-root/org-#{org}/uuid-pool-#{uuid_pool_name}&quot;</span>){
+                    <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">uuidpoolPool</span>(<span class="ruby-string">'descr'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'dn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;org-root/org-#{org}/uuid-pool-#{uuid_pool_name}&quot;</span>,
+                                     <span class="ruby-string">'name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{uuid_pool_name}&quot;</span>, <span class="ruby-string">'prefix'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'derived'</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>){
+                                       <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">uuidpoolBlock</span>(<span class="ruby-string">'from'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{uuid_from}&quot;</span>, <span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;block-from-#{uuid_from}-to-#{uuid_to}&quot;</span>,
+                                                         <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>, <span class="ruby-string">'to'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{uuid_to}&quot;</span>)
+                                     }
+                  }
+                }
+              }
+            <span class="ruby-keyword">end</span>
+
+            <span class="ruby-comment">#Create XML</span>
+            <span class="ruby-identifier">create_uuid_pool_XML</span> = <span class="ruby-identifier">xml_builder</span>.<span class="ruby-identifier">to_xml</span>.<span class="ruby-identifier">to_s</span>
+
+            <span class="ruby-comment">#Post</span>
+            <span class="ruby-keyword">begin</span>
+                    <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-ivar">@url</span>, <span class="ruby-identifier">create_uuid_pool_XML</span>, <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/xml'</span>).<span class="ruby-identifier">body</span>
+            <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Error #{e}&quot;</span>
+            <span class="ruby-keyword">end</span>
+             
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- create_uuid_pool-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- create_uuid_pool-method -->
+
+      
+        <div id="create_vhba_template-method" class="method-detail ">
+          <a name="method-i-create_vhba_template"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">create_vhba_template</span><span
+              class="method-args">(json)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="create_vhba_template-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/provision.rb, line 699</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_vhba_template</span>(<span class="ruby-identifier">json</span>)
+
+            <span class="ruby-identifier">vbha_template_name</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'vbha_template_name'</span>]
+            <span class="ruby-identifier">wwpn_pool</span>          = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'wwpn_pool'</span>]
+            <span class="ruby-identifier">switch</span>             = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'switch'</span>]
+            <span class="ruby-identifier">vsan_name</span>          = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'vsan_name'</span>]
+            <span class="ruby-identifier">org</span>                      = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'org'</span>]
+
+            <span class="ruby-identifier">xml_builder</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
+              <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">configConfMos</span>(<span class="ruby-string">'cookie'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{@cookie}&quot;</span>, <span class="ruby-string">'inHierarchical'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'true'</span>){
+                <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">inConfigs</span>{
+                  <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">pair</span>(<span class="ruby-string">'key'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;org-root/org-#{org}/san-conn-templ-#{vbha_template_name}&quot;</span>){
+                    <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">vnicSanConnTempl</span>(<span class="ruby-string">'descr'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'dn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;org-root/org-#{org}/san-conn-templ-#{vbha_template_name}&quot;</span>,
+                                         <span class="ruby-string">'identPoolName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{wwpn_pool}&quot;</span>, <span class="ruby-string">'maxDataFieldSize'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'2048'</span>, <span class="ruby-string">'name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{vbha_template_name}&quot;</span>,
+                                         <span class="ruby-string">'pinToGroupName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'qosPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'statsPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'default'</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>,
+                                         <span class="ruby-string">'switchId'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{switch}&quot;</span>, <span class="ruby-string">'templType'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'updating-template'</span>){
+                                           <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">vnicFcIf</span>(<span class="ruby-string">'name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{vsan_name}&quot;</span>, <span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'if-default'</span>)
+                                         }
+                  }
+                }
+              }
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-comment">#Create XML</span>
+            <span class="ruby-identifier">create_vhba_template_XML</span> = <span class="ruby-identifier">xml_builder</span>.<span class="ruby-identifier">to_xml</span>.<span class="ruby-identifier">to_s</span>
+
+            <span class="ruby-comment">#Post</span>
+            <span class="ruby-keyword">begin</span>
+                    <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-ivar">@url</span>, <span class="ruby-identifier">create_vhba_template_XML</span>, <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/xml'</span>).<span class="ruby-identifier">body</span>
+            <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Error #{e}&quot;</span>
+            <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- create_vhba_template-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- create_vhba_template-method -->
+
+      
+        <div id="create_vlan-method" class="method-detail ">
+          <a name="method-i-create_vlan"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">create_vlan</span><span
+              class="method-args">(json)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="create_vlan-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/provision.rb, line 486</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_vlan</span>(<span class="ruby-identifier">json</span>)
+
+            <span class="ruby-identifier">vlan_id</span>     = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'vlan_id'</span>]
+            <span class="ruby-identifier">vlan_name</span>   = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'vlan_name'</span>]
+
+            <span class="ruby-identifier">xml_builder</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
+              <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">configConfMos</span>(<span class="ruby-string">'cookie'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{@cookie}&quot;</span>, <span class="ruby-string">'inHierarchical'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'true'</span>){
+                <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">inConfigs</span>{
+                  <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">pair</span>(<span class="ruby-string">'key'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;fabric/lan/net-#{vlan_name}&quot;</span>){
+                    <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">fabricVlan</span>(<span class="ruby-string">'defaultNet'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'no'</span>, <span class="ruby-string">'dn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;fabric/lan/net-#{vlan_name}&quot;</span>, <span class="ruby-string">'id'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{vlan_id}&quot;</span>,
+                                   <span class="ruby-string">'name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{vlan_name}&quot;</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>)
+                  }
+                }
+              }
+            <span class="ruby-keyword">end</span>
+
+            <span class="ruby-comment">#Create XML</span>
+            <span class="ruby-identifier">create_vlan_XML</span> = <span class="ruby-identifier">xml_builder</span>.<span class="ruby-identifier">to_xml</span>.<span class="ruby-identifier">to_s</span>
+
+            <span class="ruby-comment">#Post</span>
+            <span class="ruby-keyword">begin</span>
+                    <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-ivar">@url</span>, <span class="ruby-identifier">create_vlan_XML</span>, <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/xml'</span>).<span class="ruby-identifier">body</span>
+            <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Error #{e}&quot;</span>
+            <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">end</span></pre>
+            </div><!-- create_vlan-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- create_vlan-method -->
+
+      
+        <div id="create_vnic_template-method" class="method-detail ">
+          <a name="method-i-create_vnic_template"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">create_vnic_template</span><span
+              class="method-args">(json)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="create_vnic_template-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/provision.rb, line 559</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_vnic_template</span>(<span class="ruby-identifier">json</span>)
+
+            <span class="ruby-identifier">vnic_template_name</span>             = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'vnic_template_name'</span>]
+            <span class="ruby-identifier">vnic_template_mac_pool</span>         = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'vnic_template_mac_pool'</span>]
+            <span class="ruby-identifier">switch</span>                           = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'switch'</span>]
+            <span class="ruby-identifier">org</span>                                      = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'org'</span>]
+            <span class="ruby-identifier">vnic_template_VLANs</span>            = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'vnic_template_VLANs'</span>].<span class="ruby-identifier">split</span>(<span class="ruby-string">','</span>)
+            <span class="ruby-identifier">vnic_template_native_VLAN</span>      = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'vnic_template_native_VLAN'</span>]
+            <span class="ruby-identifier">vnic_template_mtu</span>              = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'vnic_template_mtu'</span>]
+
+
+            <span class="ruby-identifier">xml_builder</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
+              <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">configConfMos</span>(<span class="ruby-string">'cookie'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{@cookie}&quot;</span>, <span class="ruby-string">'inHierarchical'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'true'</span>){
+                <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">inConfigs</span>{
+                  <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">pair</span>(<span class="ruby-string">'key'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;org-root/org-#{org}/lan-conn-templ-#{vnic_template_name}&quot;</span>){
+                    <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">vnicLanConnTempl</span>(<span class="ruby-string">'descr'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'dn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;org-root/org-#{org}/lan-conn-templ-#{vnic_template_name}&quot;</span>,
+                                         <span class="ruby-string">'identPoolName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{vnic_template_mac_pool}&quot;</span>, <span class="ruby-string">'mtu'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{vnic_template_mtu}&quot;</span>, <span class="ruby-string">'name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{vnic_template_name}&quot;</span>,
+                                         <span class="ruby-string">'nwCtrlPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'pinToGroupName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'qosPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'statsPolicyName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>,
+                                         <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>, <span class="ruby-string">'switchId'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{switch}&quot;</span>, <span class="ruby-string">'templType'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'updating-template'</span>){
+                                           <span class="ruby-identifier">vnic_template_VLANs</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">vlan</span><span class="ruby-operator">|</span>
+                                             <span class="ruby-keyword">if</span> <span class="ruby-identifier">vlan</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">vnic_template_native_VLAN</span>
+                                               <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">vnicEtherIf</span>(<span class="ruby-string">'defaultNet'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'yes'</span>, <span class="ruby-string">'name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{vlan}&quot;</span>, <span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;if-#{vlan}&quot;</span>)
+                                             <span class="ruby-keyword">else</span>
+                                               <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">vnicEtherIf</span>(<span class="ruby-string">'defaultNet'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'yes'</span>, <span class="ruby-string">'name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{vlan}&quot;</span>, <span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;if-#{vlan}&quot;</span>)
+                                             <span class="ruby-keyword">end</span>
+                                           <span class="ruby-keyword">end</span>
+                                         }
+                  }
+                }
+              }
+            <span class="ruby-keyword">end</span>
+
+            <span class="ruby-comment">#Create XML</span>
+            <span class="ruby-identifier">create_vnic_template_XML</span> = <span class="ruby-identifier">xml_builder</span>.<span class="ruby-identifier">to_xml</span>.<span class="ruby-identifier">to_s</span>
+
+            <span class="ruby-comment">#Post</span>
+            <span class="ruby-keyword">begin</span>
+                    <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-ivar">@url</span>, <span class="ruby-identifier">create_vnic_template_XML</span>, <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/xml'</span>).<span class="ruby-identifier">body</span>
+            <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Error #{e}&quot;</span>
+            <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- create_vnic_template-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- create_vnic_template-method -->
+
+      
+        <div id="create_vsan-method" class="method-detail ">
+          <a name="method-i-create_vsan"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">create_vsan</span><span
+              class="method-args">(json)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="create_vsan-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/provision.rb, line 604</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_vsan</span>(<span class="ruby-identifier">json</span>)
+
+            <span class="ruby-identifier">vsan_id</span>        = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'vsan_id'</span>]
+            <span class="ruby-identifier">vsan_fcoe_id</span>   = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'vsan_fcoe_id'</span>]
+            <span class="ruby-identifier">vsan_name</span>      = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'vsan_name'</span>]
+
+            <span class="ruby-identifier">xml_builder</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
+              <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">configConfMos</span>(<span class="ruby-string">'cookie'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{@cookie}&quot;</span>, <span class="ruby-string">'inHierarchical'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'true'</span>){
+                <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">inConfigs</span>{
+                  <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">pair</span>(<span class="ruby-string">'key'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'fabric/san/'</span>){
+                    <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">fabricVsan</span>(<span class="ruby-string">'defaultZoning'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'disabled'</span>, <span class="ruby-string">'dn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'fabric/san/'</span>, <span class="ruby-string">'fcoeVlan'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{vsan_fcoe_id}&quot;</span>, 
+                                   <span class="ruby-string">'id'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{vsan_id}&quot;</span>, <span class="ruby-string">'name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{vsan_name}&quot;</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span> )
+                  }
+                }
+              }
+            <span class="ruby-keyword">end</span>
+
+            <span class="ruby-comment">#Create XML</span>
+            <span class="ruby-identifier">create_vsan_XML</span> = <span class="ruby-identifier">xml_builder</span>.<span class="ruby-identifier">to_xml</span>.<span class="ruby-identifier">to_s</span>
+
+            <span class="ruby-comment">#Post</span>
+            <span class="ruby-keyword">begin</span>
+                    <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-ivar">@url</span>, <span class="ruby-identifier">create_vsan_XML</span>, <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/xml'</span>).<span class="ruby-identifier">body</span>
+            <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Error #{e}&quot;</span>
+            <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">end</span></pre>
+            </div><!-- create_vsan-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- create_vsan-method -->
+
+      
+        <div id="create_wwnn_pool-method" class="method-detail ">
+          <a name="method-i-create_wwnn_pool"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">create_wwnn_pool</span><span
+              class="method-args">(json)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="create_wwnn_pool-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/provision.rb, line 633</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_wwnn_pool</span>(<span class="ruby-identifier">json</span>)
+
+             <span class="ruby-identifier">wwnn_name</span>   = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'wwnn_name'</span>]
+             <span class="ruby-identifier">wwnn_from</span>   = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'wwnn_from'</span>]
+             <span class="ruby-identifier">wwnn_to</span>     = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'wwnn_to'</span>]
+             <span class="ruby-identifier">org</span>           = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'org'</span>]
+
+             <span class="ruby-identifier">xml_builder</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
+               <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">configConfMos</span>(<span class="ruby-string">'cookie'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{@cookie}&quot;</span>, <span class="ruby-string">'inHierarchical'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'true'</span>){
+                 <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">inConfigs</span>{
+                   <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">pair</span>(<span class="ruby-string">'key'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;org-root/org-#{org}/wwn-pool-#{wwnn_name}&quot;</span>){
+                     <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">fcpoolInitiators</span>(<span class="ruby-string">'descr'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'dn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;org-root/org-#{org}/wwn-pool-#{wwnn_name}&quot;</span>, <span class="ruby-string">'name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{wwnn_name}&quot;</span>,
+                                          <span class="ruby-string">'purpose'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'node-wwn-assignment'</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>){
+                                            <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">fcpoolBlock</span>(<span class="ruby-string">'from'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{wwnn_from}&quot;</span>, <span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;block-#{wwnn_from}-#{wwnn_to}&quot;</span>, 
+                                                            <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>, <span class="ruby-string">'to'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{wwnn_to}&quot;</span>)
+                                          }
+                   }
+                 }
+               }
+             <span class="ruby-keyword">end</span>
+             <span class="ruby-comment">#Create XML</span>
+             <span class="ruby-identifier">create_wwnn_pool_XML</span> = <span class="ruby-identifier">xml_builder</span>.<span class="ruby-identifier">to_xml</span>.<span class="ruby-identifier">to_s</span>
+
+             <span class="ruby-comment">#Post</span>
+             <span class="ruby-keyword">begin</span>
+                  <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-ivar">@url</span>, <span class="ruby-identifier">create_wwnn_pool_XML</span>, <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/xml'</span>).<span class="ruby-identifier">body</span>
+             <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Error #{e}&quot;</span>
+             <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- create_wwnn_pool-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- create_wwnn_pool-method -->
+
+      
+        <div id="create_wwpn_pool-method" class="method-detail ">
+          <a name="method-i-create_wwpn_pool"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">create_wwpn_pool</span><span
+              class="method-args">(json)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="create_wwpn_pool-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/provision.rb, line 665</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_wwpn_pool</span>(<span class="ruby-identifier">json</span>)
+
+             <span class="ruby-identifier">wwpn_name</span>   = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'wwpn_name'</span>]
+             <span class="ruby-identifier">wwpn_from</span>   = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'wwpn_from'</span>]
+             <span class="ruby-identifier">wwpn_to</span>     = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'wwpn_to'</span>]
+             <span class="ruby-identifier">org</span>           = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'org'</span>]
+
+             <span class="ruby-identifier">xml_builder</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
+               <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">configConfMos</span>(<span class="ruby-string">'cookie'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{@cookie}&quot;</span>, <span class="ruby-string">'inHierarchical'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'true'</span>){
+                 <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">inConfigs</span>{
+                   <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">pair</span>(<span class="ruby-string">'key'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;org-root/org-#{org}/wwn-pool-#{wwpn_name}&quot;</span>){
+                     <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">fcpoolInitiators</span>(<span class="ruby-string">'descr'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'dn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;org-root/org-#{org}/wwn-pool-#{wwpn_name}&quot;</span>,
+                                          <span class="ruby-string">'name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{wwpn_name}&quot;</span>, <span class="ruby-string">'purpose'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'port-wwn-assignment'</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>){
+                                            <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">fcpoolBlock</span>(<span class="ruby-string">'from'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{wwpn_from}&quot;</span>, <span class="ruby-string">'rn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;block-#{wwpn_from}-#{wwpn_to}&quot;</span>,
+                                                            <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>, <span class="ruby-string">'to'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{wwpn_to}&quot;</span>)
+                                          }
+                   }
+                 }
+               }
+             <span class="ruby-keyword">end</span>
+
+
+             <span class="ruby-comment">#Create XML</span>
+             <span class="ruby-identifier">create_wwpn_pool_XML</span> = <span class="ruby-identifier">xml_builder</span>.<span class="ruby-identifier">to_xml</span>.<span class="ruby-identifier">to_s</span>
+
+             <span class="ruby-comment">#Post</span>
+             <span class="ruby-keyword">begin</span>
+                  <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-ivar">@url</span>, <span class="ruby-identifier">create_wwpn_pool_XML</span>, <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/xml'</span>).<span class="ruby-identifier">body</span>
+             <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Error #{e}&quot;</span>
+             <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- create_wwpn_pool-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- create_wwpn_pool-method -->
+
+      
+        <div id="set_chassis_discovery_policy-method" class="method-detail ">
+          <a name="method-i-set_chassis_discovery_policy"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">set_chassis_discovery_policy</span><span
+              class="method-args">(json)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="set_chassis_discovery_policy-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/provision.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_chassis_discovery_policy</span>(<span class="ruby-identifier">json</span>)
+    
+    <span class="ruby-identifier">chassis_discovery_policy</span> = <span class="ruby-node">&quot;#{JSON.parse(json)['chassis_discovery_policy']}&quot;</span>
+
+            <span class="ruby-identifier">xml_builder</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">configConfMos</span>(<span class="ruby-string">'cookie'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{@cookie}&quot;</span>, <span class="ruby-string">'inHierarchical'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'false'</span>) {
+              <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">inConfigs</span>{
+                <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">pair</span>(<span class="ruby-string">'key'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'org-root/chassis-discovery'</span>){
+                  <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">computeChassisDiscPolicy</span>( <span class="ruby-string">'action'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{chassis_discovery_policy}&quot;</span>, <span class="ruby-string">'descr'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'dn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'org-root/chassis-discovery'</span>, 
+                                                <span class="ruby-string">'name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'rebalance'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'user-acknowledged'</span>)
+                }
+              }
+            }
+            <span class="ruby-keyword">end</span>
+
+            <span class="ruby-identifier">set_chassis_discovery_policy_XML</span> = <span class="ruby-identifier">xml_builder</span>.<span class="ruby-identifier">to_xml</span>.<span class="ruby-identifier">to_s</span>
+
+            <span class="ruby-comment">#Post</span>
+
+            <span class="ruby-keyword">begin</span>
+                    <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-ivar">@url</span>, <span class="ruby-identifier">set_chassis_discovery_policy_XML</span>, <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/xml'</span>).<span class="ruby-identifier">body</span>
+            <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Error #{e}&quot;</span>
+            <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">end</span></pre>
+            </div><!-- set_chassis_discovery_policy-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- set_chassis_discovery_policy-method -->
+
+      
+        <div id="set_local_disk_policy-method" class="method-detail ">
+          <a name="method-i-set_local_disk_policy"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">set_local_disk_policy</span><span
+              class="method-args">(json)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="set_local_disk_policy-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/provision.rb, line 303</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_local_disk_policy</span>(<span class="ruby-identifier">json</span>)
+
+            <span class="ruby-identifier">local_disk_policy</span>     = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'local_disk_policy'</span>]
+            <span class="ruby-identifier">org</span>                           = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>)[<span class="ruby-string">'org'</span>]
+
+            <span class="ruby-identifier">xml_builder</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">configConfMos</span>(<span class="ruby-string">'cookie'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{@cookie}&quot;</span>, <span class="ruby-string">'inHierarchical'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'true'</span>){
+              <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">inConfigs</span>{
+                <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">pair</span>(<span class="ruby-string">'key'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;org-root/org-#{org}/local-disk-config-#{org}-localdisk&quot;</span>){
+                  <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">storageLocalDiskConfigPolicy</span>(<span class="ruby-string">'descr'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'dn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;org-root/org-#{org}/local-disk-config-#{org}-localdisk&quot;</span>, 
+                                                   <span class="ruby-string">'mode'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{local_disk_policy}&quot;</span>, <span class="ruby-string">'name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{org}-localdisk&quot;</span>, <span class="ruby-string">'protectConfig'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'yes'</span>,
+                                                   <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span>)
+                }
+              }
+            }
+            <span class="ruby-keyword">end</span>
+
+            <span class="ruby-comment">#Create XML</span>
+            <span class="ruby-identifier">set_local_disk_policy_XML</span> = <span class="ruby-identifier">xml_builder</span>.<span class="ruby-identifier">to_xml</span>.<span class="ruby-identifier">to_s</span>
+
+            <span class="ruby-comment">#Post</span>
+            <span class="ruby-keyword">begin</span>
+                    <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-ivar">@url</span>, <span class="ruby-identifier">set_local_disk_policy_XML</span>, <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/xml'</span>).<span class="ruby-identifier">body</span>
+            <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Error #{e}&quot;</span>
+            <span class="ruby-keyword">end</span>
+            
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- set_local_disk_policy-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- set_local_disk_policy-method -->
+
+      
+        <div id="set_ntp-method" class="method-detail ">
+          <a name="method-i-set_ntp"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">set_ntp</span><span
+              class="method-args">(json)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="set_ntp-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/provision.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_ntp</span>(<span class="ruby-identifier">json</span>)
+
+            <span class="ruby-identifier">ntp_server</span> = <span class="ruby-node">&quot;#{JSON.parse(json)['ntp_server']}&quot;</span>
+
+            <span class="ruby-identifier">xml_builder</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">configConfMos</span>(<span class="ruby-string">'cookie'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{@cookie}&quot;</span>, <span class="ruby-string">'inHierarchical'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'false'</span>){
+              <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">inConfigs</span>{
+                <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">pair</span>(<span class="ruby-string">'key'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;sys/svc-ext/datetime-svc/ntp-#{ntp_server}&quot;</span>){
+                  <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">commNtpProvider</span>(<span class="ruby-string">'descr'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'dn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;sys/svc-ext/datetime-svc/ntp-#{ntp_server}&quot;</span>, <span class="ruby-string">'name'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{ntp_server}&quot;</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'created'</span> )
+                }
+              }
+            }
+            <span class="ruby-keyword">end</span>
+
+            <span class="ruby-identifier">set_ntp_XML</span> = <span class="ruby-identifier">xml_builder</span>.<span class="ruby-identifier">to_xml</span>.<span class="ruby-identifier">to_s</span>
+
+            <span class="ruby-comment">#Post</span>
+
+            <span class="ruby-keyword">begin</span>
+                    <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-ivar">@url</span>, <span class="ruby-identifier">set_ntp_XML</span>, <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/xml'</span>).<span class="ruby-identifier">body</span>
+            <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Error #{e}&quot;</span>
+            <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- set_ntp-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- set_ntp-method -->
+
+      
+        <div id="set_power_policy-method" class="method-detail ">
+          <a name="method-i-set_power_policy"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">set_power_policy</span><span
+              class="method-args">(json)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="set_power_policy-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/provision.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_power_policy</span>(<span class="ruby-identifier">json</span>)
+        
+        <span class="ruby-identifier">power_policy</span> = <span class="ruby-node">&quot;#{JSON.parse(json)['power_policy']}&quot;</span>
+
+        <span class="ruby-identifier">xml_builder</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">configConfMos</span>(<span class="ruby-string">'cookie'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{@cookie}&quot;</span>, <span class="ruby-string">'inHierarchical'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'false'</span>) {
+              <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">inConfigs</span>{
+                <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">pair</span>(<span class="ruby-string">'key'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'org-root/psu-policy'</span>){
+                  <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">computePsuPolicy</span>(<span class="ruby-string">'descr'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'dn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'org-root/psu-policy'</span>, <span class="ruby-string">'redundancy'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{power_policy}&quot;</span>)
+                }
+              }
+            }
+                <span class="ruby-keyword">end</span>
+
+        <span class="ruby-identifier">set_power_policy_XML</span> = <span class="ruby-identifier">xml_builder</span>.<span class="ruby-identifier">to_xml</span>.<span class="ruby-identifier">to_s</span>
+
+        <span class="ruby-comment">#Post</span>
+
+        <span class="ruby-keyword">begin</span> 
+                <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-ivar">@url</span>, <span class="ruby-identifier">set_power_policy_XML</span>, <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/xml'</span>).<span class="ruby-identifier">body</span>
+        <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Error #{e}&quot;</span>
+        <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- set_power_policy-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- set_power_policy-method -->
+
+      
+        <div id="set_time_zone-method" class="method-detail ">
+          <a name="method-i-set_time_zone"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">set_time_zone</span><span
+              class="method-args">(json)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="set_time_zone-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/provision.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_time_zone</span>(<span class="ruby-identifier">json</span>)
+
+            <span class="ruby-identifier">time_zone</span> = <span class="ruby-node">&quot;#{JSON.parse(json)['time_zone']}&quot;</span>
+
+            <span class="ruby-identifier">xml_builder</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">configConfMos</span>(<span class="ruby-string">'cookie'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{@cookie}&quot;</span>, <span class="ruby-string">'inHierarchical'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'false'</span>){
+              <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">inConfigs</span>{
+                <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">pair</span>(<span class="ruby-string">'key'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'sys/svc-ext/datetime-svc'</span>){
+                  <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">commDateTime</span>(<span class="ruby-string">'adminState'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'enabled'</span>, <span class="ruby-string">'descr'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">''</span>, <span class="ruby-string">'dn'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'sys/svc-ext/datetime-svc'</span>, <span class="ruby-string">'port'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'0'</span>, <span class="ruby-string">'status'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'modified'</span>, 
+                               <span class="ruby-string">'timezone'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{time_zone}&quot;</span>)
+                }
+              } 
+            }
+            <span class="ruby-keyword">end</span>
+
+            <span class="ruby-identifier">set_time_zone_XML</span> = <span class="ruby-identifier">xml_builder</span>.<span class="ruby-identifier">to_xml</span>.<span class="ruby-identifier">to_s</span>
+
+            <span class="ruby-comment">#Post</span>
+
+            <span class="ruby-keyword">begin</span>
+                    <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-ivar">@url</span>, <span class="ruby-identifier">set_time_zone_XML</span>, <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/xml'</span>).<span class="ruby-identifier">body</span>           
+            <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Error #{e}&quot;</span>
+            <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- set_time_zone-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- set_time_zone-method -->
+
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+

@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>Class: UCSInventory</title>
+
+  <link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+
+  <script src="./js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="class">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="./lib/ucslib/inventory_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/ucslib/inventory.rb">lib/ucslib/inventory.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+      <!-- Parent Class -->
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link">Object</p>
+        
+      </div>
+      
+
+      
+
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-i-discover">#discover</a></li>
+          
+          <li><a href="#method-i-list_blades">#list_blades</a></li>
+          
+          <li><a href="#method-i-list_cpus">#list_cpus</a></li>
+          
+          <li><a href="#method-i-list_memory">#list_memory</a></li>
+          
+          <li><a href="#method-i-list_running_firmware">#list_running_firmware</a></li>
+          
+          <li><a href="#method-i-list_service_profiles">#list_service_profiles</a></li>
+          
+          <li><a href="#method-i-list_vlans">#list_vlans</a></li>
+          
+          <li><a href="#method-i-list_vsans">#list_vsans</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Files</h3>
+        <ul>
+        
+          <li class="file"><a href="./README_rdoc.html">README.rdoc</a></li>
+        
+        </ul>
+      </div>
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="./images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="./UCSInventory.html">UCSInventory</a></li>
+        
+          <li><a href="./UCSProvision.html">UCSProvision</a></li>
+        
+          <li><a href="./UCSToken.html">UCSToken</a></li>
+        
+          <li><a href="./Ucslib.html">Ucslib</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="class">UCSInventory</h1>
+
+    <div id="description" class="description">
+      <table class="rdoc-list"><tr><td class="rdoc-term"><p>Author</p></td>
+<td>
+<p>Murali Raju (&lt;murali.raju@appliv.com&gt;)</p>
+</td></tr><tr><td class="rdoc-term"><p>Copyright</p></td>
+<td>
+<p>Copyright © 2012 Murali Raju.</p>
+</td></tr><tr><td class="rdoc-term"><p>License</p></td>
+<td>
+<p>Apache License, Version 2.0</p>
+</td></tr></table>
+
+<p>Licensed under the Apache License, Version 2.0 (the “License”); you may not
+use this file except in compliance with the License. You may obtain a copy
+of the License at</p>
+
+<p><a
+href="http://www.apache.org/licenses/LICENSE-2.0">www.apache.org/licenses/LICENSE-2.0</a></p>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an “AS IS” BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.</p>
+
+    </div><!-- description -->
+
+    
+    
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="discover-method" class="method-detail ">
+          <a name="method-i-discover"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">discover</span><span
+              class="method-args">(tokenjson)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="discover-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/inventory.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">discover</span>(<span class="ruby-identifier">tokenjson</span>)
+  
+  <span class="ruby-identifier">cookie</span>       = <span class="ruby-node">&quot;#{JSON.parse(tokenjson)['cookie']}&quot;</span>
+  <span class="ruby-identifier">ip</span>       = <span class="ruby-node">&quot;#{JSON.parse(tokenjson)['ip']}&quot;</span>
+  <span class="ruby-identifier">url</span>            = <span class="ruby-node">&quot;https://#{ip}/nuova&quot;</span>
+
+  <span class="ruby-comment">#Start Build the Multi-Class XML</span>
+  <span class="ruby-identifier">xml_builder</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
+     <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">configResolveClasses</span>(<span class="ruby-string">'cookie'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">cookie</span>, <span class="ruby-string">'inHierarchical'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'false'</span>) {
+      <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">inIds</span>{
+        <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">classId</span>(<span class="ruby-string">&quot;value&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;lsServer&quot;</span>)
+        <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">classId</span>(<span class="ruby-string">&quot;value&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;computeBlade&quot;</span>)
+        <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">classId</span>(<span class="ruby-string">&quot;value&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;firmwareRunning&quot;</span>)
+        <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">classId</span>(<span class="ruby-string">&quot;value&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;fabricVsan&quot;</span>)
+        <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">classId</span>(<span class="ruby-string">&quot;value&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;fabricVlan&quot;</span>)
+        <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">classId</span>(<span class="ruby-string">&quot;value&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;processorUnit&quot;</span>)
+      } 
+     }
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment">#End Build Multi-Class XML</span>
+
+  <span class="ruby-identifier">ucs_multi_class_XML</span> = <span class="ruby-identifier">xml_builder</span>.<span class="ruby-identifier">to_xml</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">ucs_response_multi_class</span> = <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">ucs_multi_class_XML</span>, <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/xml'</span>).<span class="ruby-identifier">body</span>
+
+   <span class="ruby-comment">#Uncomment the following to create a dump to review and debug elements</span>
+   <span class="ruby-comment"># fh = File.new(&quot;ucs_response_multiclass.xml&quot;, &quot;w&quot;)</span>
+   <span class="ruby-comment"># fh.puts ucs_response_multiclass.inspect </span>
+   <span class="ruby-comment"># fh.close</span>
+   
+   <span class="ruby-keyword">return</span> <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span>(<span class="ruby-identifier">ucs_response_multi_class</span>)
+   
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- discover-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- discover-method -->
+
+      
+        <div id="list_blades-method" class="method-detail ">
+          <a name="method-i-list_blades"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">list_blades</span><span
+              class="method-args">(ucs_multi_class_xml)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="list_blades-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/inventory.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">list_blades</span>(<span class="ruby-identifier">ucs_multi_class_xml</span>)
+
+  <span class="ruby-identifier">ucs_multi_class_xml</span>.<span class="ruby-identifier">xpath</span>(<span class="ruby-string">&quot;configResolveClasses/outConfigs/computeBlade&quot;</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">blade</span><span class="ruby-operator">|</span>
+           
+      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Blade : #{blade.attributes[&quot;serverId&quot;]} model: #{blade.attributes[&quot;model&quot;]}&quot;</span>               <span class="ruby-node">&quot; with serial: #{blade.attributes[&quot;serial&quot;]} is powered: #{blade.attributes[&quot;operPower&quot;]}&quot;</span>
+      
+  <span class="ruby-keyword">end</span>
+  
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- list_blades-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- list_blades-method -->
+
+      
+        <div id="list_cpus-method" class="method-detail ">
+          <a name="method-i-list_cpus"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">list_cpus</span><span
+              class="method-args">(ucs_multi_class_xml)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="list_cpus-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/inventory.rb, line 87</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">list_cpus</span>(<span class="ruby-identifier">ucs_multi_class_xml</span>)
+
+  <span class="ruby-identifier">ucs_multi_class_xml</span>.<span class="ruby-identifier">xpath</span>(<span class="ruby-string">&quot;configResolveClasses/outConfigs/processorUnit&quot;</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">processorunit</span><span class="ruby-operator">|</span>
+
+   <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;CPU model: #{processorunit.attributes[&quot;model&quot;]} Architecture: #{processorunit.attributes[&quot;arch&quot;]} with #{processorunit.attributes[&quot;cores&quot;]}&quot;</span>            <span class="ruby-node">&quot;cores with #{processorunit.attributes[&quot;coresEnabled&quot;]} enabled ID: #{processorunit.attributes[&quot;id&quot;]} Speed: #{processorunit.attributes[&quot;speed&quot;]}&quot;</span>            <span class="ruby-node">&quot;Threads: #{processorunit.attributes[&quot;threads&quot;]} Vendor: #{processorunit.attributes[&quot;vendor&quot;]}&quot;</span>
+
+  <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- list_cpus-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- list_cpus-method -->
+
+      
+        <div id="list_memory-method" class="method-detail ">
+          <a name="method-i-list_memory"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">list_memory</span><span
+              class="method-args">(ucs_multi_class_xml)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="list_memory-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/inventory.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">list_memory</span>(<span class="ruby-identifier">ucs_multi_class_xml</span>)
+
+  <span class="ruby-identifier">ucs_multi_class_xml</span>.<span class="ruby-identifier">xpath</span>(<span class="ruby-string">&quot;configResolveClasses/outConfigs/computeBlade&quot;</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">blade</span><span class="ruby-operator">|</span>
+
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Available Memory: #{blade.attributes[&quot;availableMemory&quot;]} Total Memory: #{blade.attributes[&quot;totalMemory&quot;]} Speed: #{blade.attributes[&quot;memorySpeed&quot;]}&quot;</span>
+
+  <span class="ruby-keyword">end</span>
+  
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- list_memory-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- list_memory-method -->
+
+      
+        <div id="list_running_firmware-method" class="method-detail ">
+          <a name="method-i-list_running_firmware"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">list_running_firmware</span><span
+              class="method-args">(ucs_multi_class_xml)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="list_running_firmware-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/inventory.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">list_running_firmware</span>(<span class="ruby-identifier">ucs_multi_class_xml</span>)
+
+  <span class="ruby-identifier">ucs_multi_class_xml</span>.<span class="ruby-identifier">xpath</span>(<span class="ruby-string">&quot;configResolveClasses/outConfigs/firmwareRunning&quot;</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">firmware</span><span class="ruby-operator">|</span>
+
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Firmware: #{firmware.attributes[&quot;dn&quot;]} version #{firmware.attributes[&quot;packageVersion&quot;]} package version&quot;</span>             <span class="ruby-node">&quot; #{firmware.attributes[&quot;packageVersion&quot;]} type #{firmware.attributes[&quot;type&quot;]}&quot;</span>
+
+  <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- list_running_firmware-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- list_running_firmware-method -->
+
+      
+        <div id="list_service_profiles-method" class="method-detail ">
+          <a name="method-i-list_service_profiles"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">list_service_profiles</span><span
+              class="method-args">(ucs_multi_class_xml)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="list_service_profiles-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/inventory.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">list_service_profiles</span>(<span class="ruby-identifier">ucs_multi_class_xml</span>)
+  
+  <span class="ruby-identifier">ucs_multi_class_xml</span>.<span class="ruby-identifier">xpath</span>(<span class="ruby-string">&quot;configResolveClasses/outConfigs/lsServer&quot;</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">serviceprofile</span><span class="ruby-operator">|</span>
+
+     <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Service Profile: #{serviceprofile.attributes[&quot;name&quot;]} in #{serviceprofile.attributes[&quot;dn&quot;]} with UUID #{serviceprofile.attributes[&quot;uuid&quot;]}&quot;</span>              <span class="ruby-node">&quot; is: #{serviceprofile.attributes[&quot;assocState&quot;]}&quot;</span>
+
+  <span class="ruby-keyword">end</span>
+  
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- list_service_profiles-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- list_service_profiles-method -->
+
+      
+        <div id="list_vlans-method" class="method-detail ">
+          <a name="method-i-list_vlans"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">list_vlans</span><span
+              class="method-args">(ucs_multi_class_xml)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="list_vlans-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/inventory.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">list_vlans</span>(<span class="ruby-identifier">ucs_multi_class_xml</span>)
+
+  <span class="ruby-identifier">ucs_multi_class_xml</span>.<span class="ruby-identifier">xpath</span>(<span class="ruby-string">&quot;configResolveClasses/outConfigs/fabricVlan&quot;</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">fabricvlan</span><span class="ruby-operator">|</span>
+
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;VLAN: #{fabricvlan.attributes[&quot;id&quot;]} with name: #{fabricvlan.attributes[&quot;name&quot;]}&quot;</span>
+
+  <span class="ruby-keyword">end</span>
+  
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- list_vlans-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- list_vlans-method -->
+
+      
+        <div id="list_vsans-method" class="method-detail ">
+          <a name="method-i-list_vsans"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">list_vsans</span><span
+              class="method-args">(ucs_multi_class_xml)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="list_vsans-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/inventory.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">list_vsans</span>(<span class="ruby-identifier">ucs_multi_class_xml</span>)
+
+   <span class="ruby-identifier">ucs_multi_class_xml</span>.<span class="ruby-identifier">xpath</span>(<span class="ruby-string">&quot;configResolveClasses/outConfigs/fabricVsan&quot;</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">fabricvsan</span><span class="ruby-operator">|</span>
+     
+     <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;VSAN: #{fabricvsan.attributes[&quot;fcoeVlan&quot;]} with FCoE ID: #{fabricvsan.attributes[&quot;id&quot;]}&quot;</span>              <span class="ruby-node">&quot; status: #{fabricvsan.attributes[&quot;operState&quot;]}&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- list_vsans-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- list_vsans-method -->
+
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+

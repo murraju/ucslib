@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>Class: UCSToken</title>
+
+  <link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+
+  <script src="./js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="class">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="./lib/ucslib/session_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/ucslib/session.rb">lib/ucslib/session.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+      <!-- Parent Class -->
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link">Object</p>
+        
+      </div>
+      
+
+      
+
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-i-get_token">#get_token</a></li>
+          
+          <li><a href="#method-i-logout">#logout</a></li>
+          
+          <li><a href="#method-i-refresh_token">#refresh_token</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Files</h3>
+        <ul>
+        
+          <li class="file"><a href="./README_rdoc.html">README.rdoc</a></li>
+        
+        </ul>
+      </div>
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="./images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="./UCSInventory.html">UCSInventory</a></li>
+        
+          <li><a href="./UCSProvision.html">UCSProvision</a></li>
+        
+          <li><a href="./UCSToken.html">UCSToken</a></li>
+        
+          <li><a href="./Ucslib.html">Ucslib</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="class">UCSToken</h1>
+
+    <div id="description" class="description">
+      
+<p>UCSM API Session management</p>
+
+    </div><!-- description -->
+
+    
+    
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="get_token-method" class="method-detail ">
+          <a name="method-i-get_token"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">get_token</span><span
+              class="method-args">(authjson)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>Accept a JSON object that contains the UCSM username, password, and IP</p>
+            
+
+            
+            <div class="method-source-code" id="get_token-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/session.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_token</span>(<span class="ruby-identifier">authjson</span>)
+
+    <span class="ruby-identifier">username</span> = <span class="ruby-node">&quot;#{JSON.parse(authjson)['username']}&quot;</span>
+    <span class="ruby-identifier">password</span> = <span class="ruby-node">&quot;#{JSON.parse(authjson)['password']}&quot;</span>
+    <span class="ruby-identifier">ip</span>       = <span class="ruby-node">&quot;#{JSON.parse(authjson)['ip']}&quot;</span>
+    <span class="ruby-identifier">url</span>      = <span class="ruby-node">&quot;https://#{ip}/nuova&quot;</span>
+    
+    <span class="ruby-identifier">xml_builder</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">aaaLogin</span>(<span class="ruby-string">'inName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">username</span>, <span class="ruby-string">'inPassword'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">password</span>)
+        <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">aaa_login_xml</span> = <span class="ruby-identifier">xml_builder</span>.<span class="ruby-identifier">to_xml</span>.<span class="ruby-identifier">to_s</span>
+    <span class="ruby-identifier">ucs_response</span> = <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">aaa_login_xml</span>, <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/xml'</span>).<span class="ruby-identifier">body</span> 
+    <span class="ruby-identifier">ucs_login_doc</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span>(<span class="ruby-identifier">ucs_response</span>) 
+    <span class="ruby-identifier">ucs_login_root</span> = <span class="ruby-identifier">ucs_login_doc</span>.<span class="ruby-identifier">root</span> 
+    <span class="ruby-identifier">cookie</span> = <span class="ruby-identifier">ucs_login_root</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-string">'outCookie'</span>] 
+
+        <span class="ruby-keyword">begin</span>
+                <span class="ruby-keyword">return</span> <span class="ruby-identifier">session</span> = {  <span class="ruby-value">:cookie</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{cookie}&quot;</span>,
+                                                    <span class="ruby-value">:username</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{username}&quot;</span>,
+                                                    <span class="ruby-value">:password</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{password}&quot;</span>,
+                                                    <span class="ruby-value">:ip</span>       =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{ip}&quot;</span>  }.<span class="ruby-identifier">to_json</span> 
+        <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                <span class="ruby-string">'An Error Occured. Please check authentication credentials'</span>
+        <span class="ruby-keyword">else</span>
+                <span class="ruby-constant">Process</span>.<span class="ruby-identifier">exit</span>
+        <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- get_token-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- get_token-method -->
+
+      
+        <div id="logout-method" class="method-detail ">
+          <a name="method-i-logout"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">logout</span><span
+              class="method-args">(tokenjson)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="logout-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/session.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">logout</span>(<span class="ruby-identifier">tokenjson</span>)
+  
+       <span class="ruby-identifier">cookie</span>       = <span class="ruby-node">&quot;#{JSON.parse(tokenjson).values[0]}&quot;</span>
+<span class="ruby-identifier">ip</span>       = <span class="ruby-node">&quot;#{JSON.parse(tokenjson).values[3]}&quot;</span>
+    <span class="ruby-identifier">url</span>        = <span class="ruby-node">&quot;https://#{ip}/nuova&quot;</span>
+  
+       <span class="ruby-identifier">xml_builder</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">aaaLogout</span>(<span class="ruby-string">'inCookie'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">cookie</span>)
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">aaaLogoutXML</span> = <span class="ruby-identifier">xml_builder</span>.<span class="ruby-identifier">to_xml</span>.<span class="ruby-identifier">to_s</span>
+
+<span class="ruby-identifier">ucsResponse</span> = <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">aaaLogoutXML</span>, <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/xml'</span>).<span class="ruby-identifier">body</span> 
+<span class="ruby-keyword">if</span> <span class="ruby-identifier">ucsResponse</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">'Sucessfully logged out.'</span>
+<span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">'Something went wrong. Lost connection to the UCS System'</span>   
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- logout-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- logout-method -->
+
+      
+        <div id="refresh_token-method" class="method-detail ">
+          <a name="method-i-refresh_token"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">refresh_token</span><span
+              class="method-args">(tokenjson)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="refresh_token-source">
+<pre>
+<span class="ruby-comment"># File lib/ucslib/session.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">refresh_token</span>(<span class="ruby-identifier">tokenjson</span>)
+
+        <span class="ruby-identifier">cookie</span>         = <span class="ruby-node">&quot;#{JSON.parse(tokenjson)['cookie']}&quot;</span>
+        <span class="ruby-identifier">username</span> = <span class="ruby-node">&quot;#{JSON.parse(tokenjson)['username']}&quot;</span>
+    <span class="ruby-identifier">password</span> = <span class="ruby-node">&quot;#{JSON.parse(tokenjson)['password']}&quot;</span>
+    <span class="ruby-identifier">ip</span>       = <span class="ruby-node">&quot;#{JSON.parse(tokenjson)['ip']}&quot;</span>
+    <span class="ruby-identifier">url</span>         = <span class="ruby-node">&quot;https://#{ip}/nuova&quot;</span>
+    
+
+    <span class="ruby-identifier">xml_builder</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">aaaRefresh</span>(<span class="ruby-string">'inName'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">username</span>, <span class="ruby-string">'inPassword'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">password</span>, <span class="ruby-string">'inCookie'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">cookie</span>)
+        <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">aaa_refresh_xml</span> = <span class="ruby-identifier">xml_builder</span>.<span class="ruby-identifier">to_xml</span>.<span class="ruby-identifier">to_s</span>
+    
+    <span class="ruby-identifier">ucs_response</span> = <span class="ruby-constant">RestClient</span>.<span class="ruby-identifier">post</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">aaa_refresh_xml</span>, <span class="ruby-value">:content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'text/xml'</span>).<span class="ruby-identifier">body</span> 
+
+ 
+    <span class="ruby-identifier">ucs_login_doc</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span>(<span class="ruby-identifier">ucs_response</span>)
+    <span class="ruby-identifier">ucs_login_root</span> = <span class="ruby-identifier">ucs_login_doc</span>.<span class="ruby-identifier">root</span> 
+    <span class="ruby-identifier">new_cookie</span> = <span class="ruby-identifier">ucs_login_root</span>.<span class="ruby-identifier">attributes</span>[<span class="ruby-string">'outCookie'</span>] 
+
+    <span class="ruby-keyword">begin</span>
+            <span class="ruby-comment">#return ucs_session json containing new cookie, url, ip</span>
+                <span class="ruby-keyword">return</span> <span class="ruby-identifier">session</span> = {  <span class="ruby-value">:cookie</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{new_cookie}&quot;</span>,
+                                                    <span class="ruby-value">:username</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{username}&quot;</span>,
+                                                    <span class="ruby-value">:password</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{password}&quot;</span>,
+                                                    <span class="ruby-value">:ip</span>       =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{ip}&quot;</span>  }.<span class="ruby-identifier">to_json</span> 
+          <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                <span class="ruby-string">'An Error Occured. Please check authentication credentials'</span>
+          <span class="ruby-keyword">else</span>
+                  <span class="ruby-constant">Process</span>.<span class="ruby-identifier">exit</span>
+          <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- refresh_token-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- refresh_token-method -->
+
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+
