@@ -10,7 +10,7 @@ gem install ucslib
 == Usage (example irb session)
 
 
-Just do "require ucslib" in your apps. Below is an introspection of some of the capabilities using IRB.
+Just do "require ucslib" in your apps. Below is an IRB session to highlight some capabilities.
 
 
 ➜  ucslib git:(master) ✗ irb
