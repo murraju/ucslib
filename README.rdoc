@@ -13,7 +13,8 @@ gem install ucslib
 Just do "require ucslib" in your apps. Below is an introspection of some of the capabilities using IRB.
 
 
-➜  ucslib git:(master) ✗ irb       
+➜  ucslib git:(master) ✗ irb
+
 1.9.3p194 :001 > require 'ucslib'
  => true 
 1.9.3p194 :002 > auth_json = { :username => 'admin', :password => 'admin', :ip => '172.16.75.137' }.to_json
