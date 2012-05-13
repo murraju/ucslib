@@ -26,7 +26,7 @@ Gem::Specification.new do |s|
   s.email       = ["murali.raju@appliv.com"]
   s.homepage    = ""
   s.summary     = %q{Ruby UCS Manager Client Library}
-  s.description = %q{RUby UCS Manager API abstraction to build automation tools}
+  s.description = %q{Ruby Client Library for Cisco UCS Manager that can be used by DevOps toolchains (Chef/Puppet or others) to provide hardware deployment automation}
 
   s.rubyforge_project = "ucslib"
 
