@@ -28,12 +28,44 @@ class UCSInventory
     xml_builder = Nokogiri::XML::Builder.new do |xml|
        xml.configResolveClasses('cookie' => cookie, 'inHierarchical' => 'false') {
         xml.inIds{
-          xml.classId("value" => "lsServer")
+          xml.classId("value" => "topSystem")
+          xml.classId("value" => "equipmentChassis")
           xml.classId("value" => "computeBlade")
-          xml.classId("value" => "firmwareRunning")
-          xml.classId("value" => "fabricVsan")
-          xml.classId("value" => "fabricVlan")
+          xml.classId("value" => "equipmentSwitchCard")
+          xml.classId("value" => "equipmentIOCard")
+          xml.classId("value" => "equipmentFanModule")
+          xml.classId("value" => "equipmentPsu")
           xml.classId("value" => "processorUnit")
+          xml.classId("value" => "adaptorHostIf")
+          xml.classId("value" => "memoryArray")
+          xml.classId("value" => "memoryUnit")
+          xml.classId("value" => "storageLocalDisk")
+          xml.classId("value" => "equipmentFan")
+          xml.classId("value" => "firmwareRunning")
+          xml.classId("value" => "lsServer")
+          xml.classId("value" => "orgOrg")
+          xml.classId("value" => "fabricVlan")
+          xml.classId("value" => "vnicEther")
+          xml.classId("value" => "fabricVsan")
+          xml.classId("value" => "vmAdaptor")
+          xml.classId("value" => "vmCont")
+          xml.classId("value" => "vmDC")
+          xml.classId("value" => "vmDCOrg")
+          xml.classId("value" => "vmDirCont")
+          xml.classId("value" => "vmEp")
+          xml.classId("value" => "vmHba")
+          xml.classId("value" => "vmHv")
+          xml.classId("value" => "vmInstance")
+          xml.classId("value" => "vmLifeCyclePolicy")
+          xml.classId("value" => "vmNic")
+          xml.classId("value" => "vmOrg")
+          xml.classId("value" => "vmSwitch")
+          xml.classId("value" => "vmVif")
+          xml.classId("value" => "vmVirtual")
+          xml.classId("value" => "vmVlan")
+          xml.classId("value" => "vmVnicProfCl")
+          xml.classId("value" => "vmVnicProfInst")
+          xml.classId("value" => "vmVsan")
         } 
        }
     end
@@ -54,7 +86,7 @@ class UCSInventory
   
   
   def list_blades(ucs_multi_class_xml)
-
+    
     ucs_multi_class_xml.xpath("configResolveClasses/outConfigs/computeBlade").each do |blade|
              
         puts "Blade : #{blade.attributes["serverId"]} model: #{blade.attributes["model"]}" \
