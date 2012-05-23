@@ -19,9 +19,9 @@ class UCSDeprovision
   
   def initialize(tokenjson)
     
-	    @cookie  = "#{JSON.parse(tokenjson)['cookie']}"
-	    ip       = "#{JSON.parse(tokenjson)['ip']}"
-	    @url 	 = "https://#{ip}/nuova"
+	    @cookie   = "#{JSON.parse(tokenjson)['cookie']}"
+	    ip        = "#{JSON.parse(tokenjson)['ip']}"
+	    @url 	    = "https://#{ip}/nuova"
 
 	end
 	
