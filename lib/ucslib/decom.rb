@@ -49,6 +49,8 @@ class UCSDcom
   		rescue Exception => e
   			raise "Error #{e}"
   		end
+		
+		end
 	 
 	end
 	
