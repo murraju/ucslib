@@ -77,7 +77,7 @@ class UCSInventory
 
      #Uncomment the following to create a dump to review and debug elements
      # fh = File.new("ucs_response_multiclass.xml", "w")
-     # fh.puts ucs_response_multiclass.inspect 
+     # fh.puts ucs_response_multi_class.inspect 
      # fh.close
      
      return Nokogiri::XML(ucs_response_multi_class)
