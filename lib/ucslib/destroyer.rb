@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-class UCSProvision
+class UCSDestroy
 
 	def initialize(tokenjson)
     
