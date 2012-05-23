@@ -275,7 +275,7 @@ class UCSProvision
 
     def create_orgs(json)
 
-		orgs = JSON.parse(json)['orgs'].split(',')
+		orgs = JSON.parse(json)['orgs'].to_s.split(',')
 
       orgs.each do |org|
     		xml_builder = Nokogiri::XML::Builder.new do |xml|
