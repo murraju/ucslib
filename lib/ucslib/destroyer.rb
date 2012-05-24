@@ -31,10 +31,10 @@ class UCSDestroy
 	org = JSON.parse(json)['org']
 
 		xml_builder = Nokogiri::XML::Builder.new do |xml|
-		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true') {
+		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'false') {
 		  xml.inConfigs{
 		    xml.pair('key' => "org-root/org-#{org}") {
-		      xml.orgOrg('descr' => "#{org} org", 'dn' => "org-root/org-#{org}", 'name' => "#{org}", 'status' => 'deleted')
+		      xml.orgOrg('dn' => "org-root/org-#{org}", 'status' => 'deleted')
 		    }
 		  }
 		}
