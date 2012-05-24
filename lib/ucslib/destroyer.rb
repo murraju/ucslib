@@ -51,8 +51,34 @@ class UCSDestroy
 			raise "Error #{e}"
 		end
   		
-
   end
 
+  def delete_vlan(json)
+
+		vlan_id     = JSON.parse(json)['vlan_id']
+		vlan_name   = JSON.parse(json)['vlan_name']
+
+		xml_builder = Nokogiri::XML::Builder.new do |xml|
+		  xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'false'){
+		    xml.inConfigs{
+		      xml.pair('key' => "fabric/lan/net-#{vlan_name}"){
+		        xml.fabricVlan('dn' => "fabric/lan/net-#{vlan_name}", 'id' => "#{vlan_id}",
+		                       'name' => "#{vlan_name}", 'status' => 'deleted')
+		      }
+		    }
+		  }
+		end
+
+		#Create XML
+		delete_vlan_XML = xml_builder.to_xml.to_s
+
+		#Post
+		begin
+			RestClient.post(@url, delete_vlan_XML, :content_type => 'text/xml').body
+		rescue Exception => e
+			raise "Error #{e}"
+		end
+
+	end  
 
 end
