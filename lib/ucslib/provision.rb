@@ -42,7 +42,6 @@ class UCSProvision
 		set_power_policy_XML = xml_builder.to_xml.to_s
 
 		#Post
-
 		begin	
 			RestClient.post(@url, set_power_policy_XML, :content_type => 'text/xml').body
 		rescue Exception => e
@@ -882,7 +881,7 @@ class UCSProvision
 		service_profile_vhba_a_template    = JSON.parse(json)['service_profile_vhba_a_template'].to_s
 		service_profile_vhba_b             = JSON.parse(json)['service_profile_vhba_b'].to_s
 		service_profile_vhba_b_template    = JSON.parse(json)['service_profile_vhba_b_template'].to_s
-		org                				   = JSON.parse(json)['org'].to_s
+		org                				         = JSON.parse(json)['org'].to_s
 		service_profile_template_to_bind   = JSON.parse(json)['service_profile_template_to_bind'].to_s
 
 
@@ -892,7 +891,7 @@ class UCSProvision
 		      xml.inConfigs{@service_profile_names.each do |service_profile_name|
 		        xml.pair('key' => "org-root/org-#{org}/ls-#{service_profile_name}"){
 		          xml.lsServer('agentPolicyName' => '', 'biosProfileName' => '', 'bootPolicyName' => "#{service_profile_boot_policy}",
-		                       'descr' => '', 'dn' => "org-root/org-#{service_profile_org}/ls-#{service_profile_name}",
+		                       'descr' => '', 'dn' => "org-root/org-#{org}/ls-#{service_profile_name}",
 		                       'dynamicConPolicyName' => '', 'extIPState' => 'none', 'hostFwPolicyName' => "#{service_profile_host_fw_policy}",
 		                       'identPoolName' => "#{service_profile_uuid_pool}", 'localDiskPolicyName' => 'default', 'maintPolicyName' => 'default',
 		                       'mgmtAccessPolicyName' => '', 'mgmtFwPolicyName' => "#{service_profile_mgmt_fw_policy}", 'name' => "#{service_profile_name}",
