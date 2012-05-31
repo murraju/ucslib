@@ -19,7 +19,7 @@ require "ucslib/version"
 require "ucslib/session"
 require "ucslib/provision"
 require "ucslib/inventory"
-require 'ucslib/destroyer'
+require 'ucslib/destroy'
 
 require 'nokogiri'
 require 'rest-client'
