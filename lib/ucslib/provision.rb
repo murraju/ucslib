@@ -529,30 +529,30 @@ class UCSProvision
   	# 
   	# get_mac_pool_suffix(size)
 
-  	xml_builder = Nokogiri::XML::Builder.new do |xml|
-  	  xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
-  	    xml.inConfigs{
-  	      xml.pair('key' => "org-root/org-#{org}/mac-pool-#{mac_pool_name}"){
-  	        xml.macpoolPool('descr' => '', 'dn' => "org-root/org-#{org}/mac-pool-#{mac_pool_name}", 'name' => "#{mac_pool_name}",
-  	                        'status' => 'created'){
-  	                          xml.macpoolBlock('from' => "#{mac_pool_start}", 'rn' => "block-#{mac_pool_start}-#{mac_pool_end}",
-  	                                           'status' => 'created', 'to' => "#{mac_pool_end}")
-  	                        }
-  	      }
-  	    }
-  	  }
+    	xml_builder = Nokogiri::XML::Builder.new do |xml|
+    	  xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
+    	    xml.inConfigs{
+    	      xml.pair('key' => "org-root/org-#{org}/mac-pool-#{mac_pool_name}"){
+    	        xml.macpoolPool('descr' => '', 'dn' => "org-root/org-#{org}/mac-pool-#{mac_pool_name}", 'name' => "#{mac_pool_name}",
+    	                        'status' => 'created'){
+    	                          xml.macpoolBlock('from' => "#{mac_pool_start}", 'rn' => "block-#{mac_pool_start}-#{mac_pool_end}",
+    	                                           'status' => 'created', 'to' => "#{mac_pool_end}")
+    	                        }
+    	      }
+    	    }
+    	  }
 
-	end
+  	  end
 
-		#Create XML
-		create_mac_pool_XML = xml_builder.to_xml.to_s
+  	  #Create XML
+  		create_mac_pool_XML = xml_builder.to_xml.to_s
 
-		#Post
-		begin
-			RestClient.post(@url, create_mac_pool_XML, :content_type => 'text/xml').body
-		rescue Exception => e
-			raise "Error #{e}"
-		end
+  		#Post
+  		begin
+  			RestClient.post(@url, create_mac_pool_XML, :content_type => 'text/xml').body
+  		rescue Exception => e
+  			raise "Error #{e}"
+  		end
 
     end
 
@@ -586,7 +586,7 @@ class UCSProvision
 		      }
 		    }
 		  }
-		end
+	end
 
 		#Create XML
 		create_vnic_template_XML = xml_builder.to_xml.to_s
