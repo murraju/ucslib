@@ -455,10 +455,10 @@ class UCSProvision
 
     def create_management_ip_pool(json)
 
-		start_ip 	= JSON.parse(json)['start_ip']
-		end_ip   	= JSON.parse(json)['end_ip']
+		start_ip 	  = JSON.parse(json)['start_ip']
+		end_ip   	  = JSON.parse(json)['end_ip']
 		subnet_mask = JSON.parse(json)['subnet_mask']
-		gateway  	= JSON.parse(json)['gateway']
+		gateway  	  = JSON.parse(json)['gateway']
 
 		xml_builder = Nokogiri::XML::Builder.new do |xml|
 		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
