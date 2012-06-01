@@ -511,38 +511,38 @@ class UCSProvision
 
 	end
 
-    def create_mac_pool(json)
+  def create_mac_pool(json)
 
-		mac_pool_name   = JSON.parse(json)['mac_pool_name']
-		mac_pool_start  = JSON.parse(json)['mac_pool_start']
-		#size            = JSON.parse(json)['size']
-		mac_pool_end    = JSON.parse(json)['mac_pool_end']
-		org    			= JSON.parse(json)['org']
-		
-		# 
-		# def get_mac_pool_suffix(size)
-		#  mac_pool_size = size   
-		#  octets         = mac_pool_start.split(':')
-		#  octets[-1]     = (mac_pool_size - 1).to_s(base=16)
-		#  return mac_pool_end = octets.join(':')
-		# end
-		# 
-		# get_mac_pool_suffix(size)
+  	mac_pool_name   = JSON.parse(json)['mac_pool_name']
+  	mac_pool_start  = JSON.parse(json)['mac_pool_start']
+  	#size            = JSON.parse(json)['size']
+  	mac_pool_end    = JSON.parse(json)['mac_pool_end']
+  	org    			= JSON.parse(json)['org']
+	
+  	# 
+  	# def get_mac_pool_suffix(size)
+  	#  mac_pool_size = size   
+  	#  octets         = mac_pool_start.split(':')
+  	#  octets[-1]     = (mac_pool_size - 1).to_s(base=16)
+  	#  return mac_pool_end = octets.join(':')
+  	# end
+  	# 
+  	# get_mac_pool_suffix(size)
 
-		xml_builder = Nokogiri::XML::Builder.new do |xml|
-		  xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
-		    xml.inConfigs{
-		      xml.pair('key' => "org-root/org-#{org}/mac-pool-#{mac_pool_name}"){
-		        xml.macpoolPool('descr' => '', 'dn' => "org-root/org-#{org}/mac-pool-#{mac_pool_name}", 'name' => "#{mac_pool_name}",
-		                        'status' => 'created'){
-		                          xml.macpoolBlock('from' => "#{mac_pool_start}", 'rn' => "block-#{mac_pool_start}-#{mac_pool_end}",
-		                                           'status' => 'created', 'to' => "#{mac_pool_end}")
-		                        }
-		      }
-		    }
-		  }
+  	xml_builder = Nokogiri::XML::Builder.new do |xml|
+  	  xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
+  	    xml.inConfigs{
+  	      xml.pair('key' => "org-root/org-#{org}/mac-pool-#{mac_pool_name}"){
+  	        xml.macpoolPool('descr' => '', 'dn' => "org-root/org-#{org}/mac-pool-#{mac_pool_name}", 'name' => "#{mac_pool_name}",
+  	                        'status' => 'created'){
+  	                          xml.macpoolBlock('from' => "#{mac_pool_start}", 'rn' => "block-#{mac_pool_start}-#{mac_pool_end}",
+  	                                           'status' => 'created', 'to' => "#{mac_pool_end}")
+  	                        }
+  	      }
+  	    }
+  	  }
 
-		end
+	end
 
 		#Create XML
 		create_mac_pool_XML = xml_builder.to_xml.to_s
