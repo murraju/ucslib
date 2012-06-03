@@ -778,7 +778,7 @@ class UCSProvision
 		 service_profile_template_vhba_a_template    = JSON.parse(json)['service_profile_template_vhba_a_template']
 		 service_profile_template_vhba_b             = JSON.parse(json)['service_profile_template_vhba_b'].to_s
 		 service_profile_template_vhba_b_template    = JSON.parse(json)['service_profile_template_vhba_b_template'].to_s
-		 org                						 = JSON.parse(json)['org'].to_s
+		 org                						             = JSON.parse(json)['org'].to_s
 
 		 xml_builder = Nokogiri::XML::Builder.new do |xml|
 		   xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
@@ -836,10 +836,10 @@ class UCSProvision
 
    def create_service_profiles_from_template(json)
 
-		 service_profile_template_name               = JSON.parse(json)['service_profile_template_name'].to_s
-		 org                						 = JSON.parse(json)['org'].to_s
-		 service_profile_template_sp_prefix          = JSON.parse(json)['service_profile_template_sp_prefix'].to_s
-		 service_profile_template_num_of_sps         = JSON.parse(json)['service_profile_template_num_of_sps'].to_i
+		 service_profile_template_name              = JSON.parse(json)['service_profile_template_name'].to_s
+		 org                						            = JSON.parse(json)['org'].to_s
+		 service_profile_template_sp_prefix         = JSON.parse(json)['service_profile_template_sp_prefix'].to_s
+		 service_profile_template_num_of_sps        = JSON.parse(json)['service_profile_template_num_of_sps'].to_i
 
 		 xml_builder = Nokogiri::XML::Builder.new do |xml|
 		       xml.lsInstantiateNTemplate('dn' => "org-root/org-#{org}/ls-#{service_profile_template_name}",
