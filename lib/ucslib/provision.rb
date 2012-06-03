@@ -512,21 +512,21 @@ class UCSProvision
 
     def create_mac_pool(json)
 
-  	mac_pool_name   = JSON.parse(json)['mac_pool_name']
-  	mac_pool_start  = JSON.parse(json)['mac_pool_start']
-  	#size            = JSON.parse(json)['size']
-  	mac_pool_end    = JSON.parse(json)['mac_pool_end']
-  	org    			= JSON.parse(json)['org']
+    	mac_pool_name   = JSON.parse(json)['mac_pool_name']
+    	mac_pool_start  = JSON.parse(json)['mac_pool_start']
+    	#size            = JSON.parse(json)['size']
+    	mac_pool_end    = JSON.parse(json)['mac_pool_end']
+    	org    			= JSON.parse(json)['org']
 	
-  	# 
-  	# def get_mac_pool_suffix(size)
-  	#  mac_pool_size = size   
-  	#  octets         = mac_pool_start.split(':')
-  	#  octets[-1]     = (mac_pool_size - 1).to_s(base=16)
-  	#  return mac_pool_end = octets.join(':')
-  	# end
-  	# 
-  	# get_mac_pool_suffix(size)
+    	# 
+    	# def get_mac_pool_suffix(size)
+    	#  mac_pool_size = size   
+    	#  octets         = mac_pool_start.split(':')
+    	#  octets[-1]     = (mac_pool_size - 1).to_s(base=16)
+    	#  return mac_pool_end = octets.join(':')
+    	# end
+    	# 
+    	# get_mac_pool_suffix(size)
 
     	xml_builder = Nokogiri::XML::Builder.new do |xml|
     	  xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
