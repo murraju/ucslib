@@ -17,264 +17,264 @@
 
 class UCSProvision
 
-	def initialize(tokenjson)
+	  def initialize(tokenjson)
     
 	    @cookie  = "#{JSON.parse(tokenjson)['cookie']}"
 	    ip       = "#{JSON.parse(tokenjson)['ip']}"
 	    @url 	 = "https://#{ip}/nuova"
 
-	end
+	  end
 
-	def set_power_policy(json)
+	  def set_power_policy(json)
 		
-		power_policy = "#{JSON.parse(json)['power_policy']}"
+  		power_policy = "#{JSON.parse(json)['power_policy']}"
 
-		xml_builder = Nokogiri::XML::Builder.new do |xml|
-		    xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'false') {
-		      xml.inConfigs{
-		        xml.pair('key' => 'org-root/psu-policy'){
-		          xml.computePsuPolicy('descr' => '', 'dn' => 'org-root/psu-policy', 'redundancy' => "#{power_policy}")
-		        }
-		      }
-		    }
-			end
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
+  		    xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'false') {
+  		      xml.inConfigs{
+  		        xml.pair('key' => 'org-root/psu-policy'){
+  		          xml.computePsuPolicy('descr' => '', 'dn' => 'org-root/psu-policy', 'redundancy' => "#{power_policy}")
+  		        }
+  		      }
+  		    }
+  			end
 
-		set_power_policy_XML = xml_builder.to_xml.to_s
+  		set_power_policy_XML = xml_builder.to_xml.to_s
 
-		#Post
-		begin	
-			RestClient.post(@url, set_power_policy_XML, :content_type => 'text/xml').body
-		rescue Exception => e
-			raise "Error #{e}"
-		end
+  		#Post
+  		begin	
+  			RestClient.post(@url, set_power_policy_XML, :content_type => 'text/xml').body
+  		rescue Exception => e
+  			raise "Error #{e}"
+  		end
 
-	end
+	  end
 
     def set_chassis_discovery_policy(json)
     	
-    	chassis_discovery_policy = "#{JSON.parse(json)['chassis_discovery_policy']}"
+      chassis_discovery_policy = "#{JSON.parse(json)['chassis_discovery_policy']}"
 
-		xml_builder = Nokogiri::XML::Builder.new do |xml|
-		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'false') {
-		  xml.inConfigs{
-		    xml.pair('key' => 'org-root/chassis-discovery'){
-		      xml.computeChassisDiscPolicy( 'action' => "#{chassis_discovery_policy}", 'descr' => '', 'dn' => 'org-root/chassis-discovery', 
-		                                    'name' => '', 'rebalance' => 'user-acknowledged')
-		    }
-		  }
-		}
-		end
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
+  		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'false') {
+  		  xml.inConfigs{
+  		    xml.pair('key' => 'org-root/chassis-discovery'){
+  		      xml.computeChassisDiscPolicy( 'action' => "#{chassis_discovery_policy}", 'descr' => '', 'dn' => 'org-root/chassis-discovery', 
+  		                                    'name' => '', 'rebalance' => 'user-acknowledged')
+  		    }
+  		  }
+  		}
+  		end
 
-		set_chassis_discovery_policy_XML = xml_builder.to_xml.to_s
+  		set_chassis_discovery_policy_XML = xml_builder.to_xml.to_s
 
-		#Post
+  		#Post
 
-		begin
-			RestClient.post(@url, set_chassis_discovery_policy_XML, :content_type => 'text/xml').body
-		rescue Exception => e
-			raise "Error #{e}"
-		end
+  		begin
+  			RestClient.post(@url, set_chassis_discovery_policy_XML, :content_type => 'text/xml').body
+  		rescue Exception => e
+  			raise "Error #{e}"
+  		end
 
-	end
+	  end
 
 
     def set_time_zone(json)
 
-		time_zone = "#{JSON.parse(json)['time_zone']}"
+  		time_zone = "#{JSON.parse(json)['time_zone']}"
 
-		xml_builder = Nokogiri::XML::Builder.new do |xml|
-		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'false'){
-		  xml.inConfigs{
-		    xml.pair('key' => 'sys/svc-ext/datetime-svc'){
-		      xml.commDateTime('adminState' => 'enabled', 'descr' => '', 'dn' => 'sys/svc-ext/datetime-svc', 'port' => '0', 'status' => 'modified', 
-		                   'timezone' => "#{time_zone}")
-		    }
-		  } 
-		}
-		end
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
+  		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'false'){
+  		  xml.inConfigs{
+  		    xml.pair('key' => 'sys/svc-ext/datetime-svc'){
+  		      xml.commDateTime('adminState' => 'enabled', 'descr' => '', 'dn' => 'sys/svc-ext/datetime-svc', 'port' => '0', 'status' => 'modified', 
+  		                   'timezone' => "#{time_zone}")
+  		    }
+  		  } 
+  		}
+  		end
 
-		set_time_zone_XML = xml_builder.to_xml.to_s
+  		set_time_zone_XML = xml_builder.to_xml.to_s
 
-		#Post
+  		#Post
 
-		begin
-			RestClient.post(@url, set_time_zone_XML, :content_type => 'text/xml').body		
-		rescue Exception => e
-			raise "Error #{e}"
-		end
+  		begin
+  			RestClient.post(@url, set_time_zone_XML, :content_type => 'text/xml').body		
+  		rescue Exception => e
+  			raise "Error #{e}"
+  		end
 
     end
 
     def set_ntp(json)
 
-		ntp_server = "#{JSON.parse(json)['ntp_server']}"
+  		ntp_server = "#{JSON.parse(json)['ntp_server']}"
 
-		xml_builder = Nokogiri::XML::Builder.new do |xml|
-		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'false'){
-		  xml.inConfigs{
-		    xml.pair('key' => "sys/svc-ext/datetime-svc/ntp-#{ntp_server}"){
-		      xml.commNtpProvider('descr' => '', 'dn' => "sys/svc-ext/datetime-svc/ntp-#{ntp_server}", 'name' => "#{ntp_server}", 'status' => 'created' )
-		    }
-		  }
-		}
-		end
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
+  		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'false'){
+  		  xml.inConfigs{
+  		    xml.pair('key' => "sys/svc-ext/datetime-svc/ntp-#{ntp_server}"){
+  		      xml.commNtpProvider('descr' => '', 'dn' => "sys/svc-ext/datetime-svc/ntp-#{ntp_server}", 'name' => "#{ntp_server}", 'status' => 'created' )
+  		    }
+  		  }
+  		}
+  		end
 
-		set_ntp_XML = xml_builder.to_xml.to_s
+  		set_ntp_XML = xml_builder.to_xml.to_s
 
-		#Post
+  		#Post
 
-		begin
-			RestClient.post(@url, set_ntp_XML, :content_type => 'text/xml').body
-		rescue Exception => e
-			raise "Error #{e}"
-		end
+  		begin
+  			RestClient.post(@url, set_ntp_XML, :content_type => 'text/xml').body
+  		rescue Exception => e
+  			raise "Error #{e}"
+  		end
 
     end
 
-	def create_server_port(json)
+	  def create_server_port(json)
 
-		switch = JSON.parse(json)['switch']
-		port   = JSON.parse(json)['port']
-		slot   = JSON.parse(json)['slot']
+  		switch = JSON.parse(json)['switch']
+  		port   = JSON.parse(json)['port']
+  		slot   = JSON.parse(json)['slot']
 
 
-		xml_builder = Nokogiri::XML::Builder.new do |xml|
-		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'false'){
-		  xml.inConfigs{
-		    xml.pair('key' => "fabric/server/SW-#{switch}"){
-		      xml.fabricDceSwSrv('dn' => "fabric/server/SW-#{switch}", 'status' => 'created,modified'){
-		        xml.fabricDceSwSrvEp( 'adminState' => 'enabled', 'name' => '', 'portId' => "#{port}", 
-		                              'rn' => "slot" + "-" + "#{slot}" + "-" + "port" + "-" + "#{port}", 'slotId' => "#{slot}", 
-		                              'status' => 'created', 'usrLbl' => '' )
-		      }
-		    }
-		  }
-		}
-		end
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
+  		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'false'){
+  		  xml.inConfigs{
+  		    xml.pair('key' => "fabric/server/SW-#{switch}"){
+  		      xml.fabricDceSwSrv('dn' => "fabric/server/SW-#{switch}", 'status' => 'created,modified'){
+  		        xml.fabricDceSwSrvEp( 'adminState' => 'enabled', 'name' => '', 'portId' => "#{port}", 
+  		                              'rn' => "slot" + "-" + "#{slot}" + "-" + "port" + "-" + "#{port}", 'slotId' => "#{slot}", 
+  		                              'status' => 'created', 'usrLbl' => '' )
+  		      }
+  		    }
+  		  }
+  		}
+  		end
 
-		#Create XML 
-		create_server_port_XML = xml_builder.to_xml.to_s
+  		#Create XML 
+  		create_server_port_XML = xml_builder.to_xml.to_s
 
-		#Post
+  		#Post
 
-		begin
-			RestClient.post(@url, create_server_port_XML, :content_type => 'text/xml').body
-		rescue Exception => e
-			raise "Error #{e}"
-		end
+  		begin
+  			RestClient.post(@url, create_server_port_XML, :content_type => 'text/xml').body
+  		rescue Exception => e
+  			raise "Error #{e}"
+  		end
 
-	end
+	  end
 
     def create_network_uplink_port(json)
 
-		switch = JSON.parse(json)['switch']
-		port   = JSON.parse(json)['port']
-		slot   = JSON.parse(json)['slot']    	
+  		switch = JSON.parse(json)['switch']
+  		port   = JSON.parse(json)['port']
+  		slot   = JSON.parse(json)['slot']    	
 
-		xml_builder = Nokogiri::XML::Builder.new do |xml|
-		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'false'){
-		xml.inConfigs{
-		 xml.pair('key' => "fabric/lan/#{switch}"){
-		   xml.fabricEthLan('dn' => "fabric/lan/#{switch}", 'status' => 'created,modified'){
-		     xml.fabricEthLanEp('adminSpeed' => '10gbps', 'adminState' => 'enabled', 'flowCtrlPolicy' => 'default',
-		                        'name' => '', 'portId' => "#{port}", 
-		                        'rn' => "phys" + "-" + "slot" + "-" + "#{slot}" + "-" + "port" + "-" + "#{port}",
-		                        'slotId' => "#{slot}", 'status' => 'created', 'usrLbl' => '')
-		   			}
-		 		}
-			}
-		}
-		end
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
+  		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'false'){
+  		xml.inConfigs{
+  		 xml.pair('key' => "fabric/lan/#{switch}"){
+  		   xml.fabricEthLan('dn' => "fabric/lan/#{switch}", 'status' => 'created,modified'){
+  		     xml.fabricEthLanEp('adminSpeed' => '10gbps', 'adminState' => 'enabled', 'flowCtrlPolicy' => 'default',
+  		                        'name' => '', 'portId' => "#{port}", 
+  		                        'rn' => "phys" + "-" + "slot" + "-" + "#{slot}" + "-" + "port" + "-" + "#{port}",
+  		                        'slotId' => "#{slot}", 'status' => 'created', 'usrLbl' => '')
+  		   			}
+  		 		}
+  			}
+  		}
+  		end
 
-		#Create XML 
-		create_network_uplink_XML = xml_builder.to_xml.to_s
+  		#Create XML 
+  		create_network_uplink_XML = xml_builder.to_xml.to_s
 
-		#Post
+  		#Post
 
-		begin
-			RestClient.post(@url, create_network_uplink_XML, :content_type => 'text/xml').body
-		rescue Exception => e
-			raise "Error #{e}"
-		end
+  		begin
+  			RestClient.post(@url, create_network_uplink_XML, :content_type => 'text/xml').body
+  		rescue Exception => e
+  			raise "Error #{e}"
+  		end
 
     end
 
 
     def create_fc_uplink_port(json)
 
-		switch = JSON.parse(json)['switch']
-		port   = JSON.parse(json)['port']
-		slot   = JSON.parse(json)['slot']  
+  		switch = JSON.parse(json)['switch']
+  		port   = JSON.parse(json)['port']
+  		slot   = JSON.parse(json)['slot']  
 
-		xml_builder = Nokogiri::XML::Builder.new do |xml|
-		 xml.configConfMos('cookie' => "#{@ucs_cookie}", 'inHierarchical' => 'false'){
-		   xml.inConfigs{
-		     xml.pair('key' => "fabric/san/#{switch}/phys" + "-" + "slot" + "-" + "#{slot}" + "-" + "port" + "-" + "#{port}"){
-		       xml.fabricFcSanEp('adminState' => 'enabled', 'dn' => "fabric/san/#{switch}/phys" + "-" + "slot" + "-" + "#{slot}" + "-" + 
-		                         "port" + "-" + "#{port}" )
-		     }
-		   }
-		 }
-		end
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
+  		 xml.configConfMos('cookie' => "#{@ucs_cookie}", 'inHierarchical' => 'false'){
+  		   xml.inConfigs{
+  		     xml.pair('key' => "fabric/san/#{switch}/phys" + "-" + "slot" + "-" + "#{slot}" + "-" + "port" + "-" + "#{port}"){
+  		       xml.fabricFcSanEp('adminState' => 'enabled', 'dn' => "fabric/san/#{switch}/phys" + "-" + "slot" + "-" + "#{slot}" + "-" + 
+  		                         "port" + "-" + "#{port}" )
+  		     }
+  		   }
+  		 }
+  		end
 
-		#Create XML 
-		create_fc_uplink_XML = xml_builder.to_xml.to_s
+  		#Create XML 
+  		create_fc_uplink_XML = xml_builder.to_xml.to_s
 
-		#Post
-		begin
-			RestClient.post(@url, create_fc_uplink_XML, :content_type => 'text/xml').body
-		rescue Exception => e
-			raise "Error #{e}"
-		end
+  		#Post
+  		begin
+  			RestClient.post(@url, create_fc_uplink_XML, :content_type => 'text/xml').body
+  		rescue Exception => e
+  			raise "Error #{e}"
+  		end
 
     end
 
 
     def create_port_channel(json)
-		#Parse uplink modules on Expansion Module 2. Minimum 2 ports are required for creating a port channel.
-		#As of this implementation, it is assumed that Northboutn uplinks are created using the Expansion Module and not the fixed module
+  		#Parse uplink modules on Expansion Module 2. Minimum 2 ports are required for creating a port channel.
+  		#As of this implementation, it is assumed that Northboutn uplinks are created using the Expansion Module and not the fixed module
 
-		switch            = JSON.parse(json)['switch']
-		port_ids          = JSON.parse(json)['port_ids'].split(',')
-		slot              = JSON.parse(json)['slot']
-		port_channel_id   = JSON.parse(json)['port_channel_id']
-		name              = JSON.parse(json)['name']
+  		switch            = JSON.parse(json)['switch']
+  		port_ids          = JSON.parse(json)['port_ids'].split(',')
+  		slot              = JSON.parse(json)['slot']
+  		port_channel_id   = JSON.parse(json)['port_channel_id']
+  		name              = JSON.parse(json)['name']
 
 
-		#Create XML
-		xml_builder = Nokogiri::XML::Builder.new do |xml|
-		 xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
-		   xml.inConfigs{
-		     xml.pair('key' => "fabric/lan/#{switch}/pc-#{port_channel_id}"){
-		       xml.fabricEthLanPc('adminSpeed' => '10gbps', 'adminState' => 'enabled', 'dn' => "fabric/lan/#{switch}/pc-#{port_channel_id}",
-		                          'flowCtrlPolicy' => 'default', 'name' => "#{name}", 'operSpeed' => '10gbps', 'portId' => "#{port_channel_id}",
-		                          'status' => 'created'){
-		                              port_ids.each do |port_id|
-		                                xml.fabricEthLanPcEp('adminState' => 'enabled', 'name' => '', 'portId' => "#{port_id}", 
-		                                                      'rn' => "ep-slot-#{slot}-port-#{port_id}")
-		                              end
-		                          }
+  		#Create XML
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
+  		 xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
+  		   xml.inConfigs{
+  		     xml.pair('key' => "fabric/lan/#{switch}/pc-#{port_channel_id}"){
+  		       xml.fabricEthLanPc('adminSpeed' => '10gbps', 'adminState' => 'enabled', 'dn' => "fabric/lan/#{switch}/pc-#{port_channel_id}",
+  		                          'flowCtrlPolicy' => 'default', 'name' => "#{name}", 'operSpeed' => '10gbps', 'portId' => "#{port_channel_id}",
+  		                          'status' => 'created'){
+  		                              port_ids.each do |port_id|
+  		                                xml.fabricEthLanPcEp('adminState' => 'enabled', 'name' => '', 'portId' => "#{port_id}", 
+  		                                                      'rn' => "ep-slot-#{slot}-port-#{port_id}")
+  		                              end
+  		                          }
 
-		     }
-		   }
-		 }
-		end
+  		     }
+  		   }
+  		 }
+  		end
 
-		#Create XML
-		create_port_channel_XML = xml_builder.to_xml.to_s
+  		#Create XML
+  		create_port_channel_XML = xml_builder.to_xml.to_s
 
-		#Post
-		begin
-			RestClient.post(@url, create_port_channel_XML, :content_type => 'text/xml').body
-		rescue Exception => e
-			raise "Error #{e}"
-		end
+  		#Post
+  		begin
+  			RestClient.post(@url, create_port_channel_XML, :content_type => 'text/xml').body
+  		rescue Exception => e
+  			raise "Error #{e}"
+  		end
 
-	end
+	  end
 
     def create_org(json)
 
-		org = JSON.parse(json)['org']
+		  org = JSON.parse(json)['org']
 
   		xml_builder = Nokogiri::XML::Builder.new do |xml|
   		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true') {
@@ -295,114 +295,113 @@ class UCSProvision
   			RestClient.post(@url, create_org_XML, :content_type => 'text/xml').body
   		rescue Exception => e
   			raise "Error #{e}"
-  		end
-    		
+  		end  		
 
     end
 
     def set_local_disk_policy(json)
 
-		local_disk_policy 	= JSON.parse(json)['local_disk_policy']
-		org 				= JSON.parse(json)['org']
+  		local_disk_policy 	= JSON.parse(json)['local_disk_policy']
+  		org 				= JSON.parse(json)['org']
 
-		xml_builder = Nokogiri::XML::Builder.new do |xml|
-		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
-		  xml.inConfigs{
-		    xml.pair('key' => "org-root/org-#{org}/local-disk-config-#{org}-localdisk"){
-		      xml.storageLocalDiskConfigPolicy('descr' => '', 'dn' => "org-root/org-#{org}/local-disk-config-#{org}-localdisk", 
-		                                       'mode' => "#{local_disk_policy}", 'name' => "#{org}-localdisk", 'protectConfig' => 'yes',
-		                                       'status' => 'created')
-		    }
-		  }
-		}
-		end
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
+  		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
+  		  xml.inConfigs{
+  		    xml.pair('key' => "org-root/org-#{org}/local-disk-config-#{org}-localdisk"){
+  		      xml.storageLocalDiskConfigPolicy('descr' => '', 'dn' => "org-root/org-#{org}/local-disk-config-#{org}-localdisk", 
+  		                                       'mode' => "#{local_disk_policy}", 'name' => "#{org}-localdisk", 'protectConfig' => 'yes',
+  		                                       'status' => 'created')
+  		    }
+  		  }
+  		}
+  		end
 
-		#Create XML
-		set_local_disk_policy_XML = xml_builder.to_xml.to_s
+  		#Create XML
+  		set_local_disk_policy_XML = xml_builder.to_xml.to_s
 
-		#Post
-		begin
-			RestClient.post(@url, set_local_disk_policy_XML, :content_type => 'text/xml').body
-		rescue Exception => e
-			raise "Error #{e}"
-		end
+  		#Post
+  		begin
+  			RestClient.post(@url, set_local_disk_policy_XML, :content_type => 'text/xml').body
+  		rescue Exception => e
+  			raise "Error #{e}"
+  		end
 		
     end
 
     def create_local_boot_policy(json)
 
-		name             = JSON.parse(json)['name']
-		description      = JSON.parse(json)['description']
-		org              = JSON.parse(json)['org']
+  		name             = JSON.parse(json)['name']
+  		description      = JSON.parse(json)['description']
+  		org              = JSON.parse(json)['org']
 
-		xml_builder = Nokogiri::XML::Builder.new do |xml|
-		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
-		  xml.inConfigs{
-		    xml.pair('key' => "org-root/org-#{org}/boot-policy-#{name}"){
-		      xml.lsbootPolicy('descr' => "#{description}", 'dn' => "org-root/org-#{org}/boot-policy-#{name}",
-		                       'enforceVnicName' => 'no', 'name' => "#{name}", 'rebootOnUpdate' => 'no',
-		                       'status' => 'created'){
-		                         xml.lsbootVirtualMedia('access' => 'read-only', 'order' => '1', 'rn' => 'read-only-vm', 'status' => 'created')
-		                         xml.lsbootStorage('order' => '2', 'rn' => 'storage', 'status' => 'created'){
-		                           xml.lsbootLocalStorage('rn' => 'local-storage', 'status' => 'created')
-		                         }
-		                       }
-		    }
-		  }
-		}
-		end
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
+  		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
+  		  xml.inConfigs{
+  		    xml.pair('key' => "org-root/org-#{org}/boot-policy-#{name}"){
+  		      xml.lsbootPolicy('descr' => "#{description}", 'dn' => "org-root/org-#{org}/boot-policy-#{name}",
+  		                       'enforceVnicName' => 'no', 'name' => "#{name}", 'rebootOnUpdate' => 'no',
+  		                       'status' => 'created'){
+  		                         xml.lsbootVirtualMedia('access' => 'read-only', 'order' => '1', 'rn' => 'read-only-vm', 'status' => 'created')
+  		                         xml.lsbootStorage('order' => '2', 'rn' => 'storage', 'status' => 'created'){
+  		                           xml.lsbootLocalStorage('rn' => 'local-storage', 'status' => 'created')
+  		                         }
+  		                       }
+  		    }
+  		  }
+  		}
+  		end
 
-		#Create XML
-		create_local_boot_policy_XML = xml_builder.to_xml.to_s
+  		#Create XML
+  		create_local_boot_policy_XML = xml_builder.to_xml.to_s
 
-		#Post
-		begin
-			RestClient.post(@url, create_local_boot_policy_XML, :content_type => 'text/xml').body
-		rescue Exception => e
-			raise "Error #{e}"
-		end
+  		#Post
+  		begin
+  			RestClient.post(@url, create_local_boot_policy_XML, :content_type => 'text/xml').body
+  		rescue Exception => e
+  			raise "Error #{e}"
+  		end
 
     end
 
     def create_pxe_boot_policy(json)
 
-		name           = JSON.parse(json)['name']
-		description    = JSON.parse(json)['description']
-		org            = JSON.parse(json)['org']
-		vnic_a         = JSON.parse(json)['vnic_a']
-		vnic_b         = JSON.parse(json)['vnic_b']
+  		name           = JSON.parse(json)['name']
+  		description    = JSON.parse(json)['description']
+  		org            = JSON.parse(json)['org']
+  		vnic_a         = JSON.parse(json)['vnic_a']
+  		vnic_b         = JSON.parse(json)['vnic_b']
 
-		xml_builder = Nokogiri::XML::Builder.new do |xml|
-		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
-		  xml.inConfigs{
-		    xml.pair('key' => "org-root/org-#{org}/boot-policy-#{name}"){
-		      xml.lsbootPolicy('descr' => "#{description}", 'dn' => "org-root/org-#{org}/boot-policy-#{name}",
-		                       'enforceVnicName' => 'no', 'name' => "#{name}", 'rebootOnUpdate' => 'no',
-		                       'status' => 'created'){
-		                         xml.lsbootLan('order' => '1', 'rn' => 'lan'){
-		                           xml.lsbootLanImagePath('rn' => 'path-primary', 'status' => 'created',
-		                                                  'type' => 'primary', 'vnicName' => "#{vnic_a}")
-		                           xml.lsbootLanImagePath('rn' => 'path-secondary', 'status' => 'created',
-		                                                  'type' => 'secondary', 'vnicName' => "#{vnic_b}")
-		                         }
-		                         xml.lsbootStorage('order' => '2', 'rn' => 'storage', 'status' => 'created'){
-		                           xml.lsbootLocalStorage('rn' => 'local-storage', 'status' => 'created')
-		                         }
-		                       }
-		    }
-		  }
-		}
-		end
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
+  		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
+  		  xml.inConfigs{
+  		    xml.pair('key' => "org-root/org-#{org}/boot-policy-#{name}"){
+  		      xml.lsbootPolicy('descr' => "#{description}", 'dn' => "org-root/org-#{org}/boot-policy-#{name}",
+  		                       'enforceVnicName' => 'no', 'name' => "#{name}", 'rebootOnUpdate' => 'no',
+  		                       'status' => 'created'){
+  		                         xml.lsbootLan('order' => '1', 'rn' => 'lan'){
+  		                           xml.lsbootLanImagePath('rn' => 'path-primary', 'status' => 'created',
+  		                                                  'type' => 'primary', 'vnicName' => "#{vnic_a}")
+  		                           xml.lsbootLanImagePath('rn' => 'path-secondary', 'status' => 'created',
+  		                                                  'type' => 'secondary', 'vnicName' => "#{vnic_b}")
+  		                         }
+  		                         xml.lsbootStorage('order' => '2', 'rn' => 'storage', 'status' => 'created'){
+  		                           xml.lsbootLocalStorage('rn' => 'local-storage', 'status' => 'created')
+  		                         }
+  		                       }
+  		    }
+  		  }
+  		}
+  		end
 
-		#Create XML
-		create_pxe_boot_policy_XML = xml_builder.to_xml.to_s
+  		#Create XML
+  		create_pxe_boot_policy_XML = xml_builder.to_xml.to_s
 
-		#Post
-		begin
-			RestClient.post(@url, create_pxe_boot_policy_XML, :content_type => 'text/xml').body
-		rescue Exception => e
-			raise "Error #{e}"
-		end
+  		#Post
+  		begin
+  			RestClient.post(@url, create_pxe_boot_policy_XML, :content_type => 'text/xml').body
+  		rescue Exception => e
+  			raise "Error #{e}"
+  		end
 
     end
 
@@ -455,63 +454,63 @@ class UCSProvision
 
     def create_management_ip_pool(json)
 
-		start_ip 	  = JSON.parse(json)['start_ip']
-		end_ip   	  = JSON.parse(json)['end_ip']
-		subnet_mask = JSON.parse(json)['subnet_mask']
-		gateway  	  = JSON.parse(json)['gateway']
+  		start_ip 	  = JSON.parse(json)['start_ip']
+  		end_ip   	  = JSON.parse(json)['end_ip']
+  		subnet_mask = JSON.parse(json)['subnet_mask']
+  		gateway  	  = JSON.parse(json)['gateway']
 
-		xml_builder = Nokogiri::XML::Builder.new do |xml|
-		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
-		  xml.inConfigs{
-		    xml.pair('key' => "org-root/ip-pool-ext-mgmt/block-#{start_ip}-#{end_ip}"){
-		      xml.ippoolBlock('defGw' => "#{gateway}", 'dn' => "org-root/ip-pool-ext-mgmt/block-#{start_ip}-#{end_ip}",
-		                      'from' => "#{start_ip}", 'status' => 'created', 'subnet' => "#{subnet_mask}", 'to' => "#{end_ip}")
-		    }
-		  }
-		}
-		end
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
+  		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
+  		  xml.inConfigs{
+  		    xml.pair('key' => "org-root/ip-pool-ext-mgmt/block-#{start_ip}-#{end_ip}"){
+  		      xml.ippoolBlock('defGw' => "#{gateway}", 'dn' => "org-root/ip-pool-ext-mgmt/block-#{start_ip}-#{end_ip}",
+  		                      'from' => "#{start_ip}", 'status' => 'created', 'subnet' => "#{subnet_mask}", 'to' => "#{end_ip}")
+  		    }
+  		  }
+  		}
+  		end
 
-		#Create XML
-		create_management_ip_pool_XML = xml_builder.to_xml.to_s
+  		#Create XML
+  		create_management_ip_pool_XML = xml_builder.to_xml.to_s
 
-		#Post
-		begin
-			RestClient.post(@url, create_management_ip_pool_XML, :content_type => 'text/xml').body
-		rescue Exception => e
-			raise "Error #{e}"
-		end
+  		#Post
+  		begin
+  			RestClient.post(@url, create_management_ip_pool_XML, :content_type => 'text/xml').body
+  		rescue Exception => e
+  			raise "Error #{e}"
+  		end
 
     end
 
     def create_vlan(json)
 
-		vlan_id     = JSON.parse(json)['vlan_id']
-		vlan_name   = JSON.parse(json)['vlan_name']
+  		vlan_id     = JSON.parse(json)['vlan_id']
+  		vlan_name   = JSON.parse(json)['vlan_name']
 
-		xml_builder = Nokogiri::XML::Builder.new do |xml|
-		  xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
-		    xml.inConfigs{
-		      xml.pair('key' => "fabric/lan/net-#{vlan_name}"){
-		        xml.fabricVlan('defaultNet' => 'no', 'dn' => "fabric/lan/net-#{vlan_name}", 'id' => "#{vlan_id}",
-		                       'name' => "#{vlan_name}", 'status' => 'created')
-		      }
-		    }
-		  }
-		end
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
+  		  xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
+  		    xml.inConfigs{
+  		      xml.pair('key' => "fabric/lan/net-#{vlan_name}"){
+  		        xml.fabricVlan('defaultNet' => 'no', 'dn' => "fabric/lan/net-#{vlan_name}", 'id' => "#{vlan_id}",
+  		                       'name' => "#{vlan_name}", 'status' => 'created')
+  		      }
+  		    }
+  		  }
+  		end
 
-		#Create XML
-		create_vlan_XML = xml_builder.to_xml.to_s
+  		#Create XML
+  		create_vlan_XML = xml_builder.to_xml.to_s
 
-		#Post
-		begin
-			RestClient.post(@url, create_vlan_XML, :content_type => 'text/xml').body
-		rescue Exception => e
-			raise "Error #{e}"
-		end
+  		#Post
+  		begin
+  			RestClient.post(@url, create_vlan_XML, :content_type => 'text/xml').body
+  		rescue Exception => e
+  			raise "Error #{e}"
+  		end
 
-	end
+	  end
 
-  def create_mac_pool(json)
+    def create_mac_pool(json)
 
   	mac_pool_name   = JSON.parse(json)['mac_pool_name']
   	mac_pool_start  = JSON.parse(json)['mac_pool_start']
@@ -558,77 +557,77 @@ class UCSProvision
 
     def create_vnic_template(json)
 
-		vnic_template_name             = JSON.parse(json)['vnic_template_name']
-		vnic_template_mac_pool         = JSON.parse(json)['vnic_template_mac_pool']
-		switch               		   = JSON.parse(json)['switch']
-		org              			   = JSON.parse(json)['org']
-		vnic_template_VLANs            = JSON.parse(json)['vnic_template_VLANs'].split(',')
-		vnic_template_native_VLAN      = JSON.parse(json)['vnic_template_native_VLAN']
-		vnic_template_mtu              = JSON.parse(json)['vnic_template_mtu']
+		  vnic_template_name            = JSON.parse(json)['vnic_template_name']
+		  vnic_template_mac_pool        = JSON.parse(json)['vnic_template_mac_pool']
+		  switch               		      = JSON.parse(json)['switch']
+		  org              			        = JSON.parse(json)['org']
+		  vnic_template_VLANs           = JSON.parse(json)['vnic_template_VLANs'].split(',')
+		  vnic_template_native_VLAN     = JSON.parse(json)['vnic_template_native_VLAN']
+		  vnic_template_mtu             = JSON.parse(json)['vnic_template_mtu']
 
 
-		xml_builder = Nokogiri::XML::Builder.new do |xml|
-		  xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
-		    xml.inConfigs{
-		      xml.pair('key' => "org-root/org-#{org}/lan-conn-templ-#{vnic_template_name}"){
-		        xml.vnicLanConnTempl('descr' => '', 'dn' => "org-root/org-#{org}/lan-conn-templ-#{vnic_template_name}",
-		                             'identPoolName' => "#{vnic_template_mac_pool}", 'mtu' => "#{vnic_template_mtu}", 'name' => "#{vnic_template_name}",
-		                             'nwCtrlPolicyName' => '', 'pinToGroupName' => '', 'qosPolicyName' => '', 'statsPolicyName' => '',
-		                             'status' => 'created', 'switchId' => "#{switch}", 'templType' => 'updating-template'){
-		                               vnic_template_VLANs.each do |vlan|
-		                                 if vlan == vnic_template_native_VLAN
-		                                   xml.vnicEtherIf('defaultNet' => 'yes', 'name' => "#{vlan}", 'rn' => "if-#{vlan}")
-		                                 else
-		                                   xml.vnicEtherIf('defaultNet' => 'yes', 'name' => "#{vlan}", 'rn' => "if-#{vlan}")
-		                                 end
-		                               end
-		                             }
-		      }
-		    }
-		  }
-	end
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
+  		  xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
+  		    xml.inConfigs{
+  		      xml.pair('key' => "org-root/org-#{org}/lan-conn-templ-#{vnic_template_name}"){
+  		        xml.vnicLanConnTempl('descr' => '', 'dn' => "org-root/org-#{org}/lan-conn-templ-#{vnic_template_name}",
+  		                             'identPoolName' => "#{vnic_template_mac_pool}", 'mtu' => "#{vnic_template_mtu}", 'name' => "#{vnic_template_name}",
+  		                             'nwCtrlPolicyName' => '', 'pinToGroupName' => '', 'qosPolicyName' => '', 'statsPolicyName' => '',
+  		                             'status' => 'created', 'switchId' => "#{switch}", 'templType' => 'updating-template'){
+  		                               vnic_template_VLANs.each do |vlan|
+  		                                 if vlan == vnic_template_native_VLAN
+  		                                   xml.vnicEtherIf('defaultNet' => 'yes', 'name' => "#{vlan}", 'rn' => "if-#{vlan}")
+  		                                 else
+  		                                   xml.vnicEtherIf('defaultNet' => 'yes', 'name' => "#{vlan}", 'rn' => "if-#{vlan}")
+  		                                 end
+  		                               end
+  		                             }
+  		      }
+  		    }
+  		  }
+  	  end
 
-		#Create XML
-		create_vnic_template_XML = xml_builder.to_xml.to_s
+  		#Create XML
+  		create_vnic_template_XML = xml_builder.to_xml.to_s
 
-		#Post
-		begin
-			RestClient.post(@url, create_vnic_template_XML, :content_type => 'text/xml').body
-		rescue Exception => e
-			raise "Error #{e}"
-		end
+  		#Post
+  		begin
+  			RestClient.post(@url, create_vnic_template_XML, :content_type => 'text/xml').body
+  		rescue Exception => e
+  			raise "Error #{e}"
+  		end
 
     end
 
 
     def create_vsan(json)
 
-		vsan_id        = JSON.parse(json)['vsan_id']
-		vsan_fcoe_id   = JSON.parse(json)['vsan_fcoe_id']
-		vsan_name      = JSON.parse(json)['vsan_name']
+  		vsan_id        = JSON.parse(json)['vsan_id']
+  		vsan_fcoe_id   = JSON.parse(json)['vsan_fcoe_id']
+  		vsan_name      = JSON.parse(json)['vsan_name']
 
-		xml_builder = Nokogiri::XML::Builder.new do |xml|
-		  xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
-		    xml.inConfigs{
-		      xml.pair('key' => 'fabric/san/'){
-		        xml.fabricVsan('defaultZoning' => 'disabled', 'dn' => 'fabric/san/', 'fcoeVlan' => "#{vsan_fcoe_id}", 
-		                       'id' => "#{vsan_id}", 'name' => "#{vsan_name}", 'status' => 'created' )
-		      }
-		    }
-		  }
-		end
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
+  		  xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
+  		    xml.inConfigs{
+  		      xml.pair('key' => 'fabric/san/'){
+  		        xml.fabricVsan('defaultZoning' => 'disabled', 'dn' => 'fabric/san/', 'fcoeVlan' => "#{vsan_fcoe_id}", 
+  		                       'id' => "#{vsan_id}", 'name' => "#{vsan_name}", 'status' => 'created' )
+  		      }
+  		    }
+  		  }
+  		end
 
-		#Create XML
-		create_vsan_XML = xml_builder.to_xml.to_s
+  		#Create XML
+  		create_vsan_XML = xml_builder.to_xml.to_s
 
-		#Post
-		begin
-			RestClient.post(@url, create_vsan_XML, :content_type => 'text/xml').body
-		rescue Exception => e
-			raise "Error #{e}"
-		end
+  		#Post
+  		begin
+  			RestClient.post(@url, create_vsan_XML, :content_type => 'text/xml').body
+  		rescue Exception => e
+  			raise "Error #{e}"
+  		end
 
-	end
+	  end
 
     def create_wwnn_pool(json)
 
@@ -698,68 +697,68 @@ class UCSProvision
 
     def create_vhba_template(json)
 
-		vbha_template_name = JSON.parse(json)['vbha_template_name']
-		wwpn_pool          = JSON.parse(json)['wwpn_pool']
-		switch             = JSON.parse(json)['switch']
-		vsan_name          = JSON.parse(json)['vsan_name']
-		org  			         = JSON.parse(json)['org']
+  		vbha_template_name = JSON.parse(json)['vbha_template_name']
+  		wwpn_pool          = JSON.parse(json)['wwpn_pool']
+  		switch             = JSON.parse(json)['switch']
+  		vsan_name          = JSON.parse(json)['vsan_name']
+  		org  			         = JSON.parse(json)['org']
 
-		xml_builder = Nokogiri::XML::Builder.new do |xml|
-		  xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
-		    xml.inConfigs{
-		      xml.pair('key' => "org-root/org-#{org}/san-conn-templ-#{vbha_template_name}"){
-		        xml.vnicSanConnTempl('descr' => '', 'dn' => "org-root/org-#{org}/san-conn-templ-#{vbha_template_name}",
-		                             'identPoolName' => "#{wwpn_pool}", 'maxDataFieldSize' => '2048', 'name' => "#{vbha_template_name}",
-		                             'pinToGroupName' => '', 'qosPolicyName' => '', 'statsPolicyName' => 'default', 'status' => 'created',
-		                             'switchId' => "#{switch}", 'templType' => 'updating-template'){
-		                               xml.vnicFcIf('name' => "#{vsan_name}", 'rn' => 'if-default')
-		                             }
-		      }
-		    }
-		  }
-		end
-		#Create XML
-		create_vhba_template_XML = xml_builder.to_xml.to_s
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
+  		  xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
+  		    xml.inConfigs{
+  		      xml.pair('key' => "org-root/org-#{org}/san-conn-templ-#{vbha_template_name}"){
+  		        xml.vnicSanConnTempl('descr' => '', 'dn' => "org-root/org-#{org}/san-conn-templ-#{vbha_template_name}",
+  		                             'identPoolName' => "#{wwpn_pool}", 'maxDataFieldSize' => '2048', 'name' => "#{vbha_template_name}",
+  		                             'pinToGroupName' => '', 'qosPolicyName' => '', 'statsPolicyName' => 'default', 'status' => 'created',
+  		                             'switchId' => "#{switch}", 'templType' => 'updating-template'){
+  		                               xml.vnicFcIf('name' => "#{vsan_name}", 'rn' => 'if-default')
+  		                             }
+  		      }
+  		    }
+  		  }
+  		end
+  		#Create XML
+  		create_vhba_template_XML = xml_builder.to_xml.to_s
 
-		#Post
-		begin
-			RestClient.post(@url, create_vhba_template_XML, :content_type => 'text/xml').body
-		rescue Exception => e
-			raise "Error #{e}"
-		end
+  		#Post
+  		begin
+  			RestClient.post(@url, create_vhba_template_XML, :content_type => 'text/xml').body
+  		rescue Exception => e
+  			raise "Error #{e}"
+  		end
 
     end
 
     def create_uuid_pool(json)
 
-		uuid_pool_name     = JSON.parse(json)['uuid_pool_name']
-		uuid_from          = JSON.parse(json)['uuid_from']
-		uuid_to            = JSON.parse(json)['uuid_to']
-		org           	   = JSON.parse(json)['org']
+  		uuid_pool_name     = JSON.parse(json)['uuid_pool_name']
+  		uuid_from          = JSON.parse(json)['uuid_from']
+  		uuid_to            = JSON.parse(json)['uuid_to']
+  		org           	   = JSON.parse(json)['org']
 
-		xml_builder = Nokogiri::XML::Builder.new do |xml|
-		  xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
-		    xml.inConfigs{
-		      xml.pair('key' => "org-root/org-#{org}/uuid-pool-#{uuid_pool_name}"){
-		        xml.uuidpoolPool('descr' => '', 'dn' => "org-root/org-#{org}/uuid-pool-#{uuid_pool_name}",
-		                         'name' => "#{uuid_pool_name}", 'prefix' => 'derived', 'status' => 'created'){
-		                           xml.uuidpoolBlock('from' => "#{uuid_from}", 'rn' => "block-from-#{uuid_from}-to-#{uuid_to}",
-		                                             'status' => 'created', 'to' => "#{uuid_to}")
-		                         }
-		      }
-		    }
-		  }
-		end
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
+  		  xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
+  		    xml.inConfigs{
+  		      xml.pair('key' => "org-root/org-#{org}/uuid-pool-#{uuid_pool_name}"){
+  		        xml.uuidpoolPool('descr' => '', 'dn' => "org-root/org-#{org}/uuid-pool-#{uuid_pool_name}",
+  		                         'name' => "#{uuid_pool_name}", 'prefix' => 'derived', 'status' => 'created'){
+  		                           xml.uuidpoolBlock('from' => "#{uuid_from}", 'rn' => "block-from-#{uuid_from}-to-#{uuid_to}",
+  		                                             'status' => 'created', 'to' => "#{uuid_to}")
+  		                         }
+  		      }
+  		    }
+  		  }
+  		end
 
-		#Create XML
-		create_uuid_pool_XML = xml_builder.to_xml.to_s
+  		#Create XML
+  		create_uuid_pool_XML = xml_builder.to_xml.to_s
 
-		#Post
-		begin
-			RestClient.post(@url, create_uuid_pool_XML, :content_type => 'text/xml').body
-		rescue Exception => e
-			raise "Error #{e}"
-		end
+  		#Post
+  		begin
+  			RestClient.post(@url, create_uuid_pool_XML, :content_type => 'text/xml').body
+  		rescue Exception => e
+  			raise "Error #{e}"
+  		end
 		 
     end
 
