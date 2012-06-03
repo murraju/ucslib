@@ -667,7 +667,7 @@ class UCSProvision
 		 wwpn_name   = JSON.parse(json)['wwpn_name']
 		 wwpn_from   = JSON.parse(json)['wwpn_from']
 		 wwpn_to     = JSON.parse(json)['wwpn_to']
-		 org    	 = JSON.parse(json)['org']
+		 org    	   = JSON.parse(json)['org']
 
 		 xml_builder = Nokogiri::XML::Builder.new do |xml|
 		   xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
@@ -702,7 +702,7 @@ class UCSProvision
 		wwpn_pool          = JSON.parse(json)['wwpn_pool']
 		switch             = JSON.parse(json)['switch']
 		vsan_name          = JSON.parse(json)['vsan_name']
-		org  			   = JSON.parse(json)['org']
+		org  			         = JSON.parse(json)['org']
 
 		xml_builder = Nokogiri::XML::Builder.new do |xml|
 		  xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
