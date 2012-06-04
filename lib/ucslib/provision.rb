@@ -302,7 +302,7 @@ class UCSProvision
     def set_local_disk_policy(json)
 
   		local_disk_policy 	= JSON.parse(json)['local_disk_policy']
-  		org 				= JSON.parse(json)['org']
+  		org 				        = JSON.parse(json)['org']
 
   		xml_builder = Nokogiri::XML::Builder.new do |xml|
   		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
