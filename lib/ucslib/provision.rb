@@ -405,52 +405,108 @@ class UCSProvision
 
     end
 
-	def create_san_boot_policy(json)
+  	def create_san_boot_policy(json)
 
-		name         = JSON.parse(json)['name']
-		description  = JSON.parse(json)['description']
-		org          = JSON.parse(json)['org']
-		vnic_a       = JSON.parse(json)['vnic_a']
-		vnic_b       = JSON.parse(json)['vnic_b']
-		target_a_1   = JSON.parse(json)['target_a_1']
-		target_a_2   = JSON.parse(json)['target_a_2']
-		target_b_1   = JSON.parse(json)['target_b_1']
-		target_b_2   = JSON.parse(json)['target_b_2']
+  		name         = JSON.parse(json)['name']
+  		description  = JSON.parse(json)['description']
+  		org          = JSON.parse(json)['org']
+  		vnic_a       = JSON.parse(json)['vnic_a']
+  		vnic_b       = JSON.parse(json)['vnic_b']
+  		target_a_1   = JSON.parse(json)['target_a_1']
+  		target_a_2   = JSON.parse(json)['target_a_2']
+  		target_b_1   = JSON.parse(json)['target_b_1']
+  		target_b_2   = JSON.parse(json)['target_b_2']
 
-		xml_builder = Nokogiri::XML::Builder.new do |xml|
-		   xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
-		     xml.inConfigs{
-		       xml.pair('key' => "org-root/org-#{org}/boot-policy-#{name}"){
-		         xml.lsbootPolicy('descr' => "#{description}", 'dn' => "org-root/org-#{org}/boot-policy-#{name}", 'enforceVnicName' => 'no',
-		                          'name' => "#{name}", 'rebootOnUpdate' => 'no', 'status' => 'created'){
-		                            xml.lsbootStorage('order' => '1', 'rn' => 'storage'){
-		                              xml.lsbootSanImage('rn' => 'san-primary', 'status' => 'created', 'type' => 'primary', 'vnicName' => "#{vnic_a}"){
-		                                xml.lsbootSanImagePath('lun' => '0', 'rn' => 'path-primary', 'status' => 'created', 'type' => 'primary', 'wwn' => "#{target_a_1}")
-		                                xml.lsbootSanImagePath('lun' => '0', 'rn' => 'path-secondary', 'status' => 'created', 'type' => 'secondary', 'wwn' => "#{target_a_2}")
-		                              }
-		                              xml.lsbootSanImage('rn' => 'san-secondary', 'status' => 'created', 'type' => 'secondary', 'vnicName' => "#{vnic_b}"){
-		                                xml.lsbootSanImagePath('lun' => '0', 'rn' => 'path-primary', 'status' => 'created', 'type' => 'primary', 'wwn' => "#{target_b_1}")
-		                                xml.lsbootSanImagePath('lun' => '0', 'rn' => 'path-secondary', 'status' => 'created', 'type' => 'secondary', 'wwn' => "#{target_b_2}")
-		                              }
-		                            }
-		                          }
-		       }
-		     }
-		   }
-		end
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
+  		   xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
+  		     xml.inConfigs{
+  		       xml.pair('key' => "org-root/org-#{org}/boot-policy-#{name}"){
+  		         xml.lsbootPolicy('descr' => "#{description}", 'dn' => "org-root/org-#{org}/boot-policy-#{name}", 'enforceVnicName' => 'no',
+  		                          'name' => "#{name}", 'rebootOnUpdate' => 'no', 'status' => 'created'){
+  		                            xml.lsbootStorage('order' => '1', 'rn' => 'storage'){
+  		                              xml.lsbootSanImage('rn' => 'san-primary', 'status' => 'created', 'type' => 'primary', 'vnicName' => "#{vnic_a}"){
+  		                                xml.lsbootSanImagePath('lun' => '0', 'rn' => 'path-primary', 'status' => 'created', 'type' => 'primary', 'wwn' => "#{target_a_1}")
+  		                                xml.lsbootSanImagePath('lun' => '0', 'rn' => 'path-secondary', 'status' => 'created', 'type' => 'secondary', 'wwn' => "#{target_a_2}")
+  		                              }
+  		                              xml.lsbootSanImage('rn' => 'san-secondary', 'status' => 'created', 'type' => 'secondary', 'vnicName' => "#{vnic_b}"){
+  		                                xml.lsbootSanImagePath('lun' => '0', 'rn' => 'path-primary', 'status' => 'created', 'type' => 'primary', 'wwn' => "#{target_b_1}")
+  		                                xml.lsbootSanImagePath('lun' => '0', 'rn' => 'path-secondary', 'status' => 'created', 'type' => 'secondary', 'wwn' => "#{target_b_2}")
+  		                              }
+  		                            }
+  		                          }
+  		       }
+  		     }
+  		   }
+  		end
 
-		#Create XML
-		create_san_boot_policy_XML = xml_builder.to_xml.to_s
+  		#Create XML
+  		create_san_boot_policy_XML = xml_builder.to_xml.to_s
 
-		#Post
-		begin
-			RestClient.post(@url, create_san_boot_policy_XML, :content_type => 'text/xml').body
-		rescue Exception => e
-			raise "Error #{e}"
-		end
+  		#Post
+  		begin
+  			RestClient.post(@url, create_san_boot_policy_XML, :content_type => 'text/xml').body
+  		rescue Exception => e
+  			raise "Error #{e}"
+  		end
 
-	end
+  	end
 
+
+    def create_host_firmware_package(json)
+    
+  		host_firmware_pkg_name  = JSON.parse(json)['host_firmware_pkg_name']
+  		hardware_model          = JSON.parse(json)['hardware_model']
+  		hardware_type           = JSON.parse(json)['hardware_type']
+  		hardware_vendor         = JSON.parse(json)['hardware_vendor']
+  		firwmare_version        = JSON.parse(json)['firwmare_version']
+  		org                     = JSON.parse(json)['org']
+	  
+      xml_builder = Nokogiri::XML::Builder.new do |xml|
+        xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
+          xml.inConfigs{
+            xml.pair('key' => "org-root/org-#{host_firmware_pkg_org}/fw-host-pack-#{host_firmware_pkg_name}"){
+              xml.firmwareComputeHostPack('descr' => '', 'dn' => "org-root/org-#{host_firmware_pkg_org}/fw-host-pack-#{host_firmware_pkg_name}",
+                                         'ignoreCompCheck' => 'yes', 'mode' => 'staged', 'name' => "#{host_firmware_pkg_name}", 'stageSize' => '0',
+                                         'status' => 'created', 'updateTrigger' => 'immediate'){
+                                           xml.firmwarePackItem('hwModel' => "#{hardware_model}", 'hwVendor' => "#{hardware_vendor}",
+                                                                'rn' => "pack-image-#{hardware_vendor}|#{hardware_model}|#{hardware_type}",
+                                                                'type' => "#{hardware_type}", 'version' => "#{firwmare_version}")
+                                         }
+            }
+          }
+        }
+      end
+
+      # 
+      # xml_builder = Nokogiri::XML::Builder.new do |xml|
+      #   xml.configConfMos('cookie' => "#{@ucs_cookie}", 'inHierarchical' => 'false'){
+      #     xml.inConfigs{
+      #       xml.pair('key' => "org-root/org-#{@host_firmware_pkg_org}/fw-host-pack-#{@host_firmware_pkg_name}"){
+      #         xml.firmwareComputeHostPack('descr' => '', 'dn' => "org-root/org-#{@host_firmware_pkg_org}/fw-host-pack-#{@host_firmware_pkg_name}",
+      #                                     'ignoreCompCheck' => 'yes', 'mode' => 'staged', 'stageSize' => '0', 'updateTrigger' => 'immediate'){
+      #                                      xml.firmwarePackItem('hwModel' => "#{@hardware_model}", 'hwVendor' => "#{@hardware_vendor}",
+      #                                                           'rn' => "pack-image-#{@hardware_vendor}|#{@hardware_model}|#{@hardware_type}",
+      #                                                           'type' => "#{@hardware_type}", 'version' => "#{@firwmare_version}")
+      #                                    }
+      #       }
+      #     }
+      #   }
+      # end
+
+
+      #Create XML
+
+      create_host_firmware_packageXML = xml_builder.to_xml.to_s
+
+      #Post
+
+      begin
+        RestClient.post(@url, create_host_firmware_packageXML, :content_type => 'text/xml').body
+      rescue Exception => e
+        raise "Error #{e}"
+      end
+
+    end
 
     def create_management_ip_pool(json)
 
