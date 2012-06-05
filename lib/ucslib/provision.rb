@@ -464,8 +464,8 @@ class UCSProvision
       xml_builder = Nokogiri::XML::Builder.new do |xml|
         xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
           xml.inConfigs{
-            xml.pair('key' => "org-root/org-#{host_firmware_pkg_org}/fw-host-pack-#{host_firmware_pkg_name}"){
-              xml.firmwareComputeHostPack('descr' => '', 'dn' => "org-root/org-#{host_firmware_pkg_org}/fw-host-pack-#{host_firmware_pkg_name}",
+            xml.pair('key' => "org-root/org-#{org}/fw-host-pack-#{host_firmware_pkg_name}"){
+              xml.firmwareComputeHostPack('descr' => '', 'dn' => "org-root/org-#{org}/fw-host-pack-#{host_firmware_pkg_name}",
                                          'ignoreCompCheck' => 'yes', 'mode' => 'staged', 'name' => "#{host_firmware_pkg_name}", 'stageSize' => '0',
                                          'status' => 'created', 'updateTrigger' => 'immediate'){
                                            xml.firmwarePackItem('hwModel' => "#{hardware_model}", 'hwVendor' => "#{hardware_vendor}",
@@ -481,7 +481,7 @@ class UCSProvision
       # xml_builder = Nokogiri::XML::Builder.new do |xml|
       #   xml.configConfMos('cookie' => "#{@ucs_cookie}", 'inHierarchical' => 'false'){
       #     xml.inConfigs{
-      #       xml.pair('key' => "org-root/org-#{@host_firmware_pkg_org}/fw-host-pack-#{@host_firmware_pkg_name}"){
+      #       xml.pair('key' => "org-root/org-#{org}/fw-host-pack-#{@host_firmware_pkg_name}"){
       #         xml.firmwareComputeHostPack('descr' => '', 'dn' => "org-root/org-#{@host_firmware_pkg_org}/fw-host-pack-#{@host_firmware_pkg_name}",
       #                                     'ignoreCompCheck' => 'yes', 'mode' => 'staged', 'stageSize' => '0', 'updateTrigger' => 'immediate'){
       #                                      xml.firmwarePackItem('hwModel' => "#{@hardware_model}", 'hwVendor' => "#{@hardware_vendor}",
