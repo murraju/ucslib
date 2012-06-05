@@ -458,7 +458,7 @@ class UCSProvision
   		hardware_model          = JSON.parse(json)['hardware_model']
   		hardware_type           = JSON.parse(json)['hardware_type']
   		hardware_vendor         = JSON.parse(json)['hardware_vendor']
-  		firwmare_version        = JSON.parse(json)['firwmare_version'].to_s
+  		firwmare_version        = JSON.parse(json)['firmware_version'].to_s
   		org                     = JSON.parse(json)['org']
 	  
       xml_builder = Nokogiri::XML::Builder.new do |xml|
@@ -470,7 +470,7 @@ class UCSProvision
                                          'status' => 'created', 'updateTrigger' => 'immediate'){
                                            xml.firmwarePackItem('hwModel' => "#{hardware_model}", 'hwVendor' => "#{hardware_vendor}",
                                                                 'rn' => "pack-image-#{hardware_vendor}|#{hardware_model}|#{hardware_type}",
-                                                                'type' => "#{hardware_type}", 'version' => "#{firwmare_version}")
+                                                                'type' => "#{hardware_type}", 'version' => "#{firmware_version}")
                                          }
             }
           }
