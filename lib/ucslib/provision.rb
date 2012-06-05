@@ -494,6 +494,7 @@ class UCSProvision
       # end
 
 
+
       #Create XML
 
       create_host_firmware_packageXML = xml_builder.to_xml.to_s
