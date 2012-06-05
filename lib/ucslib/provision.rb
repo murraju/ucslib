@@ -458,7 +458,7 @@ class UCSProvision
   		hardware_model          = JSON.parse(json)['hardware_model']
   		hardware_type           = JSON.parse(json)['hardware_type']
   		hardware_vendor         = JSON.parse(json)['hardware_vendor']
-  		firwmare_version        = JSON.parse(json)['firmware_version']
+  		firmware_version        = JSON.parse(json)['firmware_version']
   		org                     = JSON.parse(json)['org']
 	  
       xml_builder = Nokogiri::XML::Builder.new do |xml|
