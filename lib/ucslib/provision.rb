@@ -455,10 +455,10 @@ class UCSProvision
     def create_host_firmware_package(json)
     
   		host_firmware_pkg_name  = JSON.parse(json)['host_firmware_pkg_name']
-  		hardware_model          = JSON.parse(json)['hardware_model']
+  		hardware_model          = JSON.parse(json)['hardware_model'].to_s
   		hardware_type           = JSON.parse(json)['hardware_type']
-  		hardware_vendor         = JSON.parse(json)['hardware_vendor']
-  		firmware_version        = JSON.parse(json)['firmware_version']
+  		hardware_vendor         = JSON.parse(json)['hardware_vendor'].to_s
+  		firmware_version        = JSON.parse(json)['firmware_version'].to_s
   		org                     = JSON.parse(json)['org']
 	  
       # xml_builder = Nokogiri::XML::Builder.new do |xml|
