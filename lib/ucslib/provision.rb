@@ -493,6 +493,10 @@ class UCSProvision
         }
       end
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7b49fffe612a2061c13b6849a9c0cc4c4c0fd246
 
       #Create XML
 
