@@ -18,6 +18,7 @@
 require "ucslib/version"
 require "ucslib/session"
 require "ucslib/provision"
+require "ucslib/parser"
 require "ucslib/update"
 require "ucslib/inventory"
 require 'ucslib/destroy'
