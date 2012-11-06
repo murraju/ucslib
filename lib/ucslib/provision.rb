@@ -105,7 +105,7 @@ class UCSProvision
 
     end
 
-    def set_ntp(json)
+    def set_ntp_server(json)
 
   		ntp_server = "#{JSON.parse(json)['ntp_server']}"
 
