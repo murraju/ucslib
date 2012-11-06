@@ -25,6 +25,33 @@ class UCSProvision
 
 	  end
 
+    def create_org(json)
+
+      org = JSON.parse(json)['org']
+
+      xml_builder = Nokogiri::XML::Builder.new do |xml|
+      xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true') {
+        xml.inConfigs{
+          xml.pair('key' => "org-root/org-#{org}") {
+            xml.orgOrg('descr' => "#{org} org", 'dn' => "org-root/org-#{org}", 'name' => "#{org}", 'status' => 'created')
+          }
+        }
+      }
+      end
+
+      #Create XML
+      create_org_XML= xml_builder.to_xml.to_s
+
+      #Post
+
+      begin
+        RestClient.post(@url, create_org_XML, :content_type => 'text/xml').body
+      rescue Exception => e
+        raise "Error #{e}"
+      end     
+
+    end
+
 	  def set_power_policy(json)
 		
   		power_policy = "#{JSON.parse(json)['power_policy']}"
@@ -271,33 +298,6 @@ class UCSProvision
   		end
 
 	  end
-
-    def create_org(json)
-
-		  org = JSON.parse(json)['org']
-
-  		xml_builder = Nokogiri::XML::Builder.new do |xml|
-  		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true') {
-  		  xml.inConfigs{
-  		    xml.pair('key' => "org-root/org-#{org}") {
-  		      xml.orgOrg('descr' => "#{org} org", 'dn' => "org-root/org-#{org}", 'name' => "#{org}", 'status' => 'created')
-  		    }
-  		  }
-  		}
-  		end
-
-  		#Create XML
-  		create_org_XML= xml_builder.to_xml.to_s
-
-  		#Post
-
-  		begin
-  			RestClient.post(@url, create_org_XML, :content_type => 'text/xml').body
-  		rescue Exception => e
-  			raise "Error #{e}"
-  		end  		
-
-    end
 
     def set_local_disk_policy(json)
 
