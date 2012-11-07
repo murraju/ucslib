@@ -158,6 +158,37 @@ class UCSProvision
 
     end
 
+
+    def set_local_disk_policy(json)
+
+      local_disk_policy   = JSON.parse(json)['local_disk_policy']
+      org                 = JSON.parse(json)['org']
+
+      xml_builder = Nokogiri::XML::Builder.new do |xml|
+      xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
+        xml.inConfigs{
+          xml.pair('key' => "org-root/org-#{org}/local-disk-config-#{org}-localdisk"){
+            xml.storageLocalDiskConfigPolicy('descr' => '', 'dn' => "org-root/org-#{org}/local-disk-config-#{org}-localdisk", 
+                                             'mode' => "#{local_disk_policy}", 'name' => "#{org}-localdisk", 'protectConfig' => 'yes',
+                                             'status' => 'created')
+          }
+        }
+      }
+      end
+
+      #Create XML
+      set_local_disk_policy_XML = xml_builder.to_xml.to_s
+
+      #Post
+      begin
+        RestClient.post(@url, set_local_disk_policy_XML, :content_type => 'text/xml').body
+      rescue Exception => e
+        raise "Error #{e}"
+      end
+    
+    end
+
+
 	  def create_server_port(json)
 
   		switch = JSON.parse(json)['switch']
@@ -298,35 +329,6 @@ class UCSProvision
   		end
 
 	  end
-
-    def set_local_disk_policy(json)
-
-  		local_disk_policy 	= JSON.parse(json)['local_disk_policy']
-  		org 				        = JSON.parse(json)['org']
-
-  		xml_builder = Nokogiri::XML::Builder.new do |xml|
-  		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
-  		  xml.inConfigs{
-  		    xml.pair('key' => "org-root/org-#{org}/local-disk-config-#{org}-localdisk"){
-  		      xml.storageLocalDiskConfigPolicy('descr' => '', 'dn' => "org-root/org-#{org}/local-disk-config-#{org}-localdisk", 
-  		                                       'mode' => "#{local_disk_policy}", 'name' => "#{org}-localdisk", 'protectConfig' => 'yes',
-  		                                       'status' => 'created')
-  		    }
-  		  }
-  		}
-  		end
-
-  		#Create XML
-  		set_local_disk_policy_XML = xml_builder.to_xml.to_s
-
-  		#Post
-  		begin
-  			RestClient.post(@url, set_local_disk_policy_XML, :content_type => 'text/xml').body
-  		rescue Exception => e
-  			raise "Error #{e}"
-  		end
-		
-    end
 
     def create_local_boot_policy(json)
 
@@ -999,7 +1001,5 @@ class UCSProvision
 		end
 
     end
-
-
 
 end
