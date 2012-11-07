@@ -224,7 +224,7 @@ class UCSProvision
 
 	  end
 
-    def create_network_uplink_port(json)
+    def set_network_uplink_port(json)
 
   		switch = JSON.parse(json)['switch']
   		port   = JSON.parse(json)['port']
@@ -246,12 +246,12 @@ class UCSProvision
   		end
 
   		#Create XML 
-  		create_network_uplink_XML = xml_builder.to_xml.to_s
+  		set_network_uplink_XML = xml_builder.to_xml.to_s
 
   		#Post
 
   		begin
-  			RestClient.post(@url, create_network_uplink_XML, :content_type => 'text/xml').body
+  			RestClient.post(@url, set_network_uplink_XML, :content_type => 'text/xml').body
   		rescue Exception => e
   			raise "Error #{e}"
   		end
