@@ -41,12 +41,12 @@ class UCSProvision
       end
 
       #Create XML
-      create_org_XML= xml_builder.to_xml.to_s
+      set_org_XML= xml_builder.to_xml.to_s
 
       #Post
 
       begin
-        RestClient.post(@url, create_org_XML, :content_type => 'text/xml').body
+        RestClient.post(@url, set_org_XML, :content_type => 'text/xml').body
       rescue Exception => e
         raise "Error #{e}"
       end     
@@ -531,11 +531,11 @@ class UCSProvision
   		end
 
   		#Create XML
-  		create_management_ip_pool_XML = xml_builder.to_xml.to_s
+  		set_management_ip_pool_XML = xml_builder.to_xml.to_s
 
   		#Post
   		begin
-  			RestClient.post(@url, create_management_ip_pool_XML, :content_type => 'text/xml').body
+  			RestClient.post(@url, set_management_ip_pool_XML, :content_type => 'text/xml').body
   		rescue Exception => e
   			raise "Error #{e}"
   		end
