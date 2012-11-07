@@ -289,7 +289,7 @@ class UCSProvision
     end
 
 
-    def create_port_channel(json)
+    def set_port_channel(json)
   		#Parse uplink modules on Expansion Module 2. Minimum 2 ports are required for creating a port channel.
   		#As of this implementation, it is assumed that Northboutn uplinks are created using the Expansion Module and not the fixed module
 
@@ -320,11 +320,11 @@ class UCSProvision
   		end
 
   		#Create XML
-  		create_port_channel_XML = xml_builder.to_xml.to_s
+  		set_port_channel_XML = xml_builder.to_xml.to_s
 
   		#Post
   		begin
-  			RestClient.post(@url, create_port_channel_XML, :content_type => 'text/xml').body
+  			RestClient.post(@url, set_port_channel_XML, :content_type => 'text/xml').body
   		rescue Exception => e
   			raise "Error #{e}"
   		end
