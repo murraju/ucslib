@@ -28,7 +28,7 @@ class UCSProvision
     def set_org(json)
 
       org = JSON.parse(json)['org']
-      org = JSON.parse(json)['description']
+      description = JSON.parse(json)['description']
 
       xml_builder = Nokogiri::XML::Builder.new do |xml|
       xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true') {
