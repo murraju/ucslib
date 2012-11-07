@@ -25,7 +25,7 @@ class UCSProvision
 
 	  end
 
-    def create_org(json)
+    def set_org(json)
 
       org = JSON.parse(json)['org']
       org = JSON.parse(json)['description']
