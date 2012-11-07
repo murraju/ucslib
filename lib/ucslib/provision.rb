@@ -455,20 +455,21 @@ class UCSProvision
   	end
 
 
-    def create_host_firmware_package(json)
+    def set_host_firmware_package(json)
     
-  		host_firmware_pkg_name  = JSON.parse(json)['host_firmware_pkg_name']
-  		hardware_model          = JSON.parse(json)['hardware_model'].to_s
-  		hardware_type           = JSON.parse(json)['hardware_type']
-  		hardware_vendor         = JSON.parse(json)['hardware_vendor'].to_s
-  		firmware_version        = JSON.parse(json)['firmware_version'].to_s
-  		org                     = JSON.parse(json)['org']
+  		host_firmware_pkg_name        = JSON.parse(json)['host_firmware_pkg_name']
+      host_firmware_pkg_description = JSON.parse(json)['host_firmware_pkg_description']
+  		hardware_model                = JSON.parse(json)['hardware_model'].to_s
+  		hardware_type                 = JSON.parse(json)['hardware_type']
+  		hardware_vendor               = JSON.parse(json)['hardware_vendor'].to_s
+  		firmware_version              = JSON.parse(json)['firmware_version'].to_s
+  		org                           = JSON.parse(json)['org']
 	  
       xml_builder = Nokogiri::XML::Builder.new do |xml|
         xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
           xml.inConfigs{
             xml.pair('key' => "org-root/org-#{org}/fw-host-pack-#{host_firmware_pkg_name}"){
-              xml.firmwareComputeHostPack('descr' => '', 'dn' => "org-root/org-#{org}/fw-host-pack-#{host_firmware_pkg_name}",
+              xml.firmwareComputeHostPack('descr' => "#{host_firmware_pkg_description}", 'dn' => "org-root/org-#{org}/fw-host-pack-#{host_firmware_pkg_name}",
                                          'ignoreCompCheck' => 'yes', 'mode' => 'staged', 'name' => "#{host_firmware_pkg_name}", 'stageSize' => '0',
                                          'status' => 'created', 'updateTrigger' => 'immediate'){
                                            xml.firmwarePackItem('hwModel' => "#{hardware_model}", 'hwVendor' => "#{hardware_vendor}",
