@@ -501,12 +501,12 @@ class UCSProvision
 
       #Create XML
 
-      create_host_firmware_packageXML = xml_builder.to_xml.to_s
+      set_host_firmware_packageXML = xml_builder.to_xml.to_s
 
       #Post
 
       begin
-        RestClient.post(@url, create_host_firmware_packageXML, :content_type => 'text/xml').body
+        RestClient.post(@url, set_host_firmware_packageXML, :content_type => 'text/xml').body
       rescue Exception => e
         raise "Error #{e}"
       end
