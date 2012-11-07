@@ -458,7 +458,7 @@ class UCSProvision
     def set_mgmt_firmware_package(json)
     
       mgmt_firmware_pkg_name        = JSON.parse(json)['mgmt_firmware_pkg_name']
-      host_firmware_pkg_description = JSON.parse(json)['mgmt_firmware_pkg_description']
+      mgmt_firmware_pkg_description = JSON.parse(json)['mgmt_firmware_pkg_description']
       hardware_model                = JSON.parse(json)['hardware_model'].to_s
       hardware_type                 = JSON.parse(json)['hardware_type']
       hardware_vendor               = JSON.parse(json)['hardware_vendor'].to_s
