@@ -511,7 +511,7 @@ class UCSProvision
 
     end
 
-    def create_management_ip_pool(json)
+    def set_management_ip_pool(json)
 
   		start_ip 	  = JSON.parse(json)['start_ip']
   		end_ip   	  = JSON.parse(json)['end_ip']
