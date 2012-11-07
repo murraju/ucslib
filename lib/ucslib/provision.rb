@@ -331,7 +331,7 @@ class UCSProvision
 
 	  end
 
-    def create_local_boot_policy(json)
+    def set_local_boot_policy(json)
 
   		name             = JSON.parse(json)['name']
   		description      = JSON.parse(json)['description']
@@ -355,11 +355,11 @@ class UCSProvision
   		end
 
   		#Create XML
-  		create_local_boot_policy_XML = xml_builder.to_xml.to_s
+  		set_local_boot_policy_XML = xml_builder.to_xml.to_s
 
   		#Post
   		begin
-  			RestClient.post(@url, create_local_boot_policy_XML, :content_type => 'text/xml').body
+  			RestClient.post(@url, set_local_boot_policy_XML, :content_type => 'text/xml').body
   		rescue Exception => e
   			raise "Error #{e}"
   		end
