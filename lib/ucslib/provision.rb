@@ -469,7 +469,7 @@ class UCSProvision
       xml_builder = Nokogiri::XML::Builder.new do |xml|
         xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
           xml.inConfigs{
-            xml.pair('key' => "org-root/org-#{org}/fw-host-pack-#{mgmt_firmware_pkg_name}"){
+            xml.pair('key' => "org-root/org-#{org}/fw-mgmt-pack-#{mgmt_firmware_pkg_name}"){
               xml.firmwareComputeMgmtPack('descr' => "#{mgmt_firmware_pkg_description}", 'dn' => "org-root/org-#{org}/fw-mgmt-pack-#{mgmt_firmware_pkg_name}",
                                          'ignoreCompCheck' => 'yes', 'mode' => 'staged', 'name' => "#{mgmt_firmware_pkg_name}", 'stageSize' => '0',
                                          'status' => 'created', 'updateTrigger' => 'immediate'){
