@@ -28,12 +28,13 @@ class UCSProvision
     def create_org(json)
 
       org = JSON.parse(json)['org']
+      org = JSON.parse(json)['description']
 
       xml_builder = Nokogiri::XML::Builder.new do |xml|
       xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true') {
         xml.inConfigs{
           xml.pair('key' => "org-root/org-#{org}") {
-            xml.orgOrg('descr' => "#{org} org", 'dn' => "org-root/org-#{org}", 'name' => "#{org}", 'status' => 'created')
+            xml.orgOrg('descr' => "#{description}", 'dn' => "org-root/org-#{org}", 'name' => "#{org}", 'status' => 'created')
           }
         }
       }
