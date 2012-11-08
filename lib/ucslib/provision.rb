@@ -30,7 +30,7 @@ class UCSProvision
       org = JSON.parse(json)['org']
       description = JSON.parse(json)['description']
 
-      xml_builder = Nokogiri::xml::Builder.new do |xml|
+      xml_builder = Nokogiri::XML::Builder.new do |xml|
       xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true') {
         xml.inConfigs{
           xml.pair('key' => "org-root/org-#{org}") {
@@ -57,7 +57,7 @@ class UCSProvision
 		
   		power_policy = "#{JSON.parse(json)['power_policy']}"
 
-  		xml_builder = Nokogiri::xml::Builder.new do |xml|
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
   		    xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'false') {
   		      xml.inConfigs{
   		        xml.pair('key' => 'org-root/psu-policy'){
@@ -82,7 +82,7 @@ class UCSProvision
     	
       chassis_discovery_policy = "#{JSON.parse(json)['chassis_discovery_policy']}"
 
-  		xml_builder = Nokogiri::xml::Builder.new do |xml|
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
   		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'false') {
   		  xml.inConfigs{
   		    xml.pair('key' => 'org-root/chassis-discovery'){
@@ -110,7 +110,7 @@ class UCSProvision
 
   		time_zone = "#{JSON.parse(json)['time_zone']}"
 
-  		xml_builder = Nokogiri::xml::Builder.new do |xml|
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
   		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'false'){
   		  xml.inConfigs{
   		    xml.pair('key' => 'sys/svc-ext/datetime-svc'){
@@ -137,7 +137,7 @@ class UCSProvision
 
   		ntp_server = "#{JSON.parse(json)['ntp_server']}"
 
-  		xml_builder = Nokogiri::xml::Builder.new do |xml|
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
   		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'false'){
   		  xml.inConfigs{
   		    xml.pair('key' => "sys/svc-ext/datetime-svc/ntp-#{ntp_server}"){
@@ -165,7 +165,7 @@ class UCSProvision
       local_disk_policy   = JSON.parse(json)['local_disk_policy']
       org                 = JSON.parse(json)['org']
 
-      xml_builder = Nokogiri::xml::Builder.new do |xml|
+      xml_builder = Nokogiri::XML::Builder.new do |xml|
       xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
         xml.inConfigs{
           xml.pair('key' => "org-root/org-#{org}/local-disk-config-#{org}-localdisk"){
@@ -197,7 +197,7 @@ class UCSProvision
   		slot   = JSON.parse(json)['slot']
 
 
-  		xml_builder = Nokogiri::xml::Builder.new do |xml|
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
   		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'false'){
   		  xml.inConfigs{
   		    xml.pair('key' => "fabric/server/SW-#{switch}"){
@@ -230,7 +230,7 @@ class UCSProvision
   		port   = JSON.parse(json)['port']
   		slot   = JSON.parse(json)['slot']    	
 
-  		xml_builder = Nokogiri::xml::Builder.new do |xml|
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
   		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'false'){
   		xml.inConfigs{
   		 xml.pair('key' => "fabric/lan/#{switch}"){
@@ -265,7 +265,7 @@ class UCSProvision
   		port   = JSON.parse(json)['port']
   		slot   = JSON.parse(json)['slot']  
 
-  		xml_builder = Nokogiri::xml::Builder.new do |xml|
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
   		 xml.configConfMos('cookie' => "#{@ucs_cookie}", 'inHierarchical' => 'false'){
   		   xml.inConfigs{
   		     xml.pair('key' => "fabric/san/#{switch}/phys" + "-" + "slot" + "-" + "#{slot}" + "-" + "port" + "-" + "#{port}"){
@@ -301,7 +301,7 @@ class UCSProvision
 
 
   		#Create xml
-  		xml_builder = Nokogiri::xml::Builder.new do |xml|
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
   		 xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
   		   xml.inConfigs{
   		     xml.pair('key' => "fabric/lan/#{switch}/pc-#{port_channel_id}"){
@@ -337,7 +337,7 @@ class UCSProvision
   		description      = JSON.parse(json)['description']
   		org              = JSON.parse(json)['org']
 
-  		xml_builder = Nokogiri::xml::Builder.new do |xml|
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
   		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
   		  xml.inConfigs{
   		    xml.pair('key' => "org-root/org-#{org}/boot-policy-#{name}"){
@@ -374,7 +374,7 @@ class UCSProvision
   		vnic_a         = JSON.parse(json)['vnic_a']
   		vnic_b         = JSON.parse(json)['vnic_b']
 
-  		xml_builder = Nokogiri::xml::Builder.new do |xml|
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
   		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
   		  xml.inConfigs{
   		    xml.pair('key' => "org-root/org-#{org}/boot-policy-#{name}"){
@@ -420,7 +420,7 @@ class UCSProvision
   		target_b_1   = JSON.parse(json)['target_b_1']
   		target_b_2   = JSON.parse(json)['target_b_2']
 
-  		xml_builder = Nokogiri::xml::Builder.new do |xml|
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
   		   xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
   		     xml.inConfigs{
   		       xml.pair('key' => "org-root/org-#{org}/boot-policy-#{name}"){
@@ -466,7 +466,7 @@ class UCSProvision
       org                           = JSON.parse(json)['org']
 
     
-      xml_builder = Nokogiri::xml::Builder.new do |xml|
+      xml_builder = Nokogiri::XML::Builder.new do |xml|
         xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
           xml.inConfigs{
             xml.pair('key' => "org-root/org-#{org}/fw-mgmt-pack-#{mgmt_firmware_pkg_name}"){
@@ -510,7 +510,7 @@ class UCSProvision
 
       unless flag == 'update'
 	  
-        xml_builder = Nokogiri::xml::Builder.new do |xml|
+        xml_builder = Nokogiri::XML::Builder.new do |xml|
           xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
             xml.inConfigs{
               xml.pair('key' => "org-root/org-#{org}/fw-host-pack-#{host_firmware_pkg_name}"){
@@ -528,7 +528,7 @@ class UCSProvision
 
       else
 
-        xml_builder = Nokogiri::xml::Builder.new do |xml|
+        xml_builder = Nokogiri::XML::Builder.new do |xml|
           xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'false'){
             xml.inConfigs{
               xml.pair('key' => "org-root/org-#{org}/fw-host-pack-#{host_firmware_pkg_name}"){
@@ -567,7 +567,7 @@ class UCSProvision
   		subnet_mask = JSON.parse(json)['subnet_mask']
   		gateway  	  = JSON.parse(json)['gateway']
 
-  		xml_builder = Nokogiri::xml::Builder.new do |xml|
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
   		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
   		  xml.inConfigs{
   		    xml.pair('key' => "org-root/ip-pool-ext-mgmt/block-#{start_ip}-#{end_ip}"){
@@ -595,7 +595,7 @@ class UCSProvision
   		vlan_id     = JSON.parse(json)['vlan_id']
   		vlan_name   = JSON.parse(json)['vlan_name']
 
-  		xml_builder = Nokogiri::xml::Builder.new do |xml|
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
   		  xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
   		    xml.inConfigs{
   		      xml.pair('key' => "fabric/lan/net-#{vlan_name}"){
@@ -636,7 +636,7 @@ class UCSProvision
     	# 
     	# get_mac_pool_suffix(size)
 
-    	xml_builder = Nokogiri::xml::Builder.new do |xml|
+    	xml_builder = Nokogiri::XML::Builder.new do |xml|
     	  xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
     	    xml.inConfigs{
     	      xml.pair('key' => "org-root/org-#{org}/mac-pool-#{mac_pool_name}"){
@@ -674,7 +674,7 @@ class UCSProvision
 		  vnic_template_mtu             = JSON.parse(json)['vnic_template_mtu']
 
 
-  		xml_builder = Nokogiri::xml::Builder.new do |xml|
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
   		  xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
   		    xml.inConfigs{
   		      xml.pair('key' => "org-root/org-#{org}/lan-conn-templ-#{vnic_template_name}"){
@@ -714,7 +714,7 @@ class UCSProvision
   		vsan_fcoe_id   = JSON.parse(json)['vsan_fcoe_id']
   		vsan_name      = JSON.parse(json)['vsan_name']
 
-  		xml_builder = Nokogiri::xml::Builder.new do |xml|
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
   		  xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
   		    xml.inConfigs{
   		      xml.pair('key' => 'fabric/san/'){
@@ -744,7 +744,7 @@ class UCSProvision
 		 wwnn_to     = JSON.parse(json)['wwnn_to']
 		 org    	 = JSON.parse(json)['org']
 
-		 xml_builder = Nokogiri::xml::Builder.new do |xml|
+		 xml_builder = Nokogiri::XML::Builder.new do |xml|
 		   xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
 		     xml.inConfigs{
 		       xml.pair('key' => "org-root/org-#{org}/wwn-pool-#{wwnn_name}"){
@@ -776,7 +776,7 @@ class UCSProvision
 		 wwpn_to     = JSON.parse(json)['wwpn_to']
 		 org    	   = JSON.parse(json)['org']
 
-		 xml_builder = Nokogiri::xml::Builder.new do |xml|
+		 xml_builder = Nokogiri::XML::Builder.new do |xml|
 		   xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
 		     xml.inConfigs{
 		       xml.pair('key' => "org-root/org-#{org}/wwn-pool-#{wwpn_name}"){
@@ -811,7 +811,7 @@ class UCSProvision
   		vsan_name          = JSON.parse(json)['vsan_name']
   		org  			         = JSON.parse(json)['org']
 
-  		xml_builder = Nokogiri::xml::Builder.new do |xml|
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
   		  xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
   		    xml.inConfigs{
   		      xml.pair('key' => "org-root/org-#{org}/san-conn-templ-#{vbha_template_name}"){
@@ -844,7 +844,7 @@ class UCSProvision
   		uuid_to            = JSON.parse(json)['uuid_to']
   		org           	   = JSON.parse(json)['org']
 
-  		xml_builder = Nokogiri::xml::Builder.new do |xml|
+  		xml_builder = Nokogiri::XML::Builder.new do |xml|
   		  xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
   		    xml.inConfigs{
   		      xml.pair('key' => "org-root/org-#{org}/uuid-pool-#{uuid_pool_name}"){
@@ -888,7 +888,7 @@ class UCSProvision
 		 service_profile_template_vhba_b_template    = JSON.parse(json)['service_profile_template_vhba_b_template'].to_s
 		 org                						             = JSON.parse(json)['org'].to_s
 
-		 xml_builder = Nokogiri::xml::Builder.new do |xml|
+		 xml_builder = Nokogiri::XML::Builder.new do |xml|
 		   xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
 		     xml.inConfigs{
 		       xml.pair('key' => "org-root/org-#{org}/ls-#{service_profile_template_name}"){
@@ -949,7 +949,7 @@ class UCSProvision
 		 service_profile_template_sp_prefix         = JSON.parse(json)['service_profile_template_sp_prefix'].to_s
 		 service_profile_template_num_of_sps        = JSON.parse(json)['service_profile_template_num_of_sps'].to_i
 
-		 xml_builder = Nokogiri::xml::Builder.new do |xml|
+		 xml_builder = Nokogiri::XML::Builder.new do |xml|
 		       xml.lsInstantiateNTemplate('dn' => "org-root/org-#{org}/ls-#{service_profile_template_name}",
 		                                   'inTargetOrg' => "org-root/org-#{org}", 'inServerNamePrefixOrEmpty' => "#{service_profile_template_sp_prefix}",
 		                                   'inNumberOf' => "#{service_profile_template_num_of_sps}", 'inHierarchical' => 'false')
@@ -993,7 +993,7 @@ class UCSProvision
 
 
 
-		  xml_builder = Nokogiri::xml::Builder.new do |xml|
+		  xml_builder = Nokogiri::XML::Builder.new do |xml|
 		    xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
 		      xml.inConfigs{@service_profile_names.each do |service_profile_name|
 		        xml.pair('key' => "org-root/org-#{org}/ls-#{service_profile_name}"){
