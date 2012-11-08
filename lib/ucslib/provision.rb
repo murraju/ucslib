@@ -590,7 +590,7 @@ class UCSProvision
 
     end
 
-    def create_vlan(json)
+    def set_vlan(json)
 
   		vlan_id     = JSON.parse(json)['vlan_id']
   		vlan_name   = JSON.parse(json)['vlan_name']
@@ -607,11 +607,11 @@ class UCSProvision
   		end
 
   		#Create xml
-  		create_vlan_xml = xml_builder.to_xml.to_s
+  		set_vlan_xml = xml_builder.to_xml.to_s
 
   		#Post
   		begin
-  			RestClient.post(@url, create_vlan_xml, :content_type => 'text/xml').body
+  			RestClient.post(@url, set_vlan_xml, :content_type => 'text/xml').body
   		rescue Exception => e
   			raise "Error #{e}"
   		end
