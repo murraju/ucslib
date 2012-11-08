@@ -618,7 +618,7 @@ class UCSProvision
 
 	  end
 
-    def create_mac_pool(json)
+    def set_mac_pool(json)
 
     	mac_pool_name   = JSON.parse(json)['mac_pool_name']
     	mac_pool_start  = JSON.parse(json)['mac_pool_start']
@@ -652,11 +652,11 @@ class UCSProvision
   	  end
 
   	  #Create XML
-  		create_mac_pool_XML = xml_builder.to_xml.to_s
+  		set_mac_pool_XML = xml_builder.to_xml.to_s
 
   		#Post
   		begin
-  			RestClient.post(@url, create_mac_pool_XML, :content_type => 'text/xml').body
+  			RestClient.post(@url, set_mac_pool_XML, :content_type => 'text/xml').body
   		rescue Exception => e
   			raise "Error #{e}"
   		end
