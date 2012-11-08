@@ -837,7 +837,7 @@ class UCSProvision
 
     end
 
-    def create_uuid_pool(json)
+    def set_uuid_pool(json)
 
   		uuid_pool_name     = JSON.parse(json)['uuid_pool_name']
   		uuid_from          = JSON.parse(json)['uuid_from']
@@ -859,11 +859,11 @@ class UCSProvision
   		end
 
   		#Create XML
-  		create_uuid_pool_XML = xml_builder.to_xml.to_s
+  		set_uuid_pool_XML = xml_builder.to_xml.to_s
 
   		#Post
   		begin
-  			RestClient.post(@url, create_uuid_pool_XML, :content_type => 'text/xml').body
+  			RestClient.post(@url, set_uuid_pool_XML, :content_type => 'text/xml').body
   		rescue Exception => e
   			raise "Error #{e}"
   		end
