@@ -997,7 +997,7 @@ class UCSProvision
 
 		  xml_builder = Nokogiri::XML::Builder.new do |xml|
 		    xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
-		      xml.inConfigs{@service_profile_names.each do |service_profile_name|
+		      xml.inConfigs{service_profile_names.each do |service_profile_name|
 		        xml.pair('key' => "org-root/org-#{org}/ls-#{service_profile_name}"){
 		          xml.lsServer('agentPolicyName' => '', 'biosProfileName' => '', 'bootPolicyName' => "#{service_profile_boot_policy}",
 		                       'descr' => '', 'dn' => "org-root/org-#{org}/ls-#{service_profile_name}",
@@ -1006,14 +1006,14 @@ class UCSProvision
 		                       'mgmtAccessPolicyName' => '', 'mgmtFwPolicyName' => "#{service_profile_mgmt_fw_policy}", 'name' => "#{service_profile_name}",
 		                       'powerPolicyName' => 'default', 'scrubPolicyName' => '', 'solPolicyName' => 'default', 'srcTemplName' => "#{service_profile_template_to_bind}", 
 		                       'statsPolicyName' => 'default', 'status' => 'created', 'usrLbl' => '', 'uuid' => '0', 'vconProfileName' => ''){
-		                        @service_profile_vnics_a.each do |vnic_a|  
+		                        service_profile_vnics_a.each do |vnic_a|  
 		                         xml.vnicEther('adaptorProfileName' => '', 'addr' => 'derived', 'adminVcon' => 'any', 'identPoolName' => '', 'mtu' => '1500',
 		                                       'name' => "#{vnic_a}", 'nwCtrlPolicyName' => '', 'nwTemplName' => "#{service_profile_vnic_a_template}",
 		                                       'order' => '3', 'pinToGroupName' => '', 'qosPolicyName' => '', 'rn' => "ether-#{vnic_a}",
 		                                       'statsPolicyName' => 'default', 'status' => 'created', 'switchId' => 'A')
 		                        end
 
-		                        @service_profile_vnics_b.each do |vnic_b|
+		                        service_profile_vnics_b.each do |vnic_b|
 		                         xml.vnicEther('adaptorProfileName' => '', 'addr' => 'derived', 'adminVcon' => 'any', 'identPoolName' => '', 'mtu' => '1500',
 		                                       'name' => "#{vnic_b}", 'nwCtrlPolicyName' => '', 'nwTemplName' => "#{service_profile_vnic_b_template}",
 		                                       'order' => '4', 'pinToGroupName' => '', 'qosPolicyName' => '', 'rn' => "ether-#{vnic_b}",
@@ -1044,7 +1044,7 @@ class UCSProvision
 		#Create Template xml
 		set_service_profiles_xml = xml_builder.to_xml.to_s
 
-		#Post create Service Profile Template
+		#Post create Service Profiles
 		begin
 			RestClient.post(@url, set_service_profiles_xml, :content_type => 'text/xml').body
 		rescue Exception => e
