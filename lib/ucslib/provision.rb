@@ -803,7 +803,7 @@ class UCSProvision
 
     end
 
-    def create_vhba_template(json)
+    def set_vhba_template(json)
 
   		vbha_template_name = JSON.parse(json)['vbha_template_name']
   		wwpn_pool          = JSON.parse(json)['wwpn_pool']
@@ -826,11 +826,11 @@ class UCSProvision
   		  }
   		end
   		#Create xml
-  		create_vhba_template_xml = xml_builder.to_xml.to_s
+  		set_vhba_template_xml = xml_builder.to_xml.to_s
 
   		#Post
   		begin
-  			RestClient.post(@url, create_vhba_template_xml, :content_type => 'text/xml').body
+  			RestClient.post(@url, set_vhba_template_xml, :content_type => 'text/xml').body
   		rescue Exception => e
   			raise "Error #{e}"
   		end
