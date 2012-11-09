@@ -1063,8 +1063,8 @@ class UCSProvision
       xml_builder = Nokogiri::XML::Builder.new do |xml|
         xml.configConfMos('cookie' => "#{@ucs_cookie}", 'inHierarchical' => 'true'){
           xml.inConfigs{
-            xml.pair('key' => "org-root/org-#{server_pool_org}/compute-pool-#{server_pool_name}"){
-              xml.computePool('descr' => "#{server_pool_description}", 'dn' => "org-root/org-#{server_pool_org}/compute-pool-#{server_pool_name}",
+            xml.pair('key' => "org-root/org-#{org}/compute-pool-#{server_pool_name}"){
+              xml.computePool('descr' => "#{server_pool_description}", 'dn' => "org-root/org-#{org}/compute-pool-#{server_pool_name}",
                               'name' => "#{server_pool_name}", 'status' => 'created'){
                                 server_pool_blades.each do |slot_id|
                                   xml.computePooledSlot('chassisId' => "#{server_pool_chassis_id}", 
