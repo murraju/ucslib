@@ -39,7 +39,7 @@ class UCSManage
 	xml_builder = Nokogiri::XML::Builder.new do |xml|
 	  xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
 	    xml.inConfigs{
-	      xml.pair('key' => "org-root/org-#{service_profile_org}/ls-#{service_profile_template_to_bind}"){
+	      xml.pair('key' => "org-root/org-#{org}/ls-#{service_profile_template_to_bind}"){
 	        xml.lsServer('agentPolicyName' => '', 'biosProfileName' => '', 'bootPolicyName' => "#{service_profile_boot_policy}",
 	                     'descr' => '', 'dn' => "org-root/org-#{org}/ls-#{service_profile_template_to_bind}",
 	                     'dynamicConPolicyName' => '', 'extIPState' => 'none', 'hostFwPolicyName' => "#{service_profile_host_fw_policy}",
