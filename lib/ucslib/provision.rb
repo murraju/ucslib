@@ -1051,6 +1051,61 @@ class UCSProvision
 			raise "Error #{e}"
 		end
 
-    end
+  end
+
+  def set_server_pool(json)
+      server_pool_name           = JSON.parse(json)['server_pool_name'].to_s
+      server_pool_chassis_id     = JSON.parse(json)['server_pool_chassis_id'].to_i
+      server_pool_blades         = JSON.parse(json)['server_pool_blades'].to_s.split(',')
+      org                        = JSON.parse(json)['org'].to_s
+
+      xml_builder = Nokogiri::XML::Builder.new do |xml|
+        xml.configConfMos('cookie' => "#{@ucs_cookie}", 'inHierarchical' => 'true'){
+          xml.inConfigs{
+            xml.pair('key' => "org-root/org-#{server_pool_org}/compute-pool-#{server_pool_name}"){
+              xml.computePool('descr' => '', 'dn' => "org-root/org-#{server_pool_org}/compute-pool-#{server_pool_name}",
+                              'name' => "#{server_pool_name}", 'status' => 'created'){
+                                server_pool_blades.each do |slot_id|
+                                  xml.computePooledSlot('chassisId' => "#{server_pool_chassis_id}", 
+                                                        'rn' => "blade-#{server_pool_chassis_id}-#{slot_id}", 'slotId' => "#{slot_id}")
+                                end
+                              }
+            }
+          }
+        }
+      end
+
+
+
+      # xml_builder = Nokogiri::XML::Builder.new do |xml|
+      #   xml.configConfMos('cookie' => "#{@ucs_cookie}", 'inHierarchical' => 'true'){
+      #     xml.inConfigs{
+      #       xml.pair('key' => "org-root/org-#{server_pool_org}/compute-pool-#{server_pool_name}"){
+      #         xml.computePool('descr' => '', 'dn' => "org-root/org-#{server_pool_org}/compute-pool-#{server_pool_name}",
+      #                         'status' => 'created,modified'){
+      #                           server_pool_blades.each do |slot_id|
+      #                             xml.computePooledSlot('chassisId' => "#{server_pool_chassis_id}", 
+      #                                                   'rn' => "blade-#{server_pool_chassis_id}-#{slot_id}", 'slotId' => "#{slot_id}",
+      #                                                   'status' => 'created')
+      #                           end
+      #                         }
+      #       }
+      #     }
+      #   }
+      # end
+
+
+      #Create XML
+
+      set_server_pool_xml = xml_builder.to_xml.to_s
+
+      #Post 
+      begin
+        RestClient.post(@url, set_server_pool_xml, :content_type => 'text/xml').body
+      rescue Exception => e
+        raise "Error #{e}"
+      end
+
+  end
 
 end
