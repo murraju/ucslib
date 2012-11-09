@@ -815,9 +815,9 @@ class UCSProvision
   		xml_builder = Nokogiri::XML::Builder.new do |xml|
   		  xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
   		    xml.inConfigs{
-  		      xml.pair('key' => "org-root/org-#{org}/san-conn-templ-#{vbha_template_name}"){
-  		        xml.vnicSanConnTempl('descr' => "#{description}", 'dn' => "org-root/org-#{org}/san-conn-templ-#{vbha_template_name}",
-  		                             'identPoolName' => "#{wwpn_pool}", 'maxDataFieldSize' => '2048', 'name' => "#{vbha_template_name}",
+  		      xml.pair('key' => "org-root/org-#{org}/san-conn-templ-#{vhba_template_name}"){
+  		        xml.vnicSanConnTempl('descr' => "#{description}", 'dn' => "org-root/org-#{org}/san-conn-templ-#{vhba_template_name}",
+  		                             'identPoolName' => "#{wwpn_pool}", 'maxDataFieldSize' => '2048', 'name' => "#{vhba_template_name}",
   		                             'pinToGroupName' => '', 'qosPolicyName' => '', 'statsPolicyName' => 'default', 'status' => 'created',
   		                             'switchId' => "#{switch}", 'templType' => 'updating-template'){
   		                               xml.vnicFcIf('name' => "#{vsan_name}", 'rn' => 'if-default')
