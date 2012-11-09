@@ -708,7 +708,7 @@ class UCSProvision
     end
 
 
-    def create_vsan(json)
+    def set_vsan(json)
 
   		vsan_id        = JSON.parse(json)['vsan_id']
   		vsan_fcoe_id   = JSON.parse(json)['vsan_fcoe_id']
@@ -726,11 +726,11 @@ class UCSProvision
   		end
 
   		#Create xml
-  		create_vsan_xml = xml_builder.to_xml.to_s
+  		set_vsan_xml = xml_builder.to_xml.to_s
 
   		#Post
   		begin
-  			RestClient.post(@url, create_vsan_xml, :content_type => 'text/xml').body
+  			RestClient.post(@url, set_vsan_xml, :content_type => 'text/xml').body
   		rescue Exception => e
   			raise "Error #{e}"
   		end
