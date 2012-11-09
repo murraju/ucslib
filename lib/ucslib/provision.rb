@@ -1023,12 +1023,12 @@ class UCSProvision
 		                         xml.vnicFcNode('addr' => 'pool-derived', 'identPoolName' => "#{service_profile_wwnn_pool}", 'rn' => 'fc-node')
 
 		                         xml.vnicFc('adaptorProfileName' => '', 'addr' => 'derived', 'adminVcon' => 'any', 'identPoolName' => '', 'maxDataFieldSize' => '2048',
-		                                    'name' => "#{service_profile_vhba_a}", 'nwTemplName' => "#{service_profile_vhba_a_}", 
+		                                    'name' => "#{service_profile_vhba_a}", 'nwTemplName' => "#{service_profile_vhba_a}", 
 		                                    'order' => '1', 'persBind' => 'disabled', 'persBindClear' => 'no', 'pinToGroupName' => '', 'qosPolicyName' => '',
 		                                    'rn' => "fc-#{service_profile_vhba_a}", 'statsPolicyName' => 'default', 'status' => 'created', 'switchId' => 'A')
 
 		                         xml.vnicFc('adaptorProfileName' => '', 'addr' => 'derived', 'adminVcon' => 'any', 'identPoolName' => '', 'maxDataFieldSize' => '2048',
-		                                    'name' => "#{service_profile_vhba_b}", 'nwTemplName' => "#{service_profile_vhba_b_}", 
+		                                    'name' => "#{service_profile_vhba_b}", 'nwTemplName' => "#{service_profile_vhba_b}", 
 		                                    'order' => '2', 'persBind' => 'disabled', 'persBindClear' => 'no', 'pinToGroupName' => '', 'qosPolicyName' => '',
 		                                    'rn' => "fc-#{service_profile_vhba_b}", 'statsPolicyName' => 'default', 'status' => 'created', 'switchId' => 'B')
 
