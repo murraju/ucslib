@@ -805,7 +805,7 @@ class UCSProvision
 
     def set_vhba_template(json)
 
-  		vhba_template_name = JSON.parse(json)['vbha_template_name']
+  		vhba_template_name = JSON.parse(json)['vhba_template_name']
   		wwpn_pool          = JSON.parse(json)['wwpn_pool']
   		switch             = JSON.parse(json)['switch']
   		vsan_name          = JSON.parse(json)['vsan_name']
