@@ -663,7 +663,7 @@ class UCSProvision
 
     end
 
-    def create_vnic_template(json)
+    def set_vnic_template(json)
 
 		  vnic_template_name            = JSON.parse(json)['vnic_template_name']
 		  vnic_template_mac_pool        = JSON.parse(json)['vnic_template_mac_pool']
@@ -696,11 +696,11 @@ class UCSProvision
   	  end
 
   		#Create xml
-  		create_vnic_template_xml = xml_builder.to_xml.to_s
+  		set_vnic_template_xml = xml_builder.to_xml.to_s
 
   		#Post
   		begin
-  			RestClient.post(@url, create_vnic_template_xml, :content_type => 'text/xml').body
+  			RestClient.post(@url, set_vnic_template_xml, :content_type => 'text/xml').body
   		rescue Exception => e
   			raise "Error #{e}"
   		end
