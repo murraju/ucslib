@@ -944,7 +944,7 @@ class UCSProvision
 		 
     end
 
-   def create_service_profiles_from_template(json)
+   def set_service_profiles_from_template(json)
 
 		 service_profile_template_name              = JSON.parse(json)['service_profile_template_name'].to_s
 		 org                						            = JSON.parse(json)['org'].to_s
@@ -961,11 +961,11 @@ class UCSProvision
 
 
 		 #Create Template xml
-		 create_service_profiles_from_template_xml = xml_builder.to_xml.to_s
+		 set_service_profiles_from_template_xml = xml_builder.to_xml.to_s
 
 		 #Post create Service Profiles from Template
 		 begin
-		 	RestClient.post(@url, create_service_profiles_from_template_xml, :content_type => 'text/xml').body
+		 	RestClient.post(@url, set_service_profiles_from_template_xml, :content_type => 'text/xml').body
 		 rescue Exception => e
 		 	raise "Error #{e}"
 		 end
@@ -974,7 +974,7 @@ class UCSProvision
 
 
 
-   def create_service_profiles(json)
+   def set_service_profiles(json)
 
 		service_profile_names              = JSON.parse(json)['service_profile_names'].to_s.split(',')
 		service_profile_boot_policy        = JSON.parse(json)['service_profile_boot_policy'].to_s
@@ -1042,11 +1042,11 @@ class UCSProvision
 
 
 		#Create Template xml
-		create_service_profiles_xml = xml_builder.to_xml.to_s
+		set_service_profiles_xml = xml_builder.to_xml.to_s
 
 		#Post create Service Profile Template
 		begin
-			RestClient.post(@url, create_service_profiles_xml, :content_type => 'text/xml').body
+			RestClient.post(@url, set_service_profiles_xml, :content_type => 'text/xml').body
 		rescue Exception => e
 			raise "Error #{e}"
 		end
