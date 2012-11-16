@@ -78,14 +78,43 @@ VLAN: 200 with name: OpenStack-Mgmt
  => 0 
 1.9.3p194 :016 > 
 
+1.9.3p194 :016 > ucs_stats = UCSStats.new
+1.9.3p194 :017 > statsxml = ucs_stats.fetch(token_json)
+1.9.3p194 :017 > ucs.show_sample(statsml,'fcStats')
+The attributes for fcStats for dn=sys/switch-B/slot-1/switch-fc/port-32/stats are:
+  bytesRx = 125283780333316
+  bytesRxDelta = 142669360
+  bytesRxDeltaAvg = 142706128
+  bytesRxDeltaMax = 146404048
+  bytesRxDeltaMin = 139044968
+  bytesTx = 42023875724480
+  bytesTxDelta = 29946840
+  bytesTxDeltaAvg = 29842170
+  bytesTxDeltaMax = 31907484
+  bytesTxDeltaMin = 27672184
+  intervals = 58982460
+  packetsRx = 67694612103
+  packetsRxDelta = 78357
+  packetsRxDeltaAvg = 78476
+  packetsRxDeltaMax = 80258
+  packetsRxDeltaMin = 76814
+  packetsTx = 22997688197
+  packetsTxDelta = 18346
+  packetsTxDeltaAvg = 18318
+  packetsTxDeltaMax = 19393
+  packetsTxDeltaMin = 17218
+  suspect = no
+  thresholded = 
+  timeCollected = 2012-11-16T13:40:32.362
+  update = 65539
 
-
+1.9.3p194 :018 > ucs.show_all(statsml,'fcStats') # output omitted 
 
 == Features
 
 1. List inventory of UCS components
 2. Provision - turn up ports, create port channels, pools, service profiles
-
+3. Retrieve stats
 
 == ToDo
 
