@@ -79,9 +79,12 @@ VLAN: 200 with name: OpenStack-Mgmt
 1.9.3p194 :016 > 
 
 1.9.3p194 :016 > ucs_stats = UCSStats.new
+
 1.9.3p194 :017 > statsxml = ucs_stats.fetch(token_json)
+
 1.9.3p194 :017 > ucs.show_sample(statsml,'fcStats')
-The attributes for fcStats for dn=sys/switch-B/slot-1/switch-fc/port-32/stats are:
+
+  The attributes for fcStats for dn=sys/switch-B/slot-1/switch-fc/port-32/stats are:
   bytesRx = 125283780333316
   bytesRxDelta = 142669360
   bytesRxDeltaAvg = 142706128
