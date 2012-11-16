@@ -36,6 +36,7 @@ class UCSInventory
           xml.classId("value" => "equipmentIOCard")
           xml.classId("value" => "equipmentFanModule")
           xml.classId("value" => "equipmentPsu")
+          xml.classId("value" => "networkElement")
           xml.classId("value" => "processorUnit")
           xml.classId("value" => "adaptorHostIf")
           xml.classId("value" => "memoryArray")

@@ -44,7 +44,6 @@ class UCSDestroy
 		delete_org_XML= xml_builder.to_xml.to_s
 
 		#Post
-
 		begin
 			RestClient.post(@url, delete_org_XML, :content_type => 'text/xml').body
 		rescue Exception => e
