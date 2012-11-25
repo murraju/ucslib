@@ -31,6 +31,7 @@ class UCSInventory
           xml.classId("value" => "topSystem")
           xml.classId("value" => "equipmentChassis")
           xml.classId("value" => "computeBlade")
+          xml.classId("value" => "networkElement")
           xml.classId("value" => "equipmentSwitchCard")
           xml.classId("value" => "equipmentIOCard")
           xml.classId("value" => "equipmentFanModule")

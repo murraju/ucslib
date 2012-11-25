@@ -23,6 +23,7 @@ require "ucslib/update"
 require "ucslib/inventory"
 require 'ucslib/destroy'
 require 'ucslib/manage'
+require 'ucslib/stats'
 
 require 'nokogiri'
 require 'rest-client'
