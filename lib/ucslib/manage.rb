@@ -32,8 +32,7 @@ class UCSManage
 	    xml_builder = Nokogiri::XML::Builder.new do |xml|
 	       xml.configResolveClasses('cookie' => @cookie, 'inHierarchical' => 'false') {
 	        xml.inIds{
-	          xml.classId("value" => "topSystem")
-	          xml.classId("value" => "macpoolPool")
+	          xml.classId("value" => "macpoolPooled")
 	        } 
 	       }
 	    end
@@ -44,9 +43,9 @@ class UCSManage
 	    ucs_response_multi_class_state = RestClient.post(@url, ucs_multi_class_state_xml, :content_type => 'text/xml').body
 
 		#Uncomment the following to create a dump to review and debug elements
-		fh = File.new("ucs_response_multiclass_state.xml", "w")
-		fh.puts ucs_response_multi_class_state.inspect 
-		fh.close
+		# fh = File.new("ucs_response_multiclass_state.xml", "w")
+		# fh.puts ucs_response_multi_class_state.inspect 
+		# fh.close
 	     
 	    Nokogiri::XML(ucs_response_multi_class_state)		
 		
