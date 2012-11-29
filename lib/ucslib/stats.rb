@@ -1,4 +1,6 @@
 class UCSStats
+    STATNAMES = %w(adaptorEthPortStats adaptorEthPortErrStats adaptorEthPortMcastStats adaptorVnicStats computeMbPowerStats computeMbTempStats computePCIeFatalStats computePCIeFatalCompletionStats computePCIeFatalProtocolStats computePCIeFatalReceiveStats equipmentChassisStats equipmentFanStats equipmentFanModuleStats equipmentIOCardStats equipmentNetworkElementFanStats equipmentPsuStats equipmentPsuInputStats etherErrStats etherLossStats etherPauseStats etherRxStats etherTxStats fcStats fcErrStats memoryArrayEnvStats memoryErrorStats memoryUnitEnvStats processorEnvStats processorErrorStats swEnvStats swSystemStats)
+
     def fetch(tokenjson)
         cookie 	 = "#{JSON.parse(tokenjson)['cookie']}"
         ip       = "#{JSON.parse(tokenjson)['ip']}"
@@ -58,6 +60,29 @@ class UCSStats
         # fh.puts ucs_response_multi_class.inspect
         # fh.close
         return Nokogiri::XML(ucs_response_multi_class)
+    end
+
+    # Translate stats XML into a hash.
+    #
+    # If statname is supplied, only include that stat.  Otherwise, include
+    # all stats.
+    #
+    # Hash looks like hash[statname][dn][attribute] = value
+    def get_hash(xml,statname=:all)
+        statnames = STATNAMES if statname == :all
+
+        h = Hash.new{|k,v| k[v] = Hash.new}
+        statnames.each do |statname|
+            xml.xpath("configResolveClasses/outConfigs/#{statname}").each do |stat|
+                dn = stat.attributes['dn'].value
+                h[statname][dn] = Hash.new
+                stat.attributes.each do |attr,value|
+                    next if attr == 'dn'
+                    h[statname][dn][attr] = value.value
+                end
+            end
+        end
+        return h
     end
 
     def show_sample(xml,statname,all=false)
