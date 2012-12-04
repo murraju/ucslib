@@ -3,9 +3,18 @@
 Ruby Client Library for Cisco UCS Manager that could be used by DevOps toolchains - Puppet or Chef and other custom tools - to provide MaaS (Metal-as-a-Service) for installing and running OpenStack, Hadoop, etc. ucslib accepts JSON as configuration for provisioning.
 
 
-** Version 0.1.1 has been released **
+** Version 0.1.4 has been released **
 
-Major changes:
+0.1.4: 
+Bug fixes.
+
+0.1.3:
+Host firmware XML change for UCS 2.1.
+
+0.1.2:
+Bug fixes.
+
+0.1.1:
 
 1. Provision has set_ vs create_ methods. Please update your apps.
 2. Added Manage functions to associate service profiles to server pools
