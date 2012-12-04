@@ -48,6 +48,7 @@ class UCSInventory
           xml.classId("value" => "orgOrg")
           xml.classId("value" => "fabricVlan")
           xml.classId("value" => "vnicEther")
+          xml.classId("value" => "vnicFc")
           xml.classId("value" => "fabricVsan")
           xml.classId("value" => "vmAdaptor")
           xml.classId("value" => "vmCont")
