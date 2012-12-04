@@ -514,7 +514,7 @@ class UCSProvision
           xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
             xml.inConfigs{
               xml.pair('key' => "org-root/org-#{org}/fw-host-pack-#{host_firmware_pkg_name}"){
-                xml.firmwareComputeHostPack('descr' => "#{host_firmware_pkg_description}", 'dn' => "org-root/org-#{org}/fw-host-pack-#{host_firmware_pkg_name}",
+                xml.firmwareComputeHostPack('bladeBundleVersion' => "", 'descr' => "#{host_firmware_pkg_description}", 'dn' => "org-root/org-#{org}/fw-host-pack-#{host_firmware_pkg_name}",
                                            'ignoreCompCheck' => 'yes', 'mode' => 'staged', 'name' => "#{host_firmware_pkg_name}", 'stageSize' => '0',
                                            'status' => 'created', 'updateTrigger' => 'immediate'){
                                              xml.firmwarePackItem('hwModel' => "#{hardware_model}", 'hwVendor' => "#{hardware_vendor}",
@@ -532,7 +532,7 @@ class UCSProvision
           xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'false'){
             xml.inConfigs{
               xml.pair('key' => "org-root/org-#{org}/fw-host-pack-#{host_firmware_pkg_name}"){
-                xml.firmwareComputeHostPack('descr' => "#{host_firmware_pkg_description}", 'dn' => "org-root/org-#{org}/fw-host-pack-#{host_firmware_pkg_name}",
+                xml.firmwareComputeHostPack('bladeBundleVersion' => "", 'descr' => "#{host_firmware_pkg_description}", 'dn' => "org-root/org-#{org}/fw-host-pack-#{host_firmware_pkg_name}",
                                             'ignoreCompCheck' => 'yes', 'mode' => 'staged', 'stageSize' => '0', 'updateTrigger' => 'immediate'){
                                              xml.firmwarePackItem('hwModel' => "#{hardware_model}", 'hwVendor' => "#{hardware_vendor}",
                                                                   'rn' => "pack-image-#{hardware_vendor}|#{hardware_model}|#{hardware_type}",
