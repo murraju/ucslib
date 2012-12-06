@@ -33,6 +33,7 @@ class UCSManage
 	       xml.configResolveClasses('cookie' => @cookie, 'inHierarchical' => 'false') {
 	        xml.inIds{
 	          xml.classId("value" => "macpoolPooled")
+	          xml.classId("value" => "uuidpoolPooled")
 	        } 
 	       }
 	    end
@@ -42,10 +43,10 @@ class UCSManage
 	    ucs_multi_class_state_xml = xml_builder.to_xml.to_s
 	    ucs_response_multi_class_state = RestClient.post(@url, ucs_multi_class_state_xml, :content_type => 'text/xml').body
 
-		#Uncomment the following to create a dump to review and debug elements
-		# fh = File.new("ucs_response_multiclass_state.xml", "w")
-		# fh.puts ucs_response_multi_class_state.inspect 
-		# fh.close
+  		#Uncomment the following to create a dump to review and debug elements
+  		# fh = File.new("ucs_response_multiclass_state.xml", "w")
+  		# fh.puts ucs_response_multi_class_state.inspect 
+  		# fh.close
 	     
 	    Nokogiri::XML(ucs_response_multi_class_state)		
 		
@@ -59,8 +60,8 @@ class UCSManage
 		service_profile_mgmt_fw_policy     = JSON.parse(json)['service_profile_mgmt_fw_policy']
 		service_profile_uuid_pool          = JSON.parse(json)['service_profile_uuid_pool']
 		service_profile_template_to_bind   = JSON.parse(json)['service_profile_template_to_bind']
-		service_profile_server_pool 	   = JSON.parse(json)['service_profile_server_pool']
-		org                				   = JSON.parse(json)['org']
+		service_profile_server_pool 	     = JSON.parse(json)['service_profile_server_pool']
+		org                				         = JSON.parse(json)['org']
 
 
 		xml_builder = Nokogiri::XML::Builder.new do |xml|
