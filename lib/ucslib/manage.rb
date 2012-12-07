@@ -27,13 +27,14 @@ class UCSManage
 
 
 	def discover_state
-    
+	    
 	    #Start Build of the Multi-Class XML for interogating state
 	    xml_builder = Nokogiri::XML::Builder.new do |xml|
 	       xml.configResolveClasses('cookie' => @cookie, 'inHierarchical' => 'false') {
 	        xml.inIds{
 	          xml.classId("value" => "macpoolPooled")
 	          xml.classId("value" => "uuidpoolPooled")
+	          xml.classId("value" => "fcpoolInitiator")
 	        } 
 	       }
 	    end
@@ -43,13 +44,13 @@ class UCSManage
 	    ucs_multi_class_state_xml = xml_builder.to_xml.to_s
 	    ucs_response_multi_class_state = RestClient.post(@url, ucs_multi_class_state_xml, :content_type => 'text/xml').body
 
-  		#Uncomment the following to create a dump to review and debug elements
-  		# fh = File.new("ucs_response_multiclass_state.xml", "w")
-  		# fh.puts ucs_response_multi_class_state.inspect 
-  		# fh.close
-	     
-	    Nokogiri::XML(ucs_response_multi_class_state)		
-		
+      #Uncomment the following to create a dump to review and debug elements
+      # fh = File.new("ucs_response_multiclass_state.xml", "w")
+      # fh.puts ucs_response_multi_class_state.inspect 
+      # fh.close
+       
+	    Nokogiri::XML(ucs_response_multi_class_state)	
+	    		
 	end
 		
 
