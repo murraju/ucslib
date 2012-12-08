@@ -99,11 +99,11 @@ class UCSManage
 	def update_boot_policy_on_service_profile_template(json)
 	  
 	  service_profile_template_name               = JSON.parse(json)['service_profile_template_name']
+	  org                                         = JSON.parse(json)['org']
 	  service_profile_template_mgmt_ip_pool       = JSON.parse(json)['service_profile_template_mgmt_ip_pool']
 	  service_profile_template_boot_policy        = JSON.parse(json)['service_profile_template_boot_policy']
 	  service_profile_template_host_fw_policy     = JSON.parse(json)['service_profile_template_host_fw_policy']
 	  service_profile_template_uuid_pool          = JSON.parse(json)['service_profile_template_uuid_pool']
-	  service_profile_template_host_fw_policy     = JSON.parse(json)['service_profile_template_host_fw_policy']
 	  
 	  xml_builder = Nokogiri::XML::Builder.new do |xml|
 	    xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'false'){
