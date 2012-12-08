@@ -1,7 +1,10 @@
 = ucslib (beta)
 
-Ruby Client Library for Cisco UCS Manager that could be used by DevOps toolchains - Puppet or Chef and other custom tools - to provide MaaS (Metal-as-a-Service) for installing and running OpenStack, Hadoop, etc. ucslib accepts JSON as configuration for provisioning.
+Ruby Client Library for Cisco UCS Manager that could be used by DevOps toolchains - Puppet or Chef and other custom tools in order to provide MaaS (Metal-as-a-Service) for installing and running OpenStack, CloudStack or Hadoop, etc on Cisco UCS. ucslib accepts JSON as configuration.
 
+To see an example of how ucslib is being used, checkout the ucs and ucs-solo Chef Cookbooks created by Velankani Information Systems, Inc here - https://github.com/velankanisys/chef-cookbooks
+
+In addition there is a knife plugin that use ucslib as well - https://github.com/velankanisys/knife-ucs
 
 ** Version 0.1.4 has been released **
 
@@ -130,12 +133,8 @@ VLAN: 200 with name: OpenStack-Mgmt
 
 == ToDo
 
-Besides Documentation, Documentation, Documentation!
+Documentation, Documentation, Documentation!
 
-1. Firmware Management
-2. Example implementation (workflow) under examples (in progress)
-3. Server Pools (in progress)
-4. Service Profile Association (in progress)
 
 
 == Contributing to ucslib
