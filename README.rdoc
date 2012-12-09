@@ -6,7 +6,11 @@ To see an example of how ucslib is being used, checkout the ucs and ucs-solo Che
 
 In addition there is a knife plugin that use ucslib as well - https://github.com/velankanisys/knife-ucs
 
-** Version 0.1.4 has been released **
+** Version 0.1.5 has been released **
+
+0.1.5:
+Moved update boot policy to Update instead of manage
+Disabled Parser code for now to allow ucslib to work on Debian Squeeze running Ruby1.9.1
 
 0.1.4: 
 Bug fixes.
