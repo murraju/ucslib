@@ -166,15 +166,15 @@ class UCSProvision
       org                 = JSON.parse(json)['org']
 
       xml_builder = Nokogiri::XML::Builder.new do |xml|
-      xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
-        xml.inConfigs{
-          xml.pair('key' => "org-root/org-#{org}/local-disk-config-#{org}-localdisk"){
-            xml.storageLocalDiskConfigPolicy('descr' => '', 'dn' => "org-root/org-#{org}/local-disk-config-#{org}-localdisk", 
-                                             'mode' => "#{local_disk_policy}", 'name' => "#{org}-localdisk", 'protectConfig' => 'yes',
-                                             'status' => 'created')
+        xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
+          xml.inConfigs{
+            xml.pair('key' => "org-root/org-#{org}/local-disk-config-#{org}-localdisk"){
+              xml.storageLocalDiskConfigPolicy('descr' => '', 'dn' => "org-root/org-#{org}/local-disk-config-#{org}-localdisk", 
+                                               'mode' => "#{local_disk_policy}", 'name' => "#{org}-localdisk", 'protectConfig' => 'yes',
+                                               'status' => 'created')
+            }
           }
         }
-      }
       end
 
       #Create xml
@@ -189,6 +189,34 @@ class UCSProvision
     
     end
 
+    def set_syslog_server(json)
+      
+      syslog_server = JSON.parse(json)['syslog_server']
+      facility      = JSON.parse(json)['facility']
+      severity      = JSON.parse(json)['severity']
+      
+      xml_builder = Nokogiri::XML::Builder.new do |xml|
+        xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'false'){
+          xml.inConfigs{
+            xml.pair('key' => "sys/svc-ext/syslog/client-primary"){
+              xml.commSyslogClient('adminState' => 'enabled', 'dn' => 'sys/svc-ext/syslog/client-primary',
+                                   'forwardingFacility' => "#{facility}", 'hostname' => "#{syslog_server}",
+                                   'severity' => "#{severity}")
+            }
+          }
+        }
+      end
+      #Create xml
+      set_syslog_server_xml = xml_builder.to_xml.to_s
+
+      #Post
+      begin
+        RestClient.post(@url, set_syslog_server_xml, :content_type => 'text/xml').body
+      rescue Exception => e
+        raise "Error #{e}"
+      end
+      
+    end
 
 	  def set_server_port(json)
 
