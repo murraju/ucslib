@@ -1087,7 +1087,7 @@ class UCSProvision
       server_pool_chassis_id     = JSON.parse(json)['server_pool_chassis_id'].to_i
       server_pool_blades         = JSON.parse(json)['server_pool_blades'].to_s.split(',')
       org                        = JSON.parse(json)['org'].to_s
-
+  
       xml_builder = Nokogiri::XML::Builder.new do |xml|
         xml.configConfMos('cookie' => "#{@ucs_cookie}", 'inHierarchical' => 'true'){
           xml.inConfigs{
@@ -1103,9 +1103,9 @@ class UCSProvision
           }
         }
       end
-
-
-
+  
+  
+  
       # xml_builder = Nokogiri::XML::Builder.new do |xml|
       #   xml.configConfMos('cookie' => "#{@ucs_cookie}", 'inHierarchical' => 'true'){
       #     xml.inConfigs{
@@ -1122,19 +1122,20 @@ class UCSProvision
       #     }
       #   }
       # end
-
-
+  
+  
       #Create XML
-
+  
       set_server_pool_xml = xml_builder.to_xml.to_s
-
+  
       #Post 
       begin
         RestClient.post(@url, set_server_pool_xml, :content_type => 'text/xml').body
       rescue Exception => e
         raise "Error #{e}"
       end
-
+  
   end
+
 
 end
