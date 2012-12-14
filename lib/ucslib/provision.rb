@@ -1080,11 +1080,11 @@ class UCSProvision
 		end
 
   end
-
+  
   def set_server_pool(json)
       server_pool_name           = JSON.parse(json)['server_pool_name'].to_s
       server_pool_description    = JSON.parse(json)['server_pool_description']
-      server_pool_chassis_id     = JSON.parse(json)['server_pool_chassis_id'].to_i
+      server_pool_chassis_ids     = JSON.parse(json)['server_pool_chassis_ids'].to_s.split(',')
       server_pool_blades         = JSON.parse(json)['server_pool_blades'].to_s.split(',')
       org                        = JSON.parse(json)['org'].to_s
   
@@ -1094,9 +1094,12 @@ class UCSProvision
             xml.pair('key' => "org-root/org-#{org}/compute-pool-#{server_pool_name}"){
               xml.computePool('descr' => "#{server_pool_description}", 'dn' => "org-root/org-#{org}/compute-pool-#{server_pool_name}",
                               'name' => "#{server_pool_name}", 'status' => 'created'){
-                                server_pool_blades.each do |slot_id|
-                                  xml.computePooledSlot('chassisId' => "#{server_pool_chassis_id}", 
-                                                        'rn' => "blade-#{server_pool_chassis_id}-#{slot_id}", 'slotId' => "#{slot_id}")
+                                server_pool_chassis_ids.each do |chassis_id|
+                                  @current_chassis_id = chassis_id
+                                  server_pool_blades.each do |slot_id|
+                                    xml.computePooledSlot('chassisId' => "#{@current_chassis_id}", 
+                                                          'rn' => "blade-#{@current_chassis_id}-#{slot_id}", 'slotId' => "#{slot_id}")
+                                  end
                                 end
                               }
             }
@@ -1136,6 +1139,5 @@ class UCSProvision
       end
   
   end
-
 
 end

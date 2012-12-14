@@ -6,7 +6,10 @@ To see an example of how ucslib is being used, checkout the ucs and ucs-solo Che
 
 In addition there is a knife plugin that use ucslib as well - https://github.com/velankanisys/knife-ucs
 
-** Version 0.1.6 has been released **
+** Version 0.1.7 has been released **
+
+0.1.7
+Multi-chassis server pool creation
 
 0.1.6:
 Set syslog server implemented in provisioner
