@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# This section was contributed by Mark Plaksin https://www.linkedin.com/in/happymcplaksin
+# This section was contributed by Mark Plaksin https://www.linkedin.com/in/happymcplaksin. Thanks Mark!
 
 #UCSM API Session management
 
