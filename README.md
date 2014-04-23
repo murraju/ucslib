@@ -42,98 +42,98 @@ gem install ucslib
 Just do "require ucslib" in your apps. Below is an IRB session to highlight some capabilities.
 
 
-``➜  ucslib git:(master) ✗ irb
+  $ucslib git:(master) ✗ irb
 
- 1.9.3p194 :001 > require 'ucslib'
- => true
-1.9.3p194 :002 > auth_json = { :username => 'admin', :password => 'admin', :ip => '172.16.75.137' }.to_json
- => "{\"username\":\"admin\",\"password\":\"admin\",\"ip\":\"172.16.75.137\"}"
-1.9.3p194 :003 > ucs_session = UCSToken.new
- => #<UCSToken:0x007ff4d92062c0>
-1.9.3p194 :004 > token_json = ucs_session.get_token(auth_json)
- => "{\"cookie\":\"1336941096/ea496248-d200-4a10-8e46-c73b59971864\",\"username\":\"admin\",\"password\":\"admin\",\"ip\":\"172.16.75.137\"}"
-1.9.3p194 :005 > ucs_inventory = UCSInventory.new
- => #<UCSInventory:0x007ff4d92cd8c0>
-1.9.3p194 :006 > ucs_provision = UCSProvision.new(token_json)
- => #<UCSProvision:0x007ff4d92c0378 @cookie="1336941096/ea496248-d200-4a10-8e46-c73b59971864", @url="https://172.16.75.137/nuova">
-1.9.3p194 :007 > xml_dump = ucs_inventory.discover(token_json)
+   1.9.3p194 :001 > require 'ucslib'
+   => true
+  1.9.3p194 :002 > auth_json = { :username => 'admin', :password => 'admin', :ip => '172.16.75.137' }.to_json
+   => "{\"username\":\"admin\",\"password\":\"admin\",\"ip\":\"172.16.75.137\"}"
+  1.9.3p194 :003 > ucs_session = UCSToken.new
+   => #<UCSToken:0x007ff4d92062c0>
+  1.9.3p194 :004 > token_json = ucs_session.get_token(auth_json)
+   => "{\"cookie\":\"1336941096/ea496248-d200-4a10-8e46-c73b59971864\",\"username\":\"admin\",\"password\":\"admin\",\"ip\":\"172.16.75.137\"}"
+  1.9.3p194 :005 > ucs_inventory = UCSInventory.new
+   => #<UCSInventory:0x007ff4d92cd8c0>
+  1.9.3p194 :006 > ucs_provision = UCSProvision.new(token_json)
+   => #<UCSProvision:0x007ff4d92c0378 @cookie="1336941096/ea496248-d200-4a10-8e46-c73b59971864", @url="https://172.16.75.137/nuova">
+  1.9.3p194 :007 > xml_dump = ucs_inventory.discover(token_json)
 
-1.9.3p194 :008 > ucs_inventory.methods
- => [:discover, :list_blades, :list_vsans, :list_vlans, :list_cpus, :list_memory, :list_service_profiles, :list_running_firmware, :to_json, :nil?, :##=, :=~, :!~, :eql?, :hash, :<=>, :class, :singleton_class, :clone, :dup, :initialize_dup, :initialize_clone, :taint, :tainted?, :untaint, :untrust, :untrusted?, :trust, :freeze, :frozen?, :to_s, :inspect, :methods, :singleton_methods, :protected_methods, :private_methods, :public_methods, :instance_variables, :instance_variable_get, :instance_variable_set, :instance_variable_defined?, :instance_of?, :kind_of?, :is_a?, :tap, :send, :public_send, :respond_to?, :respond_to_missing?, :extend, :display, :method, :public_method, :define_singleton_method, :object_id, :to_enum, :enum_for, :##, :equal?, :!, :!=, :instance_eval, :instance_exec, :__send__, :__id__]
-1.9.3p194 :009 >
+  1.9.3p194 :008 > ucs_inventory.methods
+   => [:discover, :list_blades, :list_vsans, :list_vlans, :list_cpus, :list_memory, :list_service_profiles, :list_running_firmware, :to_json, :nil?, :##=, :=~, :!~, :eql?, :hash, :<=>, :class, :singleton_class, :clone, :dup, :initialize_dup, :initialize_clone, :taint, :tainted?, :untaint, :untrust, :untrusted?, :trust, :freeze, :frozen?, :to_s, :inspect, :methods, :singleton_methods, :protected_methods, :private_methods, :public_methods, :instance_variables, :instance_variable_get, :instance_variable_set, :instance_variable_defined?, :instance_of?, :kind_of?, :is_a?, :tap, :send, :public_send, :respond_to?, :respond_to_missing?, :extend, :display, :method, :public_method, :define_singleton_method, :object_id, :to_enum, :enum_for, :##, :equal?, :!, :!=, :instance_eval, :instance_exec, :__send__, :__id__]
+  1.9.3p194 :009 >
 
-1.9.3p194 :009 > ucs_inventory.list_blades(xml_dump)
-Blade : 1/5 model: UCSB-B200-M3 with serial: 1049 is powered: off
-Blade : 1/6 model: N20-B6625-1 with serial: 1053 is powered: off
-Blade : 1/1 model: N20-B6620-1 with serial: 1045 is powered: on
-Blade : 1/7 model: N20-B6740-2 with serial: 1052 is powered: off
-Blade : 1/2 model: N20-B6620-1 with serial: 1054 is powered: off
-Blade : 1/4 model: N20-B6620-1 with serial: 1051 is powered: off
-Blade : 1/3 model: N20-B6620-1 with serial: 1055 is powered: off
- => 0
-1.9.3p194 :010 >
+  1.9.3p194 :009 > ucs_inventory.list_blades(xml_dump)
+  Blade : 1/5 model: UCSB-B200-M3 with serial: 1049 is powered: off
+  Blade : 1/6 model: N20-B6625-1 with serial: 1053 is powered: off
+  Blade : 1/1 model: N20-B6620-1 with serial: 1045 is powered: on
+  Blade : 1/7 model: N20-B6740-2 with serial: 1052 is powered: off
+  Blade : 1/2 model: N20-B6620-1 with serial: 1054 is powered: off
+  Blade : 1/4 model: N20-B6620-1 with serial: 1051 is powered: off
+  Blade : 1/3 model: N20-B6620-1 with serial: 1055 is powered: off
+   => 0
+  1.9.3p194 :010 >
 
-1.9.3p194 :010 > vlan_json = { :vlan_id => '200', :vlan_name => 'OpenStack-Mgmt' }.to_json
- => "{\"vlan_id\":\"200\",\"vlan_name\":\"OpenStack-Mgmt\"}"
+  1.9.3p194 :010 > vlan_json = { :vlan_id => '200', :vlan_name => 'OpenStack-Mgmt' }.to_json
+   => "{\"vlan_id\":\"200\",\"vlan_name\":\"OpenStack-Mgmt\"}"
 
-1.9.3p194 :011 > ucs_provision.methods
- => [:set_power_policy, :set_chassis_discovery_policy, :set_time_zone, :set_ntp, :create_server_port, :create_network_uplink_port, :create_fc_uplink_port, :create_port_channel, :create_org, :set_local_disk_policy, :create_local_boot_policy, :create_pxe_boot_policy, :create_san_boot_policy, :create_management_ip_pool, :create_vlan, :create_mac_pool, :create_vnic_template, :create_vsan, :create_wwnn_pool, :create_wwpn_pool, :create_vhba_template, :create_uuid_pool, :create_service_profile_template, :create_service_profiles_from_template, :create_service_profiles, :to_json, :nil?, :##=, :=~, :!~, :eql?, :hash, :<=>, :class, :singleton_class, :clone, :dup, :initialize_dup, :initialize_clone, :taint, :tainted?, :untaint, :untrust, :untrusted?, :trust, :freeze, :frozen?, :to_s, :inspect, :methods, :singleton_methods, :protected_methods, :private_methods, :public_methods, :instance_variables, :instance_variable_get, :instance_variable_set, :instance_variable_defined?, :instance_of?, :kind_of?, :is_a?, :tap, :send, :public_send, :respond_to?, :respond_to_missing?, :extend, :display, :method, :public_method, :define_singleton_method, :object_id, :to_enum, :enum_for, :##, :equal?, :!, :!=, :instance_eval, :instance_exec, :__send__, :__id__]
-1.9.3p194 :012 >
+  1.9.3p194 :011 > ucs_provision.methods
+   => [:set_power_policy, :set_chassis_discovery_policy, :set_time_zone, :set_ntp, :create_server_port, :create_network_uplink_port, :create_fc_uplink_port, :create_port_channel, :create_org, :set_local_disk_policy, :create_local_boot_policy, :create_pxe_boot_policy, :create_san_boot_policy, :create_management_ip_pool, :create_vlan, :create_mac_pool, :create_vnic_template, :create_vsan, :create_wwnn_pool, :create_wwpn_pool, :create_vhba_template, :create_uuid_pool, :create_service_profile_template, :create_service_profiles_from_template, :create_service_profiles, :to_json, :nil?, :##=, :=~, :!~, :eql?, :hash, :<=>, :class, :singleton_class, :clone, :dup, :initialize_dup, :initialize_clone, :taint, :tainted?, :untaint, :untrust, :untrusted?, :trust, :freeze, :frozen?, :to_s, :inspect, :methods, :singleton_methods, :protected_methods, :private_methods, :public_methods, :instance_variables, :instance_variable_get, :instance_variable_set, :instance_variable_defined?, :instance_of?, :kind_of?, :is_a?, :tap, :send, :public_send, :respond_to?, :respond_to_missing?, :extend, :display, :method, :public_method, :define_singleton_method, :object_id, :to_enum, :enum_for, :##, :equal?, :!, :!=, :instance_eval, :instance_exec, :__send__, :__id__]
+  1.9.3p194 :012 >
 
-1.9.3p194 :012 > ucs_provision.create_vlan(vlan_json)
- => " <configConfMos cookie=\"1336941096/ea496248-d200-4a10-8e46-c73b59971864\" response=\"yes\"> <outConfigs> <pair key=\"fabric/lan/net-OpenStack-Mgmt\"> <fabricVlan childAction=\"deleteNonPresent\" defaultNet=\"no\" dn=\"fabric/lan/net-OpenStack-Mgmt\" epDn=\"\" id=\"200\" ifRole=\"network\" ifType=\"virtual\" locale=\"external\" name=\"OpenStack-Mgmt\" operState=\"ok\" peerDn=\"\" pubNwDn=\"\" pubNwId=\"0\" pubNwName=\"\"  sharing=\"none\" status=\"created\" switchId=\"dual\" transport=\"ether\" type=\"lan\"/> </pair> </outConfigs> </configConfMos>"
-1.9.3p194 :013 >
+  1.9.3p194 :012 > ucs_provision.create_vlan(vlan_json)
+   => " <configConfMos cookie=\"1336941096/ea496248-d200-4a10-8e46-c73b59971864\" response=\"yes\"> <outConfigs> <pair key=\"fabric/lan/net-OpenStack-Mgmt\"> <fabricVlan childAction=\"deleteNonPresent\" defaultNet=\"no\" dn=\"fabric/lan/net-OpenStack-Mgmt\" epDn=\"\" id=\"200\" ifRole=\"network\" ifType=\"virtual\" locale=\"external\" name=\"OpenStack-Mgmt\" operState=\"ok\" peerDn=\"\" pubNwDn=\"\" pubNwId=\"0\" pubNwName=\"\"  sharing=\"none\" status=\"created\" switchId=\"dual\" transport=\"ether\" type=\"lan\"/> </pair> </outConfigs> </configConfMos>"
+  1.9.3p194 :013 >
 
-1.9.3p194 :015 > xml_dump = ucs_inventory.discover(token_json)
+  1.9.3p194 :015 > xml_dump = ucs_inventory.discover(token_json)
 
-1.9.3p194 :015 > ucs_inventory.list_vlans(xml_dump)
-VLAN: 1 with name: default
-VLAN: 1 with name: default
-VLAN: 5 with name: human-resource
-VLAN: 1 with name: default
-VLAN: 3 with name: finance
-VLAN: 5 with name: human-resource
-VLAN: 1 with name: default
-VLAN: 3 with name: finance
-VLAN: 100 with name: Tenant-1
-VLAN: 200 with name: OpenStack-Mgmt
- => 0
-1.9.3p194 :016 >
+  1.9.3p194 :015 > ucs_inventory.list_vlans(xml_dump)
+  VLAN: 1 with name: default
+  VLAN: 1 with name: default
+  VLAN: 5 with name: human-resource
+  VLAN: 1 with name: default
+  VLAN: 3 with name: finance
+  VLAN: 5 with name: human-resource
+  VLAN: 1 with name: default
+  VLAN: 3 with name: finance
+  VLAN: 100 with name: Tenant-1
+  VLAN: 200 with name: OpenStack-Mgmt
+   => 0
+  1.9.3p194 :016 >
 
-1.9.3p194 :016 > ucs_stats = UCSStats.new
+  1.9.3p194 :016 > ucs_stats = UCSStats.new
 
-1.9.3p194 :017 > statsxml = ucs_stats.fetch(token_json)
+  1.9.3p194 :017 > statsxml = ucs_stats.fetch(token_json)
 
-1.9.3p194 :017 > ucs.show_sample(statsml,'fcStats')
+  1.9.3p194 :017 > ucs.show_sample(statsml,'fcStats')
 
-  The attributes for fcStats for dn=sys/switch-B/slot-1/switch-fc/port-32/stats are:
-  bytesRx = 125283780333316
-  bytesRxDelta = 142669360
-  bytesRxDeltaAvg = 142706128
-  bytesRxDeltaMax = 146404048
-  bytesRxDeltaMin = 139044968
-  bytesTx = 42023875724480
-  bytesTxDelta = 29946840
-  bytesTxDeltaAvg = 29842170
-  bytesTxDeltaMax = 31907484
-  bytesTxDeltaMin = 27672184
-  intervals = 58982460
-  packetsRx = 67694612103
-  packetsRxDelta = 78357
-  packetsRxDeltaAvg = 78476
-  packetsRxDeltaMax = 80258
-  packetsRxDeltaMin = 76814
-  packetsTx = 22997688197
-  packetsTxDelta = 18346
-  packetsTxDeltaAvg = 18318
-  packetsTxDeltaMax = 19393
-  packetsTxDeltaMin = 17218
-  suspect = no
-  thresholded =
-  timeCollected = 2012-11-16T13:40:32.362
-  update = 65539
+    The attributes for fcStats for dn=sys/switch-B/slot-1/switch-fc/port-32/stats are:
+    bytesRx = 125283780333316
+    bytesRxDelta = 142669360
+    bytesRxDeltaAvg = 142706128
+    bytesRxDeltaMax = 146404048
+    bytesRxDeltaMin = 139044968
+    bytesTx = 42023875724480
+    bytesTxDelta = 29946840
+    bytesTxDeltaAvg = 29842170
+    bytesTxDeltaMax = 31907484
+    bytesTxDeltaMin = 27672184
+    intervals = 58982460
+    packetsRx = 67694612103
+    packetsRxDelta = 78357
+    packetsRxDeltaAvg = 78476
+    packetsRxDeltaMax = 80258
+    packetsRxDeltaMin = 76814
+    packetsTx = 22997688197
+    packetsTxDelta = 18346
+    packetsTxDeltaAvg = 18318
+    packetsTxDeltaMax = 19393
+    packetsTxDeltaMin = 17218
+    suspect = no
+    thresholded =
+    timeCollected = 2012-11-16T13:40:32.362
+    update = 65539
 
-1.9.3p194 :018 > ucs.show_all(statsml,'fcStats') # output omitted`
+  1.9.3p194 :018 > ucs.show_all(statsml,'fcStats') # output omitted
 
 ## Features
 
