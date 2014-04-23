@@ -1,4 +1,4 @@
-==  ucslib (beta)
+##  ucslib (beta)
 
 Ruby Client Library for Cisco UCS Manager that could be used by DevOps toolchains - Puppet or Chef and other custom tools in order to provide MaaS (Metal-as-a-Service) for installing and running OpenStack, CloudStack or Hadoop, etc on Cisco UCS. ucslib accepts JSON as configuration.
 
@@ -32,11 +32,11 @@ Bug fixes.
 1. Provision has set_ vs create_ methods. Please update your apps.
 2. Added Manage functions to associate service profiles to server pools
 
-== Install
+## Install
 
 gem install ucslib
 
-== Usage (example irb session)
+## Usage (example irb session)
 
 
 Just do "require ucslib" in your apps. Below is an IRB session to highlight some capabilities.
@@ -59,7 +59,7 @@ Just do "require ucslib" in your apps. Below is an IRB session to highlight some
 1.9.3p194 :007 > xml_dump = ucs_inventory.discover(token_json)
 
 1.9.3p194 :008 > ucs_inventory.methods
- => [:discover, :list_blades, :list_vsans, :list_vlans, :list_cpus, :list_memory, :list_service_profiles, :list_running_firmware, :to_json, :nil?, :===, :=~, :!~, :eql?, :hash, :<=>, :class, :singleton_class, :clone, :dup, :initialize_dup, :initialize_clone, :taint, :tainted?, :untaint, :untrust, :untrusted?, :trust, :freeze, :frozen?, :to_s, :inspect, :methods, :singleton_methods, :protected_methods, :private_methods, :public_methods, :instance_variables, :instance_variable_get, :instance_variable_set, :instance_variable_defined?, :instance_of?, :kind_of?, :is_a?, :tap, :send, :public_send, :respond_to?, :respond_to_missing?, :extend, :display, :method, :public_method, :define_singleton_method, :object_id, :to_enum, :enum_for, :==, :equal?, :!, :!=, :instance_eval, :instance_exec, :__send__, :__id__]
+ => [:discover, :list_blades, :list_vsans, :list_vlans, :list_cpus, :list_memory, :list_service_profiles, :list_running_firmware, :to_json, :nil?, :##=, :=~, :!~, :eql?, :hash, :<=>, :class, :singleton_class, :clone, :dup, :initialize_dup, :initialize_clone, :taint, :tainted?, :untaint, :untrust, :untrusted?, :trust, :freeze, :frozen?, :to_s, :inspect, :methods, :singleton_methods, :protected_methods, :private_methods, :public_methods, :instance_variables, :instance_variable_get, :instance_variable_set, :instance_variable_defined?, :instance_of?, :kind_of?, :is_a?, :tap, :send, :public_send, :respond_to?, :respond_to_missing?, :extend, :display, :method, :public_method, :define_singleton_method, :object_id, :to_enum, :enum_for, :##, :equal?, :!, :!=, :instance_eval, :instance_exec, :__send__, :__id__]
 1.9.3p194 :009 >
 
 1.9.3p194 :009 > ucs_inventory.list_blades(xml_dump)
@@ -77,7 +77,7 @@ Blade : 1/3 model: N20-B6620-1 with serial: 1055 is powered: off
  => "{\"vlan_id\":\"200\",\"vlan_name\":\"OpenStack-Mgmt\"}"
 
 1.9.3p194 :011 > ucs_provision.methods
- => [:set_power_policy, :set_chassis_discovery_policy, :set_time_zone, :set_ntp, :create_server_port, :create_network_uplink_port, :create_fc_uplink_port, :create_port_channel, :create_org, :set_local_disk_policy, :create_local_boot_policy, :create_pxe_boot_policy, :create_san_boot_policy, :create_management_ip_pool, :create_vlan, :create_mac_pool, :create_vnic_template, :create_vsan, :create_wwnn_pool, :create_wwpn_pool, :create_vhba_template, :create_uuid_pool, :create_service_profile_template, :create_service_profiles_from_template, :create_service_profiles, :to_json, :nil?, :===, :=~, :!~, :eql?, :hash, :<=>, :class, :singleton_class, :clone, :dup, :initialize_dup, :initialize_clone, :taint, :tainted?, :untaint, :untrust, :untrusted?, :trust, :freeze, :frozen?, :to_s, :inspect, :methods, :singleton_methods, :protected_methods, :private_methods, :public_methods, :instance_variables, :instance_variable_get, :instance_variable_set, :instance_variable_defined?, :instance_of?, :kind_of?, :is_a?, :tap, :send, :public_send, :respond_to?, :respond_to_missing?, :extend, :display, :method, :public_method, :define_singleton_method, :object_id, :to_enum, :enum_for, :==, :equal?, :!, :!=, :instance_eval, :instance_exec, :__send__, :__id__]
+ => [:set_power_policy, :set_chassis_discovery_policy, :set_time_zone, :set_ntp, :create_server_port, :create_network_uplink_port, :create_fc_uplink_port, :create_port_channel, :create_org, :set_local_disk_policy, :create_local_boot_policy, :create_pxe_boot_policy, :create_san_boot_policy, :create_management_ip_pool, :create_vlan, :create_mac_pool, :create_vnic_template, :create_vsan, :create_wwnn_pool, :create_wwpn_pool, :create_vhba_template, :create_uuid_pool, :create_service_profile_template, :create_service_profiles_from_template, :create_service_profiles, :to_json, :nil?, :##=, :=~, :!~, :eql?, :hash, :<=>, :class, :singleton_class, :clone, :dup, :initialize_dup, :initialize_clone, :taint, :tainted?, :untaint, :untrust, :untrusted?, :trust, :freeze, :frozen?, :to_s, :inspect, :methods, :singleton_methods, :protected_methods, :private_methods, :public_methods, :instance_variables, :instance_variable_get, :instance_variable_set, :instance_variable_defined?, :instance_of?, :kind_of?, :is_a?, :tap, :send, :public_send, :respond_to?, :respond_to_missing?, :extend, :display, :method, :public_method, :define_singleton_method, :object_id, :to_enum, :enum_for, :##, :equal?, :!, :!=, :instance_eval, :instance_exec, :__send__, :__id__]
 1.9.3p194 :012 >
 
 1.9.3p194 :012 > ucs_provision.create_vlan(vlan_json)
@@ -135,24 +135,24 @@ VLAN: 200 with name: OpenStack-Mgmt
 
 1.9.3p194 :018 > ucs.show_all(statsml,'fcStats') # output omitted
 
-== Features
+## Features
 
 1. List inventory of UCS components
 2. Provision - turn up ports, create port channels, pools, service profiles
 3. Retrieve stats
 
-== Issues and Project Management
+## Issues and Project Management
 
-https://www.pivotaltracker.com/s/projects/1065870
+Checkout [Pivotal Tracker][1]
 
 
-== ToDo
+## ToDo
 
 Documentation, Documentation, Documentation!
 
 
 
-== Contributing to ucslib
+## Contributing to ucslib
 
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
@@ -161,9 +161,9 @@ Documentation, Documentation, Documentation!
 * Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
 * Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
 
-== Copyright
+## Copyright
 
 Copyright (c) 2012 - 2014 Murali Raju. See LICENSE.txt for further details.
 
-
+[1]: https://www.pivotaltracker.com/s/projects/1065870
 
