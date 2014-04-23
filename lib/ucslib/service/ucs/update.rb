@@ -15,18 +15,18 @@
 # limitations under the License.
 #
 
-class UCSUpdate
-  
+module Update
+
   def initialize(tokenjson)
-  
+
     @cookie  = "#{JSON.parse(tokenjson)['cookie']}"
     ip       = "#{JSON.parse(tokenjson)['ip']}"
     @url 	 = "https://#{ip}/nuova"
 
   end
-  
+
   def update_host_firmware_package(json)
-  
+
 		host_firmware_pkg_name  = JSON.parse(json)['host_firmware_pkg_name']
 		hardware_model          = JSON.parse(json)['hardware_model'].to_s
 		hardware_type           = JSON.parse(json)['hardware_type']
@@ -64,21 +64,21 @@ class UCSUpdate
   end
 
 	def update_boot_policy_on_service_profile_template(json)
-	  
+
 	  service_profile_template_name               = JSON.parse(json)['service_profile_template_name']
 	  org                                         = JSON.parse(json)['org']
 	  service_profile_template_mgmt_ip_pool       = JSON.parse(json)['service_profile_template_mgmt_ip_pool']
 	  service_profile_template_boot_policy        = JSON.parse(json)['service_profile_template_boot_policy']
 	  service_profile_template_host_fw_policy     = JSON.parse(json)['service_profile_template_host_fw_policy']
 	  service_profile_template_uuid_pool          = JSON.parse(json)['service_profile_template_uuid_pool']
-	  
+
 	  xml_builder = Nokogiri::XML::Builder.new do |xml|
 	    xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'false'){
 	      xml.inConfigs{
 	        xml.pair('key' => "org-root/org-#{org}/ls-#{service_profile_template_name}"){
 	          xml.lsServer('agentPolicyName' => '', 'biosProfileName' => '', 'bootPolicyName' => "#{service_profile_template_boot_policy}",
 		                      'descr' => '', 'dn' => "org-root/org-#{org}/ls-#{service_profile_template_name}",
-		                      'dynamicConPolicyName' => '', 'extIPPoolName' => "#{service_profile_template_mgmt_ip_pool}", 
+		                      'dynamicConPolicyName' => '', 'extIPPoolName' => "#{service_profile_template_mgmt_ip_pool}",
 		                      'extIPState' => 'none', 'hostFwPolicyName' => "#{service_profile_template_host_fw_policy}",
 		                      'identPoolName' => "#{service_profile_template_uuid_pool}", 'localDiskPolicyName' => 'default', 'maintPolicyName' => 'default',
 		                      'mgmtAccessPolicyName' => '', 'mgmtFwPolicyName' => '', 'policyOwner' => 'local',
@@ -90,14 +90,14 @@ class UCSUpdate
     end
     #Create Template xml
     update_boot_policy_on_service_profile_template_xml = xml_builder.to_xml.to_s
-    
+
     #Post Update Boot Policy on Service Profile Template
     begin
     	RestClient.post(@url, update_boot_policy_on_service_profile_template_xml, :content_type => 'text/xml').body
     rescue Exception => e
     	raise "Error #{e}"
-    end  
-	 
+    end
+
 	end
-  
+
 end

@@ -16,13 +16,13 @@
 #
 
 
-class UCSInventory
-  
+module Inventory
+
   def discover(tokenjson)
-    
-    cookie 	 = "#{JSON.parse(tokenjson)['cookie']}"
+
+    cookie   = "#{JSON.parse(tokenjson)['cookie']}"
     ip       = "#{JSON.parse(tokenjson)['ip']}"
-    url 	   = "https://#{ip}/nuova"
+    url      = "https://#{ip}/nuova"
 
     #Start Build the Multi-Class XML
     xml_builder = Nokogiri::XML::Builder.new do |xml|
@@ -69,7 +69,7 @@ class UCSInventory
           xml.classId("value" => "vmVnicProfCl")
           xml.classId("value" => "vmVnicProfInst")
           xml.classId("value" => "vmVsan")
-        } 
+        }
        }
     end
 
@@ -80,35 +80,35 @@ class UCSInventory
 
      #Uncomment the following to create a dump to review and debug elements
      # fh = File.new("ucs_response_multiclass.xml", "w")
-     # fh.puts ucs_response_multi_class.inspect 
+     # fh.puts ucs_response_multi_class.inspect
      # fh.close
-     
+
      return Nokogiri::XML(ucs_response_multi_class)
-     
+
   end
-  
-  
+
+
   def list_blades(ucs_multi_class_xml)
-    
+
     ucs_multi_class_xml.xpath("configResolveClasses/outConfigs/computeBlade").each do |blade|
-             
+
         puts "Blade : #{blade.attributes["serverId"]} model: #{blade.attributes["model"]}" \
              " with serial: #{blade.attributes["serial"]} is powered: #{blade.attributes["operPower"]}"
-        
+
     end
-    
+
   end
-  
+
   def list_vsans(ucs_multi_class_xml)
 
      ucs_multi_class_xml.xpath("configResolveClasses/outConfigs/fabricVsan").each do |fabricvsan|
-       
+
        puts "VSAN: #{fabricvsan.attributes["fcoeVlan"]} with FCoE ID: #{fabricvsan.attributes["id"]}" \
             " status: #{fabricvsan.attributes["operState"]}"
     end
 
   end
-  
+
   def list_vlans(ucs_multi_class_xml)
 
     ucs_multi_class_xml.xpath("configResolveClasses/outConfigs/fabricVlan").each do |fabricvlan|
@@ -116,9 +116,9 @@ class UCSInventory
       puts "VLAN: #{fabricvlan.attributes["id"]} with name: #{fabricvlan.attributes["name"]}"
 
     end
-    
+
   end
-  
+
   def list_cpus(ucs_multi_class_xml)
 
     ucs_multi_class_xml.xpath("configResolveClasses/outConfigs/processorUnit").each do |processorunit|
@@ -130,7 +130,7 @@ class UCSInventory
     end
 
   end
-  
+
   def list_memory(ucs_multi_class_xml)
 
     ucs_multi_class_xml.xpath("configResolveClasses/outConfigs/computeBlade").each do |blade|
@@ -138,20 +138,20 @@ class UCSInventory
       puts "Available Memory: #{blade.attributes["availableMemory"]} Total Memory: #{blade.attributes["totalMemory"]} Speed: #{blade.attributes["memorySpeed"]}"
 
     end
-    
+
   end
-  
+
   def list_service_profiles(ucs_multi_class_xml)
-    
+
     ucs_multi_class_xml.xpath("configResolveClasses/outConfigs/lsServer").each do |serviceprofile|
 
        puts "Service Profile: #{serviceprofile.attributes["name"]} in #{serviceprofile.attributes["dn"]} with UUID #{serviceprofile.attributes["uuid"]}" \
             " is: #{serviceprofile.attributes["assocState"]}"
 
     end
-    
+
   end
-  
+
   def list_running_firmware(ucs_multi_class_xml)
 
     ucs_multi_class_xml.xpath("configResolveClasses/outConfigs/firmwareRunning").each do |firmware|
@@ -162,5 +162,5 @@ class UCSInventory
     end
 
   end
-  
+
 end

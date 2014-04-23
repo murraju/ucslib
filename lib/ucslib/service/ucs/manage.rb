@@ -15,19 +15,19 @@
 # limitations under the License.
 #
 
-class UCSManage
+module Manage
 
 	def initialize(tokenjson)
 
-	@cookie  = "#{JSON.parse(tokenjson)['cookie']}"
-	ip       = "#{JSON.parse(tokenjson)['ip']}"
-	@url 	 = "https://#{ip}/nuova"
+		@cookie  = "#{JSON.parse(tokenjson)['cookie']}"
+		ip       = "#{JSON.parse(tokenjson)['ip']}"
+		@url 	 = "https://#{ip}/nuova"
 
 	end
 
 
 	def discover_state
-	    
+
 	    #Start Build of the Multi-Class XML for interogating state
 	    xml_builder = Nokogiri::XML::Builder.new do |xml|
 	       xml.configResolveClasses('cookie' => @cookie, 'inHierarchical' => 'false') {
@@ -35,7 +35,7 @@ class UCSManage
 	          xml.classId("value" => "macpoolPooled")
 	          xml.classId("value" => "uuidpoolPooled")
 	          xml.classId("value" => "fcpoolInitiator")
-	        } 
+	        }
 	       }
 	    end
 
@@ -46,13 +46,13 @@ class UCSManage
 
       #Uncomment the following to create a dump to review and debug elements
       # fh = File.new("ucs_response_multiclass_state.xml", "w")
-      # fh.puts ucs_response_multi_class_state.inspect 
+      # fh.puts ucs_response_multi_class_state.inspect
       # fh.close
-       
-	    Nokogiri::XML(ucs_response_multi_class_state)	
-	    		
+
+	    Nokogiri::XML(ucs_response_multi_class_state)
+
 	end
-		
+
 
 	def associate_service_profile_template_to_server_pool(json)
 
@@ -73,8 +73,8 @@ class UCSManage
 		                     'descr' => '', 'dn' => "org-root/org-#{org}/ls-#{service_profile_template_to_bind}",
 		                     'dynamicConPolicyName' => '', 'extIPState' => 'none', 'hostFwPolicyName' => "#{service_profile_host_fw_policy}",
 		                     'identPoolName' => "#{service_profile_uuid_pool}", 'localDiskPolicyName' => 'default', 'maintPolicyName' => 'default',
-		                     'mgmtAccessPolicyName' => '', 'mgmtFwPolicyName' => "#{service_profile_mgmt_fw_policy}", 'powerPolicyName' => 'default', 
-		                     'scrubPolicyName' => '', 'solPolicyName' => 'default', 'srcTemplName' => '', 
+		                     'mgmtAccessPolicyName' => '', 'mgmtFwPolicyName' => "#{service_profile_mgmt_fw_policy}", 'powerPolicyName' => 'default',
+		                     'scrubPolicyName' => '', 'solPolicyName' => 'default', 'srcTemplName' => '',
 		                     'statsPolicyName' => 'default', 'status' => 'created,modified', 'usrLbl' => '', 'uuid' => '0', 'vconProfileName' => ''){
 		                       xml.lsRequirement('name' => "#{service_profile_server_pool}", 'qualifier' => '', 'restrictMigration' => 'no', 'rn' => 'pn-req')
 		                     }
@@ -87,13 +87,13 @@ class UCSManage
 
 		associate_service_profile_template_to_server_pool_xml = xml_builder.to_xml.to_s
 
-		#Post 
+		#Post
 		begin
 			RestClient.post(@url, associate_service_profile_template_to_server_pool_xml, :content_type => 'text/xml').body
 		rescue Exception => e
 			raise "Error #{e}"
-		end 
-	
+		end
+
 	end
-	
+
 end

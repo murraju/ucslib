@@ -15,15 +15,18 @@
 # limitations under the License.
 #
 
+
+
 require "ucslib/version"
-require "ucslib/session"
-require "ucslib/provision"
-require "ucslib/parser"
-require "ucslib/update"
-require "ucslib/inventory"
-require 'ucslib/destroy'
-require 'ucslib/manage'
-require 'ucslib/stats'
+require "ucslib/service/ucs/ucs"
+# require "ucslib/service/ucs/session"
+# require "ucslib/service/ucs/provision"
+# require "ucslib/service/ucs/parser"
+# require "ucslib/service/ucs/update"
+# require "ucslib/service/ucs/inventory"
+# require 'ucslib/service/ucs/destroy'
+# require 'ucslib/service/ucs/manage'
+# require 'ucslib/service/ucs/stats'
 
 require 'nokogiri'
 require 'rest-client'

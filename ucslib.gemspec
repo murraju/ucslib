@@ -16,7 +16,7 @@
 #
 
 # -*- encoding: utf-8 -*-
-$:.push File.expand_path("../lib", __FILE__)
+$:.push File.expand_path("../lib",  __FILE__)
 require "ucslib/version"
 
 Gem::Specification.new do |s|
@@ -30,7 +30,8 @@ Gem::Specification.new do |s|
 
   s.rubyforge_project = "ucslib"
 
-  s.files         = `git ls-files`.split("\n")
+  #s.files         = `git ls-files`.split("\n")
+  s.files         = Dir['Rakefile', '{bin,lib,lib/service,lib/service/ucs,man}/**/*', 'README*', 'LICENSE*'] & `git ls-files -z`.split("\0")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
