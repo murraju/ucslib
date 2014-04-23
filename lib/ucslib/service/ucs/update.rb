@@ -17,14 +17,6 @@
 
 module Update
 
-  def initialize(tokenjson)
-
-    @cookie  = "#{JSON.parse(tokenjson)['cookie']}"
-    ip       = "#{JSON.parse(tokenjson)['ip']}"
-    @url 	 = "https://#{ip}/nuova"
-
-  end
-
   def update_host_firmware_package(json)
 
 		host_firmware_pkg_name  = JSON.parse(json)['host_firmware_pkg_name']

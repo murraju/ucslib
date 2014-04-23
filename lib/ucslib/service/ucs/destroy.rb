@@ -17,15 +17,6 @@
 
 module Destroy
 
-	def initialize(tokenjson)
-
-	    @cookie  = "#{JSON.parse(tokenjson)['cookie']}"
-	    ip       = "#{JSON.parse(tokenjson)['ip']}"
-	    @url 	 = "https://#{ip}/nuova"
-
-	end
-
-
   def delete_org(json)
 
 	org = JSON.parse(json)['org']

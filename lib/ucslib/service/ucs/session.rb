@@ -20,35 +20,35 @@
 
 module Session
 	#Accept a JSON object that contains the UCSM username, password, and IP
-	def get_token(authjson)
+	# def get_token(authjson)
 
-    username = "#{JSON.parse(authjson)['username']}"
-    password = "#{JSON.parse(authjson)['password']}"
-    ip       = "#{JSON.parse(authjson)['ip']}"
-    url      = "https://#{ip}/nuova"
+ #    username = "#{JSON.parse(authjson)['username']}"
+ #    password = "#{JSON.parse(authjson)['password']}"
+ #    ip       = "#{JSON.parse(authjson)['ip']}"
+ #    url      = "https://#{ip}/nuova"
 
-    xml_builder = Nokogiri::XML::Builder.new do |xml|
-        xml.aaaLogin('inName' => username, 'inPassword' => password)
-    end
+ #    xml_builder = Nokogiri::XML::Builder.new do |xml|
+ #        xml.aaaLogin('inName' => username, 'inPassword' => password)
+ #    end
 
-    aaa_login_xml = xml_builder.to_xml.to_s
-    ucs_response = RestClient.post(url, aaa_login_xml, :content_type => 'text/xml').body
-    ucs_login_doc = Nokogiri::XML(ucs_response)
-    ucs_login_root = ucs_login_doc.root
-    cookie = ucs_login_root.attributes['outCookie']
+ #    aaa_login_xml = xml_builder.to_xml.to_s
+ #    ucs_response = RestClient.post(url, aaa_login_xml, :content_type => 'text/xml').body
+ #    ucs_login_doc = Nokogiri::XML(ucs_response)
+ #    ucs_login_root = ucs_login_doc.root
+ #    cookie = ucs_login_root.attributes['outCookie']
 
-		begin
-			return session = {  :cookie   => "#{cookie}",
-							    :username => "#{username}",
-							    :password => "#{password}",
-							    :ip       => "#{ip}"  }.to_json
-		rescue Exception => e
-			'An Error Occured. Please check authentication credentials'
-		else
-			Process.exit
-		end
+	# 	begin
+	# 		return session = { :cookie   => "#{cookie}",
+	# 						           :username => "#{username}",
+	# 						           :password => "#{password}",
+	# 						           :ip       => "#{ip}"  }.to_json
+	# 	rescue Exception => e
+	# 		'An Error Occured. Please check authentication credentials'
+	# 	else
+	# 		Process.exit
+	# 	end
 
-	end
+	# end
 
 
 	def refresh_token(tokenjson)

@@ -18,15 +18,18 @@
 
 module Inventory
 
-  def discover(tokenjson)
+  # Archive code. To be removed later #TODO
+  # def discover(tokenjson)
 
-    cookie   = "#{JSON.parse(tokenjson)['cookie']}"
-    ip       = "#{JSON.parse(tokenjson)['ip']}"
-    url      = "https://#{ip}/nuova"
+  #   @cookie   = "#{JSON.parse(tokenjson)['cookie']}"
+  #   ip       = "#{JSON.parse(tokenjson)['ip']}"
+  #   @url      = "https://#{ip}/nuova"
+
+  def discover
 
     #Start Build the Multi-Class XML
     xml_builder = Nokogiri::XML::Builder.new do |xml|
-       xml.configResolveClasses('cookie' => cookie, 'inHierarchical' => 'false') {
+       xml.configResolveClasses('cookie' => @cookie, 'inHierarchical' => 'false') {
         xml.inIds{
           xml.classId("value" => "topSystem")
           xml.classId("value" => "equipmentChassis")
@@ -76,7 +79,7 @@ module Inventory
     #End Build Multi-Class XML
 
     ucs_multi_class_XML = xml_builder.to_xml.to_s
-    ucs_response_multi_class = RestClient.post(url, ucs_multi_class_XML, :content_type => 'text/xml').body
+    ucs_response_multi_class = RestClient.post(@url, ucs_multi_class_XML, :content_type => 'text/xml').body
 
      #Uncomment the following to create a dump to review and debug elements
      # fh = File.new("ucs_response_multiclass.xml", "w")

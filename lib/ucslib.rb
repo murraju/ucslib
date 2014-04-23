@@ -19,14 +19,6 @@
 
 require "ucslib/version"
 require "ucslib/service/ucs/ucs"
-# require "ucslib/service/ucs/session"
-# require "ucslib/service/ucs/provision"
-# require "ucslib/service/ucs/parser"
-# require "ucslib/service/ucs/update"
-# require "ucslib/service/ucs/inventory"
-# require 'ucslib/service/ucs/destroy'
-# require 'ucslib/service/ucs/manage'
-# require 'ucslib/service/ucs/stats'
 
 require 'nokogiri'
 require 'rest-client'
