@@ -166,6 +166,6 @@ Documentation, Documentation, Documentation!
 Copyright (c) 2012 - 2014 Murali Raju. See LICENSE.txt for further details.
 
 
-[1] https://www.pivotaltracker.com/s/projects/1065870
+[1]: https://www.pivotaltracker.com/s/projects/1065870
 
 
