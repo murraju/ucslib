@@ -42,9 +42,9 @@ gem install ucslib
 Just do "require ucslib" in your apps. Below is an IRB session to highlight some capabilities.
 
 
-➜  ucslib git:(master) ✗ irb
+``➜  ucslib git:(master) ✗ irb
 
-1.9.3p194 :001 > require 'ucslib'
+ 1.9.3p194 :001 > require 'ucslib'
  => true
 1.9.3p194 :002 > auth_json = { :username => 'admin', :password => 'admin', :ip => '172.16.75.137' }.to_json
  => "{\"username\":\"admin\",\"password\":\"admin\",\"ip\":\"172.16.75.137\"}"
@@ -133,7 +133,7 @@ VLAN: 200 with name: OpenStack-Mgmt
   timeCollected = 2012-11-16T13:40:32.362
   update = 65539
 
-1.9.3p194 :018 > ucs.show_all(statsml,'fcStats') # output omitted
+1.9.3p194 :018 > ucs.show_all(statsml,'fcStats') # output omitted`
 
 ## Features
 
