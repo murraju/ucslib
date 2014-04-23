@@ -17,7 +17,8 @@
 
 #UCSM API Session management
 
-class UCSStats
+module Stats
+
     STATNAMES = %w(adaptorEthPortStats adaptorEthPortErrStats adaptorEthPortMcastStats adaptorVnicStats computeMbPowerStats computeMbTempStats computePCIeFatalStats computePCIeFatalCompletionStats computePCIeFatalProtocolStats computePCIeFatalReceiveStats equipmentChassisStats equipmentFanStats equipmentFanModuleStats equipmentIOCardStats equipmentNetworkElementFanStats equipmentPsuStats equipmentPsuInputStats etherErrStats etherLossStats etherPauseStats etherRxStats etherTxStats fcStats fcErrStats memoryArrayEnvStats memoryErrorStats memoryUnitEnvStats processorEnvStats processorErrorStats swEnvStats swSystemStats)
 
     def fetch(tokenjson)

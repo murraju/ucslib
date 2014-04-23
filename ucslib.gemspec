@@ -16,7 +16,7 @@
 #
 
 # -*- encoding: utf-8 -*-
-$:.push File.expand_path("../lib", __FILE__)
+$:.push File.expand_path("../lib",  __FILE__)
 require "ucslib/version"
 
 Gem::Specification.new do |s|
@@ -26,18 +26,13 @@ Gem::Specification.new do |s|
   s.email       = ["murali.raju@appliv.com"]
   s.homepage    = ""
   s.summary     = %q{Ruby UCS Manager Client Library}
-  s.description = %q{Ruby Client Library for Cisco UCS Manager that can be used by DevOps toolchains (Chef/Puppet or others) to provide hardware deployment automation}
+  s.description = %q{Ruby Client Library for Cisco UCS Manager that can be used for Infrastructure Automation}
 
   s.rubyforge_project = "ucslib"
-
-  s.files         = `git ls-files`.split("\n")
+  s.files         = Dir['Rakefile', '{bin,lib,lib/service,lib/service/ucs,man}/**/*', 'README*', 'LICENSE*'] & `git ls-files -z`.split("\0")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
-
-  # specify any dependencies here; for example:
-  # s.add_development_dependency "rspec"
-  # s.add_runtime_dependency "rest-client"
 
   s.add_dependency("nokogiri")
   s.add_dependency("rest-client")

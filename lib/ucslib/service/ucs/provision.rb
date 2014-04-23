@@ -15,15 +15,8 @@
 # limitations under the License.
 #
 
-class UCSProvision
+module Provision
 
-	  def initialize(tokenjson)
-    
-	    @cookie  = "#{JSON.parse(tokenjson)['cookie']}"
-	    ip       = "#{JSON.parse(tokenjson)['ip']}"
-	    @url 	 = "https://#{ip}/nuova"
-
-	  end
 
     def set_org(json)
 
@@ -49,12 +42,12 @@ class UCSProvision
         RestClient.post(@url, set_org_xml, :content_type => 'text/xml').body
       rescue Exception => e
         raise "Error #{e}"
-      end     
+      end
 
     end
 
 	  def set_power_policy(json)
-		
+
   		power_policy = "#{JSON.parse(json)['power_policy']}"
 
   		xml_builder = Nokogiri::XML::Builder.new do |xml|
@@ -70,7 +63,7 @@ class UCSProvision
   		set_power_policy_xml = xml_builder.to_xml.to_s
 
   		#Post
-  		begin	
+  		begin
   			RestClient.post(@url, set_power_policy_xml, :content_type => 'text/xml').body
   		rescue Exception => e
   			raise "Error #{e}"
@@ -79,14 +72,14 @@ class UCSProvision
 	  end
 
     def set_chassis_discovery_policy(json)
-    	
+
       chassis_discovery_policy = "#{JSON.parse(json)['chassis_discovery_policy']}"
 
   		xml_builder = Nokogiri::XML::Builder.new do |xml|
   		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'false') {
   		  xml.inConfigs{
   		    xml.pair('key' => 'org-root/chassis-discovery'){
-  		      xml.computeChassisDiscPolicy( 'action' => "#{chassis_discovery_policy}", 'descr' => '', 'dn' => 'org-root/chassis-discovery', 
+  		      xml.computeChassisDiscPolicy( 'action' => "#{chassis_discovery_policy}", 'descr' => '', 'dn' => 'org-root/chassis-discovery',
   		                                    'name' => '', 'rebalance' => 'user-acknowledged')
   		    }
   		  }
@@ -114,10 +107,10 @@ class UCSProvision
   		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'false'){
   		  xml.inConfigs{
   		    xml.pair('key' => 'sys/svc-ext/datetime-svc'){
-  		      xml.commDateTime('adminState' => 'enabled', 'descr' => '', 'dn' => 'sys/svc-ext/datetime-svc', 'port' => '0', 'status' => 'modified', 
+  		      xml.commDateTime('adminState' => 'enabled', 'descr' => '', 'dn' => 'sys/svc-ext/datetime-svc', 'port' => '0', 'status' => 'modified',
   		                   'timezone' => "#{time_zone}")
   		    }
-  		  } 
+  		  }
   		}
   		end
 
@@ -126,7 +119,7 @@ class UCSProvision
   		#Post
 
   		begin
-  			RestClient.post(@url, set_time_zone_xml, :content_type => 'text/xml').body		
+  			RestClient.post(@url, set_time_zone_xml, :content_type => 'text/xml').body
   		rescue Exception => e
   			raise "Error #{e}"
   		end
@@ -169,7 +162,7 @@ class UCSProvision
         xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
           xml.inConfigs{
             xml.pair('key' => "org-root/org-#{org}/local-disk-config-#{org}-localdisk"){
-              xml.storageLocalDiskConfigPolicy('descr' => '', 'dn' => "org-root/org-#{org}/local-disk-config-#{org}-localdisk", 
+              xml.storageLocalDiskConfigPolicy('descr' => '', 'dn' => "org-root/org-#{org}/local-disk-config-#{org}-localdisk",
                                                'mode' => "#{local_disk_policy}", 'name' => "#{org}-localdisk", 'protectConfig' => 'yes',
                                                'status' => 'created')
             }
@@ -186,15 +179,15 @@ class UCSProvision
       rescue Exception => e
         raise "Error #{e}"
       end
-    
+
     end
 
     def set_syslog_server(json)
-      
+
       syslog_server = JSON.parse(json)['syslog_server']
       facility      = JSON.parse(json)['facility']
       severity      = JSON.parse(json)['severity']
-      
+
       xml_builder = Nokogiri::XML::Builder.new do |xml|
         xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'false'){
           xml.inConfigs{
@@ -215,7 +208,7 @@ class UCSProvision
       rescue Exception => e
         raise "Error #{e}"
       end
-      
+
     end
 
 	  def set_server_port(json)
@@ -230,8 +223,8 @@ class UCSProvision
   		  xml.inConfigs{
   		    xml.pair('key' => "fabric/server/SW-#{switch}"){
   		      xml.fabricDceSwSrv('dn' => "fabric/server/SW-#{switch}", 'status' => 'created,modified'){
-  		        xml.fabricDceSwSrvEp( 'adminState' => 'enabled', 'name' => '', 'portId' => "#{port}", 
-  		                              'rn' => "slot" + "-" + "#{slot}" + "-" + "port" + "-" + "#{port}", 'slotId' => "#{slot}", 
+  		        xml.fabricDceSwSrvEp( 'adminState' => 'enabled', 'name' => '', 'portId' => "#{port}",
+  		                              'rn' => "slot" + "-" + "#{slot}" + "-" + "port" + "-" + "#{port}", 'slotId' => "#{slot}",
   		                              'status' => 'created', 'usrLbl' => '' )
   		      }
   		    }
@@ -239,7 +232,7 @@ class UCSProvision
   		}
   		end
 
-  		#Create xml 
+  		#Create xml
   		set_server_port_xml = xml_builder.to_xml.to_s
 
   		#Post
@@ -256,7 +249,7 @@ class UCSProvision
 
   		switch = JSON.parse(json)['switch']
   		port   = JSON.parse(json)['port']
-  		slot   = JSON.parse(json)['slot']    	
+  		slot   = JSON.parse(json)['slot']
 
   		xml_builder = Nokogiri::XML::Builder.new do |xml|
   		xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'false'){
@@ -264,7 +257,7 @@ class UCSProvision
   		 xml.pair('key' => "fabric/lan/#{switch}"){
   		   xml.fabricEthLan('dn' => "fabric/lan/#{switch}", 'status' => 'created,modified'){
   		     xml.fabricEthLanEp('adminSpeed' => '10gbps', 'adminState' => 'enabled', 'flowCtrlPolicy' => 'default',
-  		                        'name' => '', 'portId' => "#{port}", 
+  		                        'name' => '', 'portId' => "#{port}",
   		                        'rn' => "phys" + "-" + "slot" + "-" + "#{slot}" + "-" + "port" + "-" + "#{port}",
   		                        'slotId' => "#{slot}", 'status' => 'created', 'usrLbl' => '')
   		   			}
@@ -273,7 +266,7 @@ class UCSProvision
   		}
   		end
 
-  		#Create xml 
+  		#Create xml
   		set_network_uplink_xml = xml_builder.to_xml.to_s
 
   		#Post
@@ -291,20 +284,20 @@ class UCSProvision
 
   		switch = JSON.parse(json)['switch']
   		port   = JSON.parse(json)['port']
-  		slot   = JSON.parse(json)['slot']  
+  		slot   = JSON.parse(json)['slot']
 
   		xml_builder = Nokogiri::XML::Builder.new do |xml|
   		 xml.configConfMos('cookie' => "#{@ucs_cookie}", 'inHierarchical' => 'false'){
   		   xml.inConfigs{
   		     xml.pair('key' => "fabric/san/#{switch}/phys" + "-" + "slot" + "-" + "#{slot}" + "-" + "port" + "-" + "#{port}"){
-  		       xml.fabricFcSanEp('adminState' => 'enabled', 'dn' => "fabric/san/#{switch}/phys" + "-" + "slot" + "-" + "#{slot}" + "-" + 
+  		       xml.fabricFcSanEp('adminState' => 'enabled', 'dn' => "fabric/san/#{switch}/phys" + "-" + "slot" + "-" + "#{slot}" + "-" +
   		                         "port" + "-" + "#{port}" )
   		     }
   		   }
   		 }
   		end
 
-  		#Create xml 
+  		#Create xml
   		set_fc_uplink_xml = xml_builder.to_xml.to_s
 
   		#Post
@@ -337,7 +330,7 @@ class UCSProvision
   		                          'flowCtrlPolicy' => 'default', 'name' => "#{name}", 'operSpeed' => '10gbps', 'portId' => "#{port_channel_id}",
   		                          'status' => 'created'){
   		                              port_ids.each do |port_id|
-  		                                xml.fabricEthLanPcEp('adminState' => 'enabled', 'name' => '', 'portId' => "#{port_id}", 
+  		                                xml.fabricEthLanPcEp('adminState' => 'enabled', 'name' => '', 'portId' => "#{port_id}",
   		                                                      'rn' => "ep-slot-#{slot}-port-#{port_id}")
   		                              end
   		                          }
@@ -484,7 +477,7 @@ class UCSProvision
 
 
     def set_mgmt_firmware_package(json)
-    
+
       mgmt_firmware_pkg_name        = JSON.parse(json)['mgmt_firmware_pkg_name']
       mgmt_firmware_pkg_description = JSON.parse(json)['mgmt_firmware_pkg_description']
       hardware_model                = JSON.parse(json)['hardware_model'].to_s
@@ -493,7 +486,7 @@ class UCSProvision
       firmware_version              = JSON.parse(json)['firmware_version'].to_s
       org                           = JSON.parse(json)['org']
 
-    
+
       xml_builder = Nokogiri::XML::Builder.new do |xml|
         xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
           xml.inConfigs{
@@ -526,7 +519,7 @@ class UCSProvision
     end
 
     def set_host_firmware_package(json)
-    
+
   		host_firmware_pkg_name        = JSON.parse(json)['host_firmware_pkg_name']
       host_firmware_pkg_description = JSON.parse(json)['host_firmware_pkg_description']
   		hardware_model                = JSON.parse(json)['hardware_model'].to_s
@@ -537,7 +530,7 @@ class UCSProvision
       flag                          = JSON.parse(json)['flag']
 
       unless flag == 'update'
-	  
+
         xml_builder = Nokogiri::XML::Builder.new do |xml|
           xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
             xml.inConfigs{
@@ -653,15 +646,15 @@ class UCSProvision
     	#size            = JSON.parse(json)['size']
     	mac_pool_end    = JSON.parse(json)['mac_pool_end']
     	org    			= JSON.parse(json)['org']
-	
-    	# 
+
+    	#
     	# def get_mac_pool_suffix(size)
-    	#  mac_pool_size = size   
+    	#  mac_pool_size = size
     	#  octets         = mac_pool_start.split(':')
     	#  octets[-1]     = (mac_pool_size - 1).to_s(base=16)
     	#  return mac_pool_end = octets.join(':')
     	# end
-    	# 
+    	#
     	# get_mac_pool_suffix(size)
 
     	xml_builder = Nokogiri::XML::Builder.new do |xml|
@@ -746,7 +739,7 @@ class UCSProvision
   		  xml.configConfMos('cookie' => "#{@cookie}", 'inHierarchical' => 'true'){
   		    xml.inConfigs{
   		      xml.pair('key' => 'fabric/san/'){
-  		        xml.fabricVsan('defaultZoning' => 'disabled', 'dn' => 'fabric/san/', 'fcoeVlan' => "#{vsan_fcoe_id}", 
+  		        xml.fabricVsan('defaultZoning' => 'disabled', 'dn' => 'fabric/san/', 'fcoeVlan' => "#{vsan_fcoe_id}",
   		                       'id' => "#{vsan_id}", 'name' => "#{vsan_name}", 'status' => 'created' )
   		      }
   		    }
@@ -778,7 +771,7 @@ class UCSProvision
 		       xml.pair('key' => "org-root/org-#{org}/wwn-pool-#{wwnn_name}"){
 		         xml.fcpoolInitiators('descr' => '', 'dn' => "org-root/org-#{org}/wwn-pool-#{wwnn_name}", 'name' => "#{wwnn_name}",
 		                              'purpose' => 'node-wwn-assignment', 'status' => 'created'){
-		                                xml.fcpoolBlock('from' => "#{wwnn_from}", 'rn' => "block-#{wwnn_from}-#{wwnn_to}", 
+		                                xml.fcpoolBlock('from' => "#{wwnn_from}", 'rn' => "block-#{wwnn_from}-#{wwnn_to}",
 		                                                'status' => 'created', 'to' => "#{wwnn_to}")
 		                              }
 		       }
@@ -897,7 +890,7 @@ class UCSProvision
   		rescue Exception => e
   			raise "Error #{e}"
   		end
-		 
+
     end
 
     def set_service_profile_template(json)
@@ -929,27 +922,27 @@ class UCSProvision
 		                      'mgmtAccessPolicyName' => '', 'mgmtFwPolicyName' => "#{service_profile_template_mgmt_fw_policy}", 'name' => "#{service_profile_template_name}",
 		                      'powerPolicyName' => 'default', 'scrubPolicyName' => '', 'solPolicyName' => 'default', 'srcTemplName' => '', 'statsPolicyName' => 'default',
 		                      'status' => 'created', 'type' => 'updating-template', 'usrLbl' => '', 'uuid' => '0', 'vconProfileName' => ''){
-		                       service_profile_template_vnics_a.each do |vnic_a|  
+		                       service_profile_template_vnics_a.each do |vnic_a|
 		                        xml.vnicEther('adaptorProfileName' => '', 'addr' => 'derived', 'adminVcon' => 'any', 'identPoolName' => '', 'mtu' => '1500',
 		                                      'name' => "#{vnic_a}", 'nwCtrlPolicyName' => '', 'nwTemplName' => "#{service_profile_template_vnic_a_template}",
 		                                      'order' => '3', 'pinToGroupName' => '', 'qosPolicyName' => '', 'rn' => "ether-#{vnic_a}",
 		                                      'statsPolicyName' => 'default', 'status' => 'created', 'switchId' => 'A')
 		                       end
-							  service_profile_template_vnics_b.each do |vnic_b|               
+							  service_profile_template_vnics_b.each do |vnic_b|
 		                        xml.vnicEther('adaptorProfileName' => '', 'addr' => 'derived', 'adminVcon' => 'any', 'identPoolName' => '', 'mtu' => '1500',
 		                                      'name' => "#{vnic_b}", 'nwCtrlPolicyName' => '', 'nwTemplName' => "#{service_profile_template_vnic_b_template}",
 		                                      'order' => '4', 'pinToGroupName' => '', 'qosPolicyName' => '', 'rn' => "ether-#{vnic_b}",
 		                                      'statsPolicyName' => 'default', 'status' => 'created', 'switchId' => 'B')
-		                       end              
+		                       end
 		                        xml.vnicFcNode('addr' => 'pool-derived', 'identPoolName' => "#{service_profile_template_wwnn_pool}", 'rn' => 'fc-node')
 
 		                        xml.vnicFc('adaptorProfileName' => '', 'addr' => 'derived', 'adminVcon' => 'any', 'identPoolName' => '', 'maxDataFieldSize' => '2048',
-		                                   'name' => "#{service_profile_template_vhba_a}", 'nwTemplName' => "#{service_profile_template_vhba_a_template}", 
+		                                   'name' => "#{service_profile_template_vhba_a}", 'nwTemplName' => "#{service_profile_template_vhba_a_template}",
 		                                   'order' => '1', 'persBind' => 'disabled', 'persBindClear' => 'no', 'pinToGroupName' => '', 'qosPolicyName' => '',
 		                                   'rn' => "fc-#{service_profile_template_vhba_a}", 'statsPolicyName' => 'default', 'status' => 'created', 'switchId' => 'A')
 
 		                        xml.vnicFc('adaptorProfileName' => '', 'addr' => 'derived', 'adminVcon' => 'any', 'identPoolName' => '', 'maxDataFieldSize' => '2048',
-		                                   'name' => "#{service_profile_template_vhba_b}", 'nwTemplName' => "#{service_profile_template_vhba_b_template}", 
+		                                   'name' => "#{service_profile_template_vhba_b}", 'nwTemplName' => "#{service_profile_template_vhba_b_template}",
 		                                   'order' => '2', 'persBind' => 'disabled', 'persBindClear' => 'no', 'pinToGroupName' => '', 'qosPolicyName' => '',
 		                                   'rn' => "fc-#{service_profile_template_vhba_b}", 'statsPolicyName' => 'default', 'status' => 'created', 'switchId' => 'B')
 
@@ -969,7 +962,7 @@ class UCSProvision
 		 rescue Exception => e
 		 	raise "Error #{e}"
 		 end
-		 
+
     end
 
    def set_service_profiles_from_template(json)
@@ -997,7 +990,7 @@ class UCSProvision
 		 rescue Exception => e
 		 	raise "Error #{e}"
 		 end
-		 
+
     end
 
 
@@ -1032,9 +1025,9 @@ class UCSProvision
 		                       'dynamicConPolicyName' => '', 'extIPState' => 'none', 'hostFwPolicyName' => "#{service_profile_host_fw_policy}",
 		                       'identPoolName' => "#{service_profile_uuid_pool}", 'localDiskPolicyName' => 'default', 'maintPolicyName' => 'default',
 		                       'mgmtAccessPolicyName' => '', 'mgmtFwPolicyName' => "#{service_profile_mgmt_fw_policy}", 'name' => "#{service_profile_name}",
-		                       'powerPolicyName' => 'default', 'scrubPolicyName' => '', 'solPolicyName' => 'default', 'srcTemplName' => "#{service_profile_template_to_bind}", 
+		                       'powerPolicyName' => 'default', 'scrubPolicyName' => '', 'solPolicyName' => 'default', 'srcTemplName' => "#{service_profile_template_to_bind}",
 		                       'statsPolicyName' => 'default', 'status' => 'created', 'usrLbl' => '', 'uuid' => '0', 'vconProfileName' => ''){
-		                        service_profile_vnics_a.each do |vnic_a|  
+		                        service_profile_vnics_a.each do |vnic_a|
 		                         xml.vnicEther('adaptorProfileName' => '', 'addr' => 'derived', 'adminVcon' => 'any', 'identPoolName' => '', 'mtu' => '1500',
 		                                       'name' => "#{vnic_a}", 'nwCtrlPolicyName' => '', 'nwTemplName' => "#{service_profile_vnic_a_template}",
 		                                       'order' => '3', 'pinToGroupName' => '', 'qosPolicyName' => '', 'rn' => "ether-#{vnic_a}",
@@ -1051,12 +1044,12 @@ class UCSProvision
 		                         xml.vnicFcNode('addr' => 'pool-derived', 'identPoolName' => "#{service_profile_wwnn_pool}", 'rn' => 'fc-node')
 
 		                         xml.vnicFc('adaptorProfileName' => '', 'addr' => 'derived', 'adminVcon' => 'any', 'identPoolName' => '', 'maxDataFieldSize' => '2048',
-		                                    'name' => "#{service_profile_vhba_a}", 'nwTemplName' => "#{service_profile_vhba_a}", 
+		                                    'name' => "#{service_profile_vhba_a}", 'nwTemplName' => "#{service_profile_vhba_a}",
 		                                    'order' => '1', 'persBind' => 'disabled', 'persBindClear' => 'no', 'pinToGroupName' => '', 'qosPolicyName' => '',
 		                                    'rn' => "fc-#{service_profile_vhba_a}", 'statsPolicyName' => 'default', 'status' => 'created', 'switchId' => 'A')
 
 		                         xml.vnicFc('adaptorProfileName' => '', 'addr' => 'derived', 'adminVcon' => 'any', 'identPoolName' => '', 'maxDataFieldSize' => '2048',
-		                                    'name' => "#{service_profile_vhba_b}", 'nwTemplName' => "#{service_profile_vhba_b}", 
+		                                    'name' => "#{service_profile_vhba_b}", 'nwTemplName' => "#{service_profile_vhba_b}",
 		                                    'order' => '2', 'persBind' => 'disabled', 'persBindClear' => 'no', 'pinToGroupName' => '', 'qosPolicyName' => '',
 		                                    'rn' => "fc-#{service_profile_vhba_b}", 'statsPolicyName' => 'default', 'status' => 'created', 'switchId' => 'B')
 
@@ -1080,14 +1073,14 @@ class UCSProvision
 		end
 
   end
-  
+
   def set_server_pool(json)
       server_pool_name           = JSON.parse(json)['server_pool_name'].to_s
       server_pool_description    = JSON.parse(json)['server_pool_description']
       server_pool_chassis_ids     = JSON.parse(json)['server_pool_chassis_ids'].to_s.split(',')
       server_pool_blades         = JSON.parse(json)['server_pool_blades'].to_s.split(',')
       org                        = JSON.parse(json)['org'].to_s
-  
+
       xml_builder = Nokogiri::XML::Builder.new do |xml|
         xml.configConfMos('cookie' => "#{@ucs_cookie}", 'inHierarchical' => 'true'){
           xml.inConfigs{
@@ -1097,7 +1090,7 @@ class UCSProvision
                                 server_pool_chassis_ids.each do |chassis_id|
                                   @current_chassis_id = chassis_id
                                   server_pool_blades.each do |slot_id|
-                                    xml.computePooledSlot('chassisId' => "#{@current_chassis_id}", 
+                                    xml.computePooledSlot('chassisId' => "#{@current_chassis_id}",
                                                           'rn' => "blade-#{@current_chassis_id}-#{slot_id}", 'slotId' => "#{slot_id}")
                                   end
                                 end
@@ -1106,9 +1099,9 @@ class UCSProvision
           }
         }
       end
-  
-  
-  
+
+
+
       # xml_builder = Nokogiri::XML::Builder.new do |xml|
       #   xml.configConfMos('cookie' => "#{@ucs_cookie}", 'inHierarchical' => 'true'){
       #     xml.inConfigs{
@@ -1116,7 +1109,7 @@ class UCSProvision
       #         xml.computePool('descr' => '', 'dn' => "org-root/org-#{server_pool_org}/compute-pool-#{server_pool_name}",
       #                         'status' => 'created,modified'){
       #                           server_pool_blades.each do |slot_id|
-      #                             xml.computePooledSlot('chassisId' => "#{server_pool_chassis_id}", 
+      #                             xml.computePooledSlot('chassisId' => "#{server_pool_chassis_id}",
       #                                                   'rn' => "blade-#{server_pool_chassis_id}-#{slot_id}", 'slotId' => "#{slot_id}",
       #                                                   'status' => 'created')
       #                           end
@@ -1125,19 +1118,19 @@ class UCSProvision
       #     }
       #   }
       # end
-  
-  
+
+
       #Create XML
-  
+
       set_server_pool_xml = xml_builder.to_xml.to_s
-  
-      #Post 
+
+      #Post
       begin
         RestClient.post(@url, set_server_pool_xml, :content_type => 'text/xml').body
       rescue Exception => e
         raise "Error #{e}"
       end
-  
+
   end
 
 end

@@ -15,16 +15,7 @@
 # limitations under the License.
 #
 
-class UCSDestroy
-
-	def initialize(tokenjson)
-    
-	    @cookie  = "#{JSON.parse(tokenjson)['cookie']}"
-	    ip       = "#{JSON.parse(tokenjson)['ip']}"
-	    @url 	 = "https://#{ip}/nuova"
-
-	end
-
+module Destroy
 
   def delete_org(json)
 
@@ -49,7 +40,7 @@ class UCSDestroy
 		rescue Exception => e
 			raise "Error #{e}"
 		end
-  		
+
   end
 
   def delete_vlan(json)
@@ -78,6 +69,6 @@ class UCSDestroy
 			raise "Error #{e}"
 		end
 
-	end  
+	end
 
 end
