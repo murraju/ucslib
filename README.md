@@ -8,9 +8,7 @@ In addition there is a knife plugin that use ucslib as well - https://github.com
 
 ** Version 0.1.8 has been released **
 
-0.1.8
-
-Namespace updates (clean up) and support for ruby 2.1.0
+0.1.8 Namespace updates (clean up) and support for ruby 2.1.0
 
 0.1.7
 Multi-chassis server pool creation

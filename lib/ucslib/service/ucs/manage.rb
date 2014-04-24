@@ -88,4 +88,30 @@ module Manage
 
 	end
 
+
+	def eventstream
+
+	    xml_builder = Nokogiri::XML::Builder.new do |xml|
+	       xml.eventSubscribe('cookie' => @cookie)
+	    end
+
+	    ucs_event_subscribe_xml = xml_builder.to_xml.to_s
+	    #Fix using eventmachine vs curl. This is ugly, but works for now. #TODO
+	    #ucs_response_event_subscribe = RestClient.post(@url, ucs_event_subscribe_xml, :content_type => 'text/xml')
+	    events_curl = "curl -H 'Content-Type: text/xml' #{@url} -d '#{ucs_event_subscribe_xml.gsub(/\n/," ")}' --insecure"
+	    events_sub = system(events_curl)
+
+      #Uncomment the following to create a dump to review and debug elements
+      #fh = File.new("ucs_event_subscribe_xml.xml", "w")
+      #fh.puts ucs_response_event_subscribe.inspect
+      #fh.puts events_sub.inspect
+      #fh.close
+
+	    #Nokogiri::XML(ucs_response_event_subscribe)
+	    Nokogiri::XML(events_sub)
+	    #puts ucs_response_event_subscribe
+	    puts events_sub
+
+	end
+
 end
