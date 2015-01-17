@@ -40,6 +40,7 @@ class UCS
     username = "#{JSON.parse(authjson)['username']}"
     password = "#{JSON.parse(authjson)['password']}"
     ip       = "#{JSON.parse(authjson)['ip']}"
+    verify_ssl = "#{JSON.parse(authjson)['verify_ssl']}"
     @url      = "https://#{ip}/nuova"
 
     xml_builder = Nokogiri::XML::Builder.new do |xml|
@@ -50,7 +51,7 @@ class UCS
     ucs_response = RestClient::Request.execute(
     	method: :post,
     	url: @url,
-    	verify_ssl: FALSE,
+    	verify_ssl: verify_ssl,
     	payload: aaa_login_xml,
     	headers: {
     		content_type: 'text/xml'

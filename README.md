@@ -44,7 +44,7 @@ gem install ucslib
 
   [1] pry(main)> require 'ucslib'
   => true
-  [2] pry(main)> authjson = { :username => 'admin', :password => 'admin', :ip => '172.16.192.175' }.to_json
+  [2] pry(main)> authjson = { :username => 'admin', :password => 'admin', :ip => '172.16.192.175', :verify_ssl => FALSE}.to_json
   => "{\"username\":\"admin\",\"password\":\"admin\",\"ip\":\"172.16.192.175\"}"
   [3] pry(main)> ucs = UCS.new(authjson)
   Your credentials are username: admin password: admin ip: 172.16.192.175 url https://172.16.192.175/nuova
