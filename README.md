@@ -6,7 +6,12 @@ To see an example of how ucslib is being used, checkout the ucs and ucs-solo Che
 
 In addition there is a knife plugin that use ucslib as well - https://github.com/velankanisys/knife-ucs
 
-** Version 0.1.8 has been released **
+** Version 0.1.9 has been released **
+
+0.1.9
+
+Updates to allow SSL to be ignored if desired, still defaults to verify_ssl =True
+Abstracted out the Rest post call to allow for easier global changes down the road
 
 0.1.8
 
@@ -44,8 +49,8 @@ gem install ucslib
 
   [1] pry(main)> require 'ucslib'
   => true
-  [2] pry(main)> authjson = { :username => 'admin', :password => 'admin', :ip => '172.16.192.175', :verify_ssl => FALSE}.to_json
-  => "{\"username\":\"admin\",\"password\":\"admin\",\"ip\":\"172.16.192.175\"}"
+  [2] pry(main)> authjson = { :username => 'admin', :password => 'admin', :ip => '172.16.192.175', :verify_ssl => "false"}.to_json
+  => "{\"username\":\"admin\",\"password\":\"admin\",\"ip\":\"172.16.192.175\",\"verify_ssl_\":\"false\"}"
   [3] pry(main)> ucs = UCS.new(authjson)
   Your credentials are username: admin password: admin ip: 172.16.192.175 url https://172.16.192.175/nuova
   => #<UCS:0x007fd269d1eb18>

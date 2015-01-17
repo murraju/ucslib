@@ -40,7 +40,8 @@ class UCS
     username = "#{JSON.parse(authjson)['username']}"
     password = "#{JSON.parse(authjson)['password']}"
     ip       = "#{JSON.parse(authjson)['ip']}"
-    verify_ssl = "#{JSON.parse(authjson)['verify_ssl']}"
+    #Required to default to true if verify_ssl is left out, more secure and backwards compatible
+    @verify_ssl = JSON.parse(authjson)['verify_ssl'].nil? ? true : to_boolean(JSON.parse(authjson)['verify_ssl'])
     @url      = "https://#{ip}/nuova"
 
     xml_builder = Nokogiri::XML::Builder.new do |xml|
@@ -48,14 +49,7 @@ class UCS
     end
 
     aaa_login_xml = xml_builder.to_xml.to_s
-    ucs_response = RestClient::Request.execute(
-    	method: :post,
-    	url: @url,
-    	verify_ssl: verify_ssl,
-    	payload: aaa_login_xml,
-    	headers: {
-    		content_type: 'text/xml'
-    	}).body
+    ucs_response = rest_post(aaa_login_xml,@url)
     ucs_login_doc = Nokogiri::XML(ucs_response)
     ucs_login_root = ucs_login_doc.root
     @cookie = ucs_login_root.attributes['outCookie']
@@ -74,5 +68,29 @@ class UCS
     # end
 
   end
+  
+  def rest_post(payload, api_url)
+    RestClient::Request.execute(method: :post,
+      url: api_url,
+      verify_ssl: @verify_ssl,
+      payload: payload,
+      headers: {
+        content_type: 'text/xml',
+      }).body
+  end
 
+  # Generic API get call
+  #
+  # @param api_url [string] the full API URL path
+  # @return [Hash] the object converted into Hash format and can be parsed with object[0] or object['id'] notation
+  def rest_get(api_url)
+    RestClient::Request.execute(method: :get,
+      url: api_url,
+      verify_ssl: @verify_ssl).body
+  end
+
+  def to_boolean(str)
+    str.to_s.downcase == "true"
+  end
+  
 end

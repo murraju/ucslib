@@ -65,7 +65,7 @@ module Session
         end
     aaa_refresh_xml = xml_builder.to_xml.to_s
 
-    ucs_response = RestClient.post(url, aaa_refresh_xml, :content_type => 'text/xml').body
+    ucs_response = rest_post(aaa_refresh_xml,@url)
 
 
     ucs_login_doc = Nokogiri::XML(ucs_response)
@@ -99,7 +99,7 @@ module Session
   	aaaLogoutXML = xml_builder.to_xml.to_s
 
   	begin
-  		RestClient.post(url, aaaLogoutXML, :content_type => 'text/xml').body
+  		rest_post(aaaLogoutXML,@url)
   	rescue Exception => e
   		raise "Error #{e}"
   	end
