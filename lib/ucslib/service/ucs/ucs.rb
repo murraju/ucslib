@@ -47,7 +47,14 @@ class UCS
     end
 
     aaa_login_xml = xml_builder.to_xml.to_s
-    ucs_response = RestClient.post(@url, aaa_login_xml, :content_type => 'text/xml').body
+    ucs_response = RestClient::Request.execute(
+    	method: :post,
+    	url: @url,
+    	verify_ssl: FALSE,
+    	payload: aaa_login_xml,
+    	headers: {
+    		content_type: 'text/xml'
+    	}).body
     ucs_login_doc = Nokogiri::XML(ucs_response)
     ucs_login_root = ucs_login_doc.root
     @cookie = ucs_login_root.attributes['outCookie']
