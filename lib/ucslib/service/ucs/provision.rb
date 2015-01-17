@@ -39,7 +39,7 @@ module Provision
       #Post
 
       begin
-        RestClient.post(@url, set_org_xml, :content_type => 'text/xml').body
+        rest_post(set_org_xml,@url)
       rescue Exception => e
         raise "Error #{e}"
       end
@@ -64,7 +64,7 @@ module Provision
 
   		#Post
   		begin
-  			RestClient.post(@url, set_power_policy_xml, :content_type => 'text/xml').body
+  			rest_post(set_power_policy_xml,@url)
   		rescue Exception => e
   			raise "Error #{e}"
   		end
@@ -91,7 +91,7 @@ module Provision
   		#Post
 
   		begin
-  			RestClient.post(@url, set_chassis_discovery_policy_xml, :content_type => 'text/xml').body
+  			rest_post(set_chassis_discovery_policy_xml,@url)
   		rescue Exception => e
   			raise "Error #{e}"
   		end
@@ -119,7 +119,7 @@ module Provision
   		#Post
 
   		begin
-  			RestClient.post(@url, set_time_zone_xml, :content_type => 'text/xml').body
+  			rest_post(set_time_zone_xml,@url)
   		rescue Exception => e
   			raise "Error #{e}"
   		end
@@ -145,7 +145,7 @@ module Provision
   		#Post
 
   		begin
-  			RestClient.post(@url, set_ntp_xml, :content_type => 'text/xml').body
+  			rest_post(set_ntp_xml,@url)
   		rescue Exception => e
   			raise "Error #{e}"
   		end
@@ -175,7 +175,7 @@ module Provision
 
       #Post
       begin
-        RestClient.post(@url, set_local_disk_policy_xml, :content_type => 'text/xml').body
+        rest_post(set_local_disk_policy_xml,@url)
       rescue Exception => e
         raise "Error #{e}"
       end
@@ -204,7 +204,7 @@ module Provision
 
       #Post
       begin
-        RestClient.post(@url, set_syslog_server_xml, :content_type => 'text/xml').body
+        rest_post(set_syslog_server_xml,@url)
       rescue Exception => e
         raise "Error #{e}"
       end
@@ -238,7 +238,7 @@ module Provision
   		#Post
 
   		begin
-  			RestClient.post(@url, set_server_port_xml, :content_type => 'text/xml').body
+  			rest_post(set_server_port_xml,@url)
   		rescue Exception => e
   			raise "Error #{e}"
   		end
@@ -272,7 +272,7 @@ module Provision
   		#Post
 
   		begin
-  			RestClient.post(@url, set_network_uplink_xml, :content_type => 'text/xml').body
+  			rest_post(set_network_uplink_xml,@url)
   		rescue Exception => e
   			raise "Error #{e}"
   		end
@@ -302,7 +302,7 @@ module Provision
 
   		#Post
   		begin
-  			RestClient.post(@url, set_fc_uplink_xml, :content_type => 'text/xml').body
+  			rest_post(set_fc_uplink_xml,@url)
   		rescue Exception => e
   			raise "Error #{e}"
   		end
@@ -345,7 +345,7 @@ module Provision
 
   		#Post
   		begin
-  			RestClient.post(@url, set_port_channel_xml, :content_type => 'text/xml').body
+  			rest_post(set_port_channel_xml,@url)
   		rescue Exception => e
   			raise "Error #{e}"
   		end
@@ -380,7 +380,7 @@ module Provision
 
   		#Post
   		begin
-  			RestClient.post(@url, set_local_boot_policy_xml, :content_type => 'text/xml').body
+  			rest_post(set_local_boot_policy_xml,@url)
   		rescue Exception => e
   			raise "Error #{e}"
   		end
@@ -422,7 +422,7 @@ module Provision
 
   		#Post
   		begin
-  			RestClient.post(@url, set_pxe_boot_policy_xml, :content_type => 'text/xml').body
+  			rest_post(set_pxe_boot_policy_xml,@url)
   		rescue Exception => e
   			raise "Error #{e}"
   		end
@@ -468,7 +468,7 @@ module Provision
 
   		#Post
   		begin
-  			RestClient.post(@url, set_san_boot_policy_xml, :content_type => 'text/xml').body
+  			rest_post(set_san_boot_policy_xml,@url)
   		rescue Exception => e
   			raise "Error #{e}"
   		end
@@ -511,7 +511,7 @@ module Provision
       #Post
 
       begin
-        RestClient.post(@url, set_mgmt_firmware_packagexml, :content_type => 'text/xml').body
+        rest_post(set_mgmt_firmware_packagexml,@url)
       rescue Exception => e
         raise "Error #{e}"
       end
@@ -574,7 +574,7 @@ module Provision
       #Post
 
       begin
-        RestClient.post(@url, set_host_firmware_packagexml, :content_type => 'text/xml').body
+        rest_post(set_host_firmware_packagexml,@url)
       rescue Exception => e
         raise "Error #{e}"
       end
@@ -604,7 +604,7 @@ module Provision
 
   		#Post
   		begin
-  			RestClient.post(@url, set_management_ip_pool_xml, :content_type => 'text/xml').body
+  			rest_post(set_management_ip_pool_xml,@url)
   		rescue Exception => e
   			raise "Error #{e}"
   		end
@@ -632,7 +632,7 @@ module Provision
 
   		#Post
   		begin
-  			RestClient.post(@url, set_vlan_xml, :content_type => 'text/xml').body
+  			rest_post(set_vlan_xml,@url)
   		rescue Exception => e
   			raise "Error #{e}"
   		end
@@ -677,7 +677,7 @@ module Provision
 
   		#Post
   		begin
-  			RestClient.post(@url, set_mac_pool_xml, :content_type => 'text/xml').body
+  			rest_post(set_mac_pool_xml,@url)
   		rescue Exception => e
   			raise "Error #{e}"
   		end
@@ -721,7 +721,7 @@ module Provision
 
   		#Post
   		begin
-  			RestClient.post(@url, set_vnic_template_xml, :content_type => 'text/xml').body
+  			rest_post(set_vnic_template_xml,@url)
   		rescue Exception => e
   			raise "Error #{e}"
   		end
@@ -751,7 +751,7 @@ module Provision
 
   		#Post
   		begin
-  			RestClient.post(@url, set_vsan_xml, :content_type => 'text/xml').body
+  			rest_post(set_vsan_xml,@url)
   		rescue Exception => e
   			raise "Error #{e}"
   		end
@@ -783,7 +783,7 @@ module Provision
 
 		 #Post
 		 begin
-		 	RestClient.post(@url, set_wwnn_pool_xml, :content_type => 'text/xml').body
+		 	rest_post(set_wwnn_pool_xml,@url)
 		 rescue Exception => e
 		 	raise "Error #{e}"
 		 end
@@ -817,7 +817,7 @@ module Provision
 
 		 #Post
 		 begin
-		 	RestClient.post(@url, set_wwpn_pool_xml, :content_type => 'text/xml').body
+		 	rest_post(set_wwpn_pool_xml,@url)
 		 rescue Exception => e
 		 	raise "Error #{e}"
 		 end
@@ -853,7 +853,7 @@ module Provision
 
   		#Post
   		begin
-  			RestClient.post(@url, set_vhba_template_xml, :content_type => 'text/xml').body
+  			rest_post(set_vhba_template_xml,@url)
   		rescue Exception => e
   			raise "Error #{e}"
   		end
@@ -886,7 +886,7 @@ module Provision
 
   		#Post
   		begin
-  			RestClient.post(@url, set_uuid_pool_xml, :content_type => 'text/xml').body
+  			rest_post(set_uuid_pool_xml,@url)
   		rescue Exception => e
   			raise "Error #{e}"
   		end
@@ -958,7 +958,7 @@ module Provision
 
 		 #Post create Service Profile Template
 		 begin
-		 	RestClient.post(@url, set_service_profile_template_xml, :content_type => 'text/xml').body
+		 	rest_post(set_service_profile_template_xml,@url)
 		 rescue Exception => e
 		 	raise "Error #{e}"
 		 end
@@ -986,7 +986,7 @@ module Provision
 
 		 #Post create Service Profiles from Template
 		 begin
-		 	RestClient.post(@url, set_service_profiles_from_template_xml, :content_type => 'text/xml').body
+		 	rest_post(set_service_profiles_from_template_xml,@url)
 		 rescue Exception => e
 		 	raise "Error #{e}"
 		 end
@@ -1067,7 +1067,7 @@ module Provision
 
 		#Post create Service Profiles
 		begin
-			RestClient.post(@url, set_service_profiles_xml, :content_type => 'text/xml').body
+			rest_post(set_service_profiles_xml,@url)
 		rescue Exception => e
 			raise "Error #{e}"
 		end
@@ -1126,7 +1126,7 @@ module Provision
 
       #Post
       begin
-        RestClient.post(@url, set_server_pool_xml, :content_type => 'text/xml').body
+        rest_post(set_server_pool_xml,@url)
       rescue Exception => e
         raise "Error #{e}"
       end

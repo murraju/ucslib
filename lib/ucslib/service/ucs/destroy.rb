@@ -36,7 +36,7 @@ module Destroy
 
 		#Post
 		begin
-			RestClient.post(@url, delete_org_XML, :content_type => 'text/xml').body
+			rest_post(delete_org_XML, @url)
 		rescue Exception => e
 			raise "Error #{e}"
 		end
@@ -64,7 +64,7 @@ module Destroy
 
 		#Post
 		begin
-			RestClient.post(@url, delete_vlan_XML, :content_type => 'text/xml').body
+			rest_post(delete_vlan_XML, @url)
 		rescue Exception => e
 			raise "Error #{e}"
 		end

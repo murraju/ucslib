@@ -48,7 +48,7 @@ module Update
     #Post
 
     begin
-      RestClient.post(@url, update_host_firmware_packageXML, :content_type => 'text/xml').body
+      rest_post(update_host_firmware_packageXML,@url)
     rescue Exception => e
       raise "Error #{e}"
     end
@@ -85,7 +85,7 @@ module Update
 
     #Post Update Boot Policy on Service Profile Template
     begin
-    	RestClient.post(@url, update_boot_policy_on_service_profile_template_xml, :content_type => 'text/xml').body
+    	rest_post(update_boot_policy_on_service_profile_template_xml,@url)
     rescue Exception => e
     	raise "Error #{e}"
     end

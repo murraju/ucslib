@@ -81,7 +81,7 @@ module Manage
 
 		#Post
 		begin
-			RestClient.post(@url, associate_service_profile_template_to_server_pool_xml, :content_type => 'text/xml').body
+			rest_post(associate_service_profile_template_to_server_pool_xml,@url)
 		rescue Exception => e
 			raise "Error #{e}"
 		end
