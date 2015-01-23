@@ -34,7 +34,7 @@ module Manage
 	    #End Build Multi-Class XML
 
 	    ucs_multi_class_state_xml = xml_builder.to_xml.to_s
-	    ucs_response_multi_class_state = RestClient.post(@url, ucs_multi_class_state_xml, :content_type => 'text/xml').body
+	    ucs_response_multi_class_state = rest_post(ucs_multi_class_state_xml,@url)
 
       #Uncomment the following to create a dump to review and debug elements
       # fh = File.new("ucs_response_multiclass_state.xml", "w")
