@@ -20,6 +20,7 @@ require 'ucslib/service/ucs/provision'
 require 'ucslib/service/ucs/parser'
 require 'ucslib/service/ucs/update'
 require 'ucslib/service/ucs/inventory'
+require 'ucslib/service/ucs/faults'
 require 'ucslib/service/ucs/destroy'
 require 'ucslib/service/ucs/manage'
 require 'ucslib/service/ucs/stats'
@@ -33,6 +34,7 @@ class UCS
   include Parser
   include Manage
   include Inventory
+  include Faults
   include Destroy
 
   def initialize (authjson)
