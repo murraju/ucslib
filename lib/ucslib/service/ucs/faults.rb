@@ -16,7 +16,7 @@
 #
 
 
-module Faults
+module Faults(token)
 
   # Archive code. To be removed later #TODO
   # def discover(tokenjson)
