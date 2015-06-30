@@ -73,7 +73,7 @@ module Stats
         #End Build Multi-Class XML
 
         ucs_multi_class_XML = xml_builder.to_xml.to_s
-        rest_post(ucs_multi_class_XML,@url)
+        ucs_response_multi_class = rest_post(ucs_multi_class_XML,@url)
 
         #Uncomment the following to create a dump to review and debug elements
         # fh = File.new("ucs_response_multiclass.xml", "w")
