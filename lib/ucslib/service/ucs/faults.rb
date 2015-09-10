@@ -16,7 +16,7 @@
 #
 
 
-module Faults(token)
+module Faults
 
   # Archive code. To be removed later #TODO
   # def discover(tokenjson)
@@ -25,7 +25,7 @@ module Faults(token)
   #   ip       = "#{JSON.parse(tokenjson)['ip']}"
   #   @url      = "https://#{ip}/nuova"
 
-  def faults
+  def faults(token)
 
     #Start Build the Multi-Class XML
     xml_builder = Nokogiri::XML::Builder.new do |xml|
